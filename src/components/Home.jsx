@@ -1,22 +1,22 @@
 import React from 'react';
 import styled from 'styled-components';
 
-const Login = () => {
+const Home = () => {
     return (
-        <StLoginWrapper >
+        <StHomeWrapper >
             <h1> 나는 슬플 때 노래를 들어..♬ </h1>
             <p>[SPP 2023] Team zㅣ존얼짱s2</p>
             <StNameInput>
                 <label for="user_name">이름 : </label>
                 <input type="text" name="user_name" value="name"></input>
             </StNameInput>
-        </StLoginWrapper>
+        </StHomeWrapper>
     );
 };
 
-export default Login;
+export default Home;
 
-const StLoginWrapper = styled.div`
+const StHomeWrapper = styled.div`
     display: flex;
     flex-direction: column;
     justify-content: center;
