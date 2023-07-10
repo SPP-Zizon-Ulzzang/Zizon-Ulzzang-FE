@@ -3,7 +3,16 @@ import React, { useState } from 'react';
 import styled from 'styled-components';
 
 const Home = () => {
-    const [userName, setUsername] = useState("");
+    const [userName, setUserName] = useState("");
+
+    const handleSubmit = () => {
+        console.log(userName)
+    }
+
+    const handleNameChange = (e) => {
+        setUserName(e.target.value)
+        localStorage.setItem('userName', userName);
+    }
 
     return (
         <StHomeWrapper >
@@ -11,9 +20,14 @@ const Home = () => {
             <p>[SPP 2023] Team Zizon-Ulzzang</p>
             <StNameInput>
                 <label for="userName">name :
-                    <input type="text" name="userName" placeholder='Enter your name.'></input>
+                    <input
+                        type="text"
+                        name="userName"
+                        value={userName}
+                        onChange={handleNameChange}
+                        placeholder='Enter your name.'></input>
                 </label>
-                <button type="button"> Today is...</button>
+                <button type="button" onClick={handleSubmit}> Today is...</button>
             </StNameInput>
         </StHomeWrapper>
     );
