@@ -17,4 +17,7 @@ const StLoginWrapper = styled.div`
     background-repeat: no-repeat;
     width: 100%;
     height: 100vh;
+
+    font-family: 'NeoDunggeunmo';
+    font-size: 1.6rem;
 `
