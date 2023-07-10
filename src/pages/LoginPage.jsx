@@ -1,10 +1,11 @@
-import Login from '../components/Login'
-import React from 'react'
+import Login from '../components/Login';
+import React from 'react';
 
-function LoginPage() {
-  return (
-    <Login />
-  )
-}
+const LoginPage = () => {
+    return (
+        <Login>
+        </Login>
+    );
+};
 
-export default LoginPage
+export default LoginPage;
