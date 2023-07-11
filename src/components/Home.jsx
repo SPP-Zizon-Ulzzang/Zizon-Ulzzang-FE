@@ -20,7 +20,7 @@ const Home = () => {
 
     return (
         <StHomeWrapper >
-            <h1>MBTIgram</h1>
+            <h1><span>MBTI</span>gram</h1>
             <StNameInput>
                 <input
                     type="text"
@@ -58,7 +58,7 @@ const StHomeWrapper = styled.div`
     width: 100%;
     height: 100vh;
 
-    background: linear-gradient(rgba(0, 0, 0, 0.55), rgba(0, 0, 0, 0.75)), url("./BG.png") center;
+    background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.9)), url("./BG.png") center;
     background-size: cover;
     background-repeat: no-repeat;
 
@@ -67,6 +67,13 @@ const StHomeWrapper = styled.div`
         font-family: 'NeoDunggeunmo';
         font-size: 8rem;    
         font-weight: 700;
+
+        & > span{
+            color: #B8DCFF;
+
+            font-size: 8rem;    
+            font-weight: 700;
+        }
     }
 `
 
