@@ -4,7 +4,7 @@ import styled from 'styled-components';
 const Result = () => {
     return (
         <StResultWrapper>
-            <img src="BG_result.png" alt="결과 배경" />
+            <img src="BG_result2.png" alt="결과 배경" />
         </StResultWrapper>
     );
 };
@@ -14,18 +14,21 @@ export default Result;
 const StResultWrapper = styled.div`
     display: flex;
     justify-content: center;
+    align-items: center;
     overflow-y: scroll;
     
     width: 100%;
-    height: fit-content;
-    padding: 10rem 0;
+    height: 100vh;
+    /* height: fit-content; */
+    /* padding: 10rem 0; */
     
     background: url("./BG.png") center;
-    background-size: contain;
+    background-size: cover;
     background-repeat: repeat-y;
 
     & > img {
-        width: 60%;
+        width: 45%;
+        /* width: 50rem; */
         object-fit: contain;
     }
 `;
