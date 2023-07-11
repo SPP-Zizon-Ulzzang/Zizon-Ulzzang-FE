@@ -4,20 +4,23 @@ import styled from 'styled-components';
 
 const Home = () => {
     const [url, setUrl] = useState("");
+    const [expanded, setExpanded] = useState(false);
 
     const handleSubmit = () => {
         console.log(url)
     }
-
     const handleNameChange = (e) => {
         setUrl(e.target.value)
         localStorage.setItem('url', url);
     }
+    const handleNameClick = () => {
+        setExpanded(!expanded);
+    };
+
 
     return (
         <StHomeWrapper >
             <h1>MBTIgram</h1>
-            <p>[SPP 2023] Team Zizon-Ulzzang</p>
             <StNameInput>
                 <input
                     type="text"
@@ -28,6 +31,17 @@ const Home = () => {
                 </input>
                 <button type="button" onClick={handleSubmit}>Find MBTI</button>
             </StNameInput>
+            <StDevelopers onClick={handleNameClick} expanded={expanded}>
+                © [SPP 2023] Team Zizon-Ulzzang
+                {expanded && (
+                    <p>
+                        <a href="https://github.com/Yugyeong-Ji" target="_blank"><span>YUGYEONG JI</span></a>
+                        <a href="https://github.com/Yuminyumin" target="_blank"><span>YUMUN SHIN</span></a>
+                        <a href="https://github.com/iamphj3" target="_blank"><span>HYEONJI PARK</span></a>
+                        <a href="https://github.com/juns1s" target="_blank"><span>JUNSEO JUNG</span></a>
+                    </p>
+                )}
+            </StDevelopers>
         </StHomeWrapper>
     );
 };
@@ -39,6 +53,7 @@ const StHomeWrapper = styled.div`
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    position: relative;
     
     width: 100%;
     height: 100vh;
@@ -53,16 +68,49 @@ const StHomeWrapper = styled.div`
         font-size: 8rem;    
         font-weight: 700;
     }
+`
+
+const StDevelopers = styled.div`
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    position: absolute;
+    bottom: 12rem;
+
+    color: white;
+    font-family: 'NeoDunggeunmo';
+    font-size: 1.8rem;
+    font-weight: 300;
+
+    cursor: pointer;
 
     & > p {
-        padding-top: 3rem;
+        padding-top: 2rem;
         
-        color: white;
-        font-family: 'NeoDunggeunmo';
-        font-size: 1.8rem;    
-        font-weight: 300;
+        & > a,
+        & > a > span {
+            font-size: 1.8rem;
+            color: inherit;
+            
+            text-decoration: none;
+        }
+        & > a:hover {
+            color: #B8DCFF;
+        }
+        & > a:active,
+        & > a:visited {
+            color: white;
+
+            text-decoration: none;
+        }
+        & > a:not(:last-child)::after {
+            content: " | ";
+            color: white;
+        }
     }
-`
+`;
 
 const StNameInput = styled.div`
     display: flex;
