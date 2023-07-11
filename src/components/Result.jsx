@@ -4,7 +4,7 @@ import styled from 'styled-components';
 const Result = () => {
     return (
         <StResultWrapper>
-            결과 컴포넌트
+            <img src="BG_result.png" alt="결과 배경" />
         </StResultWrapper>
     );
 };
@@ -12,10 +12,20 @@ const Result = () => {
 export default Result;
 
 const StResultWrapper = styled.div`
+    display: flex;
+    justify-content: center;
+    overflow-y: scroll;
+    
     width: 100%;
-    height: 100vh;
-
+    height: fit-content;
+    padding: 10rem 0;
+    
     background: url("./BG.png") center;
-    background-size: cover;
-    background-repeat: no-repeat;
+    background-size: contain;
+    background-repeat: repeat-y;
+
+    & > img {
+        width: 60%;
+        object-fit: contain;
+    }
 `;
