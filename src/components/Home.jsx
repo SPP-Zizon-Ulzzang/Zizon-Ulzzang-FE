@@ -104,7 +104,7 @@ const StDevelopers = styled.div`
             text-decoration: none;
         }
         & > a:hover {
-            color: #B8DCFF;
+            color: #FEC880;
         }
         & > a:active,
         & > a:visited {
