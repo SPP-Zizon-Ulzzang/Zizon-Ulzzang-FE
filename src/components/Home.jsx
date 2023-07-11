@@ -58,7 +58,7 @@ const StHomeWrapper = styled.div`
     width: 100%;
     height: 100vh;
 
-    background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.9)), url("./BG.png") center;
+    background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.9)), url("./BG_home.png") center;
     background-size: cover;
     background-repeat: no-repeat;
 
