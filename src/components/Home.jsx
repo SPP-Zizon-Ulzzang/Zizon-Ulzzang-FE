@@ -30,19 +30,19 @@ const Home = () => {
                     name="url"
                     value={url}
                     onChange={handleNameChange}
-                    placeholder='Please Enter a URL Link. ⏎'>
+                    placeholder='Please Enter a Instagram Post URL. ⏎'>
                 </input>
                 <button type="button" onClick={handleSubmit}>Find MBTI</button>
             </StNameInput>
             <StDevelopers onClick={handleNameClick} expanded={expanded}>
-                © [SPP 2023] Team Zizon-Ulzzang
+                <p>© [SPP 2023] Team Zizon-Ulzzang</p>
                 {expanded && (
-                    <p>
+                    <div>
                         <a href="https://github.com/Yugyeong-Ji" target="_blank"><span>YUGYEONG JI</span></a>
                         <a href="https://github.com/Yuminyumin" target="_blank"><span>YUMUN SHIN</span></a>
                         <a href="https://github.com/iamphj3" target="_blank"><span>HYEONJI PARK</span></a>
                         <a href="https://github.com/juns1s" target="_blank"><span>JUNSEO JUNG</span></a>
-                    </p>
+                    </div>
                 )}
             </StDevelopers>
         </StHomeWrapper>
@@ -88,17 +88,25 @@ const StDevelopers = styled.div`
 
     position: absolute;
     bottom: 12rem;
-
+    
     color: white;
     font-family: 'NeoDunggeunmo';
     font-size: 1.8rem;
     font-weight: 300;
 
-    cursor: pointer;
-
     & > p {
+        color: white;
+        font-family: 'NeoDunggeunmo';
+        font-size: 1.8rem;
+
+        cursor: pointer;
+    }
+    & > p:hover {
+        color: #FEC880;
+    }
+    & > div {
         padding-top: 2rem;
-        
+
         & > a,
         & > a > span {
             font-size: 1.8rem;

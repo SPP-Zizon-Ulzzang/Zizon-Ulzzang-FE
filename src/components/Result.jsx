@@ -4,7 +4,7 @@ import styled from 'styled-components';
 const Result = () => {
     return (
         <StResultWrapper>
-            <img src="BG_result2.png" alt="결과 배경" />
+            <img src="BG_result2.png" alt="result-background" />
         </StResultWrapper>
     );
 };
