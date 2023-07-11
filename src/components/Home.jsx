@@ -1,13 +1,16 @@
 import React, { useState } from 'react';
 
 import styled from 'styled-components';
+import { useNavigate } from 'react-router-dom';
 
 const Home = () => {
     const [url, setUrl] = useState("");
     const [expanded, setExpanded] = useState(false);
 
+    const navigate = useNavigate();
+
     const handleSubmit = () => {
-        console.log(url)
+        navigate('/result');
     }
     const handleNameChange = (e) => {
         setUrl(e.target.value)
