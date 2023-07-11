@@ -19,8 +19,6 @@ const StResultWrapper = styled.div`
     
     width: 100%;
     height: 100vh;
-    /* height: fit-content; */
-    /* padding: 10rem 0; */
     
     background: url("./BG.png") center;
     background-size: cover;
@@ -28,7 +26,7 @@ const StResultWrapper = styled.div`
 
     & > img {
         width: 45%;
-        /* width: 50rem; */
+
         object-fit: contain;
     }
 `;
