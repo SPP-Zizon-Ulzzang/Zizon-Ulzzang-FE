@@ -3,31 +3,30 @@ import React, { useState } from 'react';
 import styled from 'styled-components';
 
 const Home = () => {
-    const [userName, setUserName] = useState("");
+    const [url, setUrl] = useState("");
 
     const handleSubmit = () => {
-        console.log(userName)
+        console.log(url)
     }
 
     const handleNameChange = (e) => {
-        setUserName(e.target.value)
-        localStorage.setItem('userName', userName);
+        setUrl(e.target.value)
+        localStorage.setItem('url', url);
     }
 
     return (
         <StHomeWrapper >
-            <h1>I listen to songs when I'm sad..♬ </h1>
+            <h1>MBTIgram</h1>
             <p>[SPP 2023] Team Zizon-Ulzzang</p>
             <StNameInput>
-                <label for="userName">name :
-                    <input
-                        type="text"
-                        name="userName"
-                        value={userName}
-                        onChange={handleNameChange}
-                        placeholder='Enter your name.'></input>
-                </label>
-                <button type="button" onClick={handleSubmit}> Today is...</button>
+                <input
+                    type="text"
+                    name="url"
+                    value={url}
+                    onChange={handleNameChange}
+                    placeholder='Please Enter a URL Link. ⏎'>
+                </input>
+                <button type="button" onClick={handleSubmit}>Find MBTI</button>
             </StNameInput>
         </StHomeWrapper>
     );
@@ -44,19 +43,19 @@ const StHomeWrapper = styled.div`
     width: 100%;
     height: 100vh;
 
-    background: linear-gradient(rgba(0, 0, 0, 0.55), rgba(0, 0, 0, 0.55)), url("./BGminiroom.gif");
+    background: linear-gradient(rgba(0, 0, 0, 0.55), rgba(0, 0, 0, 0.75)), url("./BG.png") center;
     background-size: cover;
     background-repeat: no-repeat;
 
     & > h1 {
         color: white;
         font-family: 'NeoDunggeunmo';
-        font-size: 4rem;    
+        font-size: 8rem;    
         font-weight: 700;
     }
 
     & > p {
-        padding-top: 2rem;
+        padding-top: 3rem;
         
         color: white;
         font-family: 'NeoDunggeunmo';
@@ -78,10 +77,11 @@ const StNameInput = styled.div`
     font-size: 3.6rem;    
     font-weight: 500;
 
-    & > label > input {
+    & > input {
         margin-left: 1rem;
-        width: 20rem;
-        height: 3rem;
+        padding: 0 2rem;
+        width: 50rem;
+        height: 4.5rem;
 
         border: 0.1rem solid white;
         border-radius: 1rem;
@@ -98,7 +98,7 @@ const StNameInput = styled.div`
     ::placeholder {
         color: white;
         font-family: 'NeoDunggeunmo';
-        font-size: 2rem;    
+        font-size: 1.8rem;    
         font-weight: 100;
     }
 
@@ -110,7 +110,7 @@ const StNameInput = styled.div`
         color: white;
         background-color: rgba(255,255,255, 0.164);
         font-family: 'NeoDunggeunmo';
-        font-size: 1.8rem;
+        font-size: 2rem;
         font-weight: 500;
         line-height: 3.5rem;
     }
