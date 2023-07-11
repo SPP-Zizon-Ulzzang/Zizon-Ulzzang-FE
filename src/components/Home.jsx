@@ -51,7 +51,7 @@ const Home = () => {
 
 export default Home;
 
-const StHomeWrapper = styled.div`
+const StHomeWrapper = styled.section`
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -179,5 +179,9 @@ const StNameInput = styled.div`
         font-size: 2rem;
         font-weight: 500;
         line-height: 3.5rem;
+    }
+    & > button:hover {
+        border-color: #B8DCFF;
+        color: #B8DCFF;
     }
 `;
