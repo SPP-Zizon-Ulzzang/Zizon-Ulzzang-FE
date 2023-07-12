@@ -1,11 +1,18 @@
-import React from 'react';
+import React, { useState } from 'react';
+
+import { MBTI_RESULT } from '../constants/mbti';
 import styled from 'styled-components';
 
 const Result = () => {
+    const [mbti, setMbti] = useState("ISTP");
+    
+    // TODO
+    // 1. get MBTI result from server
+
     return (
         <StResultWrapper>
             <StResult>
-                <h1>ENFP</h1>
+                <h1>{mbti}</h1>
             </StResult>
         </StResultWrapper>
     );

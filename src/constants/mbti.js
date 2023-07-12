@@ -1,4 +1,4 @@
-const MBTI_RESULT = [
+export const MBTI_RESULT = [
     {
         MBTI: "ENFJ",
         DESCRIPTION: "",
