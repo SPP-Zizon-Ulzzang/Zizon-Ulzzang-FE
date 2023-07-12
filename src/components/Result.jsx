@@ -4,14 +4,16 @@ import styled from 'styled-components';
 const Result = () => {
     return (
         <StResultWrapper>
-            <img src="BG_result2.png" alt="result-background" />
+            <StResult>
+                <h1>ENFP</h1>
+            </StResult>
         </StResultWrapper>
     );
 };
 
 export default Result;
 
-const StResultWrapper = styled.div`
+const StResultWrapper = styled.section`
     display: flex;
     justify-content: center;
     align-items: center;
@@ -28,5 +30,25 @@ const StResultWrapper = styled.div`
         width: 45%;
 
         object-fit: contain;
+    }
+`;
+
+
+const StResult = styled.article`
+    width: 60rem;
+    height: 60rem;
+
+    background: url("./BG_result2.png");
+    background-size: cover;
+
+    & > h1 {
+        margin: 10rem 0 0 5rem;
+
+        color: white;
+        font-family: 'NeoDunggeunmo';
+        font-size: 10rem;
+        font-weight: 800;
+
+        text-shadow: -0.3rem 0 black, 0 0.3rem black, 0.3rem 0 black, 0 -0.3rem black;
     }
 `;
