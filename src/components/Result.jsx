@@ -2,11 +2,13 @@ import React, { useState } from 'react';
 
 import { MBTI_RESULT } from '../constants/mbti';
 import styled from 'styled-components';
+import { useNavigate } from 'react-router-dom';
 
 const Result = () => {
     const [mbti, setMbti] = useState("ENFP");
     const mbtiInfo = MBTI_RESULT.find(item => item.MBTI === mbti);
     
+    const navigate = useNavigate();
     // TODO
     // 1. get MBTI result from server
 
@@ -17,6 +19,9 @@ const Result = () => {
                 <StDescription>
                     <p>{mbtiInfo.DESCRIPTION}</p>
                 </StDescription>
+                <StRestartBtn type="button" onClick={() => {navigate('/')}}>
+                    Do It Again
+                </StRestartBtn>
             </StResult>
         </StResultWrapper>
     );
@@ -84,5 +89,21 @@ const StDescription = styled.section`
         font-size: 1.6rem;
         font-weight: 300;
         line-height: 2rem;
+    }
+`;
+
+const StRestartBtn = styled.button`
+    width: 25rem;
+    height: 3.3rem;
+
+    margin-top: 4rem;
+
+    border-radius: 3rem;
+    font-family: 'NeoDunggeunmo';
+    font-size: 2.4rem;
+    font-weight: 500;
+
+    &:hover {
+        color: white;
     }
 `;
