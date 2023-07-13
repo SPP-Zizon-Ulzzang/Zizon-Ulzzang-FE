@@ -86,9 +86,9 @@ const StDescription = styled.section`
         padding: 0 2rem;
         
         font-family: 'NeoDunggeunmo';
-        font-size: 1.6rem;
+        font-size: 1.8rem;
         font-weight: 300;
-        line-height: 2rem;
+        line-height: 2.4rem;
     }
 `;
 
