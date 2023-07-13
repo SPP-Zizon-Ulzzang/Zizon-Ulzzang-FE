@@ -5,7 +5,7 @@ import styled from 'styled-components';
 import { useNavigate } from 'react-router-dom';
 
 const Result = () => {
-    const [mbti, setMbti] = useState("ENFP");
+    const [mbti, setMbti] = useState("ISFP");
     const mbtiInfo = MBTI_RESULT.find(item => item.MBTI === mbti);
     
     const navigate = useNavigate();
