@@ -1,16 +1,39 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
+import { useLocation, useNavigate } from 'react-router-dom';
 
+import Loading from './Loading';
 import { MBTI_RESULT } from '../constants/mbti';
+import { getMBTI } from '../lib/api';
 import styled from 'styled-components';
-import { useNavigate } from 'react-router-dom';
 
 const Result = () => {
     const [mbti, setMbti] = useState("ISFP");
     const mbtiInfo = MBTI_RESULT.find(item => item.MBTI === mbti);
+    const [loading, setLoading] = useState(true);
     
     const navigate = useNavigate();
-    // TODO
-    // 1. get MBTI result from server
+    const location = useLocation();
+    const { url } = location.state;
+
+    useEffect(() => {
+        getMBTIData(url);
+    }, [url]);
+
+    const getMBTIData = async (url) => {
+        setLoading(true);
+        try {
+            const resMbti = await getMBTI(url);
+            setMbti(resMbti);
+        } catch (error) {
+            console.log('Error fetching MBTI data:', error);
+        } finally {
+            setLoading(false);
+        }
+    }
+
+    if (loading) {
+        return <Loading />;
+    }
 
     return (
         <StResultWrapper>

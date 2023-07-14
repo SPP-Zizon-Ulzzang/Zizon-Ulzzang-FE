@@ -10,7 +10,7 @@ const Home = () => {
     const navigate = useNavigate();
 
     const handleSubmit = () => {
-        navigate('/result');
+        navigate('/result', { state: { url } });
     }
     const handleNameChange = (e) => {
         setUrl(e.target.value)
@@ -19,7 +19,6 @@ const Home = () => {
     const handleNameClick = () => {
         setExpanded(!expanded);
     };
-
 
     return (
         <StHomeWrapper >
