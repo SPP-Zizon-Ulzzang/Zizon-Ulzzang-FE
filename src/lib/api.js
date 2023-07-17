@@ -11,7 +11,7 @@ export const getMBTI = async (_link) => {
   try {
     console.log("링크: ", _link)
     const {data}  = await client.get('/sns/instagram', {
-        link: _link,
+        snsUrl: _link,
       });
       console.log("data: ", data)
       return data;
