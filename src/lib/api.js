@@ -9,10 +9,10 @@ export const client = axios.create({
 
 export const getMBTI = async (snsUrl) => {
   try {
-    console.log("snsUrl: ", snsUrl)
-    const data  = await client.get('/sns/instagram',
-        snsUrl
-      );
+      console.log("snsUrl: ", snsUrl)
+      const data = await client.get('/sns/instagram', {
+        snsUrl,
+    });
       console.log("data: ", data)
       return data;
     } catch (err) {
