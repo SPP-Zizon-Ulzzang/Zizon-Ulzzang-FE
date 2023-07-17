@@ -7,12 +7,14 @@ export const client = axios.create({
   },
 });
 
-export const getMBTI = async (link) => {
-    try {
-        const { data } = await client.get('/sns/instagram', {
-            link: link,
-        });
-      return data.mbti;
+export const getMBTI = async (_link) => {
+  try {
+      console.log("링크: ", _link)
+      const data  = await client.get('/sns/instagram', {
+        link: _link,
+      });
+      console.log("data: ", data)
+      return data;
     } catch (err) {
       console.error(err);
     }

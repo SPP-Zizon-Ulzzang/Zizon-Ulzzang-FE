@@ -37,7 +37,8 @@ const Result = () => {
 
     return (
         <StResultWrapper>
-            <StResult mbtiColor={mbtiInfo.COLOR}>
+            성공!!
+            {/* <StResult mbtiColor={mbtiInfo.COLOR}>
                 <h1>{mbti}</h1>
                 <StDescription>
                     <p>{mbtiInfo.DESCRIPTION}</p>
@@ -45,7 +46,7 @@ const Result = () => {
                 <StRestartBtn type="button" onClick={() => {navigate('/')}}>
                     Do It Again
                 </StRestartBtn>
-            </StResult>
+            </StResult> */}
         </StResultWrapper>
     );
 };
@@ -65,6 +66,9 @@ const StResultWrapper = styled.section`
     background: url("./BG.png") center;
     background-size: cover;
     background-repeat: repeat-y;
+
+
+        font-size: 10rem;
 
     & > img {
         width: 60rem;
