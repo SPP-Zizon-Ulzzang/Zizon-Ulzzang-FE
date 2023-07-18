@@ -76,7 +76,7 @@ const StResultWrapper = styled.section`
 const StResult = styled.article`
     display: flex;
     flex-direction: column;
-    align-items: center;
+    /* align-items: center; */
     
     width: 100rem;
     height: 160rem;
@@ -87,11 +87,11 @@ const StResult = styled.article`
     background-repeat: no-repeat;
 
     & > h1 {
-        margin: 10rem 0 0 -30rem;
+        margin: 14rem 0 0 10rem;
         
         color : ${props => props.mbtiColor};
         font-family: 'NeoDunggeunmo';
-        font-size: 10rem;
+        font-size: 12rem;
         font-weight: 800;
 
         text-shadow: -0.3rem 0 black, 0 0.3rem black, 0.3rem 0 black, 0 -0.3rem black;
@@ -101,18 +101,15 @@ const StResult = styled.article`
 const StDescription = styled.section`
     overflow-y: scroll;
 
-    width: 50rem;
-    height: 25rem;
-    
-    margin-top: 5rem;
+    width: 40rem;
+    height: 46rem;
+    margin: 17rem 0 0 13rem;
 
     & > p {
-        padding: 0 2rem;
-        
         font-family: 'NeoDunggeunmo';
-        font-size: 1.8rem;
+        font-size: 2rem;
         font-weight: 300;
-        line-height: 2.4rem;
+        line-height: 2.6rem;
     }
 `;
 
