@@ -1,11 +1,11 @@
 import React, { useEffect, useState } from 'react';
 import { useLocation, useNavigate } from 'react-router-dom';
 
-import Button from './Button';
-import Error from './Error';
-import Loading from './Loading';
-import { MBTI_RESULT } from '../constants/mbti';
-import { getMBTI } from '../lib/api';
+import Button from '../common/Button';
+import Error from '../common/Error';
+import Loading from '../common/Loading';
+import { MBTI_RESULT } from '../../constants/mbti';
+import { getMBTI } from '../../lib/api';
 import styled from 'styled-components';
 
 const Result = () => {
