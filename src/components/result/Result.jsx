@@ -43,11 +43,9 @@ const Result = () => {
             <StResult mbtiColor={mbtiInfo.COLOR}>
                 <h1>{mbti}</h1>
                 <StDescription>
+                    <h2>Description</h2>    
                     <p>{mbtiInfo.DESCRIPTION}</p>
                 </StDescription>
-                {/* <StRestartBtn type="button" onClick={() => {navigate('/')}}>
-                    Do It Again
-                </StRestartBtn> */}
                 <StBtnWrapper>
                     <Button btnName="Do It Again" onClick={() => {navigate('/')}}/>
                     <Button btnName="Copy Link" onClick={() => {navigate('/')}}/>
@@ -59,8 +57,6 @@ const Result = () => {
     );
 };
 
-    /* margin: 12rem 0 0 11rem; */
-    /* padding: 1rem 2rem; */
 export default Result;
 
 const StResultWrapper = styled.section`
@@ -105,14 +101,22 @@ const StResult = styled.article`
 `;
 
 const StDescription = styled.section`
-    overflow-y: scroll;
-
     width: 40rem;
-    height: 46rem;
     margin: 17rem 0 0 13rem;
+    
+    font-family: 'NeoDunggeunmo';
 
+    & > h2 {
+        margin-bottom: 1rem;
+
+        font-size: 3.5rem;
+        font-weight: 800;
+    }
     & > p {
-        font-family: 'NeoDunggeunmo';
+        overflow-y: scroll;
+        
+        height: 42rem;
+        
         font-size: 2rem;
         font-weight: 300;
         line-height: 2.6rem;
