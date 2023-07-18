@@ -10,6 +10,11 @@ const Home = () => {
     const navigate = useNavigate();
 
     const handleSubmit = () => {
+        if (!url.startsWith("https://www.instagram.com/p/")) {
+            alert("Please enter a valid Instagram Post URL.");
+            return;
+        }
+
         navigate('/result', { state: { url } });
     }
     const handleNameChange = (e) => {

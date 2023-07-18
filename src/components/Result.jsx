@@ -26,6 +26,7 @@ const Result = () => {
             setMbti(resMbti?.mbti);
         } catch (error) {
             console.log('Error fetching MBTI data:', error);
+            setError(error);
         } finally {
             setLoading(false);
         }
