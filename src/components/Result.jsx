@@ -10,15 +10,15 @@ import styled from 'styled-components';
 const Result = () => {
     const [mbti, setMbti] = useState("ISFP");
     const mbtiInfo = MBTI_RESULT.find(item => item.MBTI === mbti);
-    const [loading, setLoading] = useState(true);
+    // const [loading, setLoading] = useState(true);
 
     const navigate = useNavigate();
     const location = useLocation();
     const { url } = location.state;
 
-    useEffect(() => {
-        getMBTIData(url);
-    }, [url]);
+    // useEffect(() => {
+    //     getMBTIData(url);
+    // }, [url]);
 
     const getMBTIData = async (url) => {
         setLoading(true);
@@ -32,9 +32,9 @@ const Result = () => {
         }
     }
 
-    if (loading) {
-        return <Loading />;
-    }
+    // if (loading) {
+    //     return <Loading />;
+    // }
 
     return (
         mbtiInfo ? 
@@ -64,20 +64,12 @@ const StResultWrapper = styled.section`
     overflow-y: scroll;
     
     width: 100%;
-    height: 100vh;
+    height: 170vh;
     
     background: url("./BG.png") center;
-    background-size: cover;
+    background-size: contain;
     background-repeat: repeat-y;
-
-
-        font-size: 10rem;
-
-    & > img {
-        width: 60rem;
-
-        object-fit: contain;
-    }
+    font-size: 10rem;
 `;
 
 
@@ -86,11 +78,13 @@ const StResult = styled.article`
     flex-direction: column;
     align-items: center;
     
-    width: 60rem;
-    height: 60rem;
+    width: 100rem;
+    height: 160rem;
+    margin: 10rem 0;
 
-    background: url("./BG_result.png");
-    background-size: cover;
+    background: url("./BG_result.png") center;
+    background-size: contain;
+    background-repeat: no-repeat;
 
     & > h1 {
         margin: 10rem 0 0 -30rem;
