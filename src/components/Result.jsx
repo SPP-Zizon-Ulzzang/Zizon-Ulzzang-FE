@@ -32,8 +32,6 @@ const Result = () => {
         }
     }
 
-    // https://www.instagram.com/oauth/authorize?client_id=2036333416719951++++++++++++++++++++&redirect_uri=https%3A%2F%2Fstately-florentine-57e556.netlify.app%2Flogin%2Fauth++++++++++++++++++++&scope=user_profile%2Cuser_media++++++++++++++++++++&response_type=code&logger_id=1283a848-9360-4261-b874-56ac147a87bc
-    // https://www.instagram.com/oauth/authorize?client_id=2036333416719951&redirect_uri=https%3A%2F%2Fstately-florentine-57e556.netlify.app%2Flogin%2Fauth%2F&scope=user_profile%2Cuser_media&response_type=code&logger_id=7846c22d-446a-4745-a4ec-34b42e1a0595
     if (loading) {
         return <Loading />;
     }
