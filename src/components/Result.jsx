@@ -23,7 +23,7 @@ const Result = () => {
         setLoading(true);
         try {
             const resMbti = await getMBTI(url);
-            setMbti(resMbti);
+            setMbti(resMbti?.mbti);
         } catch (error) {
             console.log('Error fetching MBTI data:', error);
         } finally {
@@ -37,8 +37,7 @@ const Result = () => {
 
     return (
         <StResultWrapper>
-            성공!!
-            {/* <StResult mbtiColor={mbtiInfo.COLOR}>
+            <StResult mbtiColor={mbtiInfo.COLOR}>
                 <h1>{mbti}</h1>
                 <StDescription>
                     <p>{mbtiInfo.DESCRIPTION}</p>
@@ -46,7 +45,7 @@ const Result = () => {
                 <StRestartBtn type="button" onClick={() => {navigate('/')}}>
                     Do It Again
                 </StRestartBtn>
-            </StResult> */}
+            </StResult>
         </StResultWrapper>
     );
 };
