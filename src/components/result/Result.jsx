@@ -40,12 +40,22 @@ const Result = () => {
     return (
         mbtiInfo ? 
         <StResultWrapper>
-            <StResult mbtiColor={mbtiInfo.COLOR}>
-                <h1>{mbti}</h1>
+            <StResult>
+                <StMbtiResult mbtiColor={mbtiInfo.COLOR}>
+                    <h1>{mbti}</h1>
+                    <p>어쩌고저쩌고 설명 적을꺼임</p>
+                    <p>어쩌고저쩌고 설명 적을꺼임</p>
+                    <p>어쩌고저쩌고 설명 적을꺼임</p>
+                    <p>어쩌고저쩌고 설명 적을꺼임</p>
+                </StMbtiResult>    
                 <StDescription>
                     <h2>Description</h2>    
                     <p>{mbtiInfo.DESCRIPTION}</p>
                 </StDescription>
+                {/* <StCelebrity>
+                    <h2>Celebrity</h2>    
+                    <p>{mbtiInfo.DESCRIPTION}</p>
+                </StCelebrity> */}
                 <StBtnWrapper>
                     <Button btnName="Do It Again" onClick={() => {navigate('/')}}/>
                     <Button btnName="Copy Link" onClick={() => {navigate('/')}}/>
@@ -75,8 +85,7 @@ const StResultWrapper = styled.section`
     font-size: 10rem;
 `;
 
-
-const StResult = styled.article`
+const StResult = styled.section`
     display: flex;
     flex-direction: column;
     
@@ -87,22 +96,28 @@ const StResult = styled.article`
     background: url("./BG_result.png") center;
     background-size: contain;
     background-repeat: no-repeat;
+`;
+
+const StMbtiResult = styled.header`
+    font-family: 'NeoDunggeunmo';
 
     & > h1 {
         margin: 14rem 0 0 10rem;
         
         color : ${props => props.mbtiColor};
-        font-family: 'NeoDunggeunmo';
         font-size: 12rem;
         font-weight: 800;
 
         text-shadow: -0.3rem 0 black, 0 0.3rem black, 0.3rem 0 black, 0 -0.3rem black;
     }
+    & > p {
+        font-size: 2rem;
+    }
 `;
 
-const StDescription = styled.section`
+const StDescription = styled.article`
     width: 40rem;
-    margin: 17rem 0 0 13rem;
+    margin: 9rem 0 0 13rem;
     
     font-family: 'NeoDunggeunmo';
 
@@ -123,7 +138,10 @@ const StDescription = styled.section`
     }
 `;
 
-const StBtnWrapper = styled.div`
+const StCelebrity = styled.article`
+  width: 35rem;
+`;
+const StBtnWrapper = styled.section`
     display: flex;
     gap : 2rem;
     
