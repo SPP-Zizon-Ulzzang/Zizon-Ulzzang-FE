@@ -57,7 +57,17 @@ const Result = () => {
                     </StBtnWrapper>
                     <StCelebrity>
                         <h2>Celebrity</h2>    
-                        <p>이런 연예인이랑 같은 mbti입니당</p>
+                        <StCelebImgWrapper>
+                            <figure>
+                                <img src={mbtiInfo.IMG_CELEB} alt={mbtiInfo.CELEB} />
+                                <figcaption>{mbtiInfo.CELEB}</figcaption>
+                            </figure>
+                            <figure>
+                            <img src={mbtiInfo.IMG_CELEB_KOR} alt={mbtiInfo.CELEB_KOR} />
+                                <figcaption>{mbtiInfo.CELEB_KOR}</figcaption>
+                            </figure>
+                        </StCelebImgWrapper>
+                        <p>이런 연예인이랑 같은 mbti입니당 이런 연예인이랑 같은 mbti입니당 이런 연예인이랑 같은 mbti입니당 이런 연예인이랑 같은 mbti입니당 이런 연예인이랑 같은 mbti입니당 이런 연예인이랑 같은 mbti입니당 이런 연예인이랑 같은 mbti입니당</p>
                     </StCelebrity>
                     <StChemistry>
                         <h2>Chemistry</h2>    
@@ -181,11 +191,34 @@ const StCelebrity = styled.article`
         font-weight: 800;
     }
     & > p {
-        overflow-y: scroll;
+        overflow-y: hidden;
+        
+        height: 15rem;
         
         font-size: 1.8rem;
         font-weight: 300;
         line-height: 2.6rem;
+    }
+`;
+
+const StCelebImgWrapper = styled.div`
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+
+    margin-bottom: 1rem;
+
+    & > figure > img {
+        width: 12rem;
+        height: 12rem;
+
+        object-fit: cover;
+    }
+     & > figure > figcaption {
+        margin-top: 0.4rem;
+        text-align: center;
+
+        font-size: 1.6rem;
     }
 `;
 
@@ -204,7 +237,7 @@ const StChemistry = styled.article`
         font-weight: 800;
     }
     & > p {
-        overflow-y: scroll;
+        overflow-y: hidden;
         
         font-size: 1.8rem;
         font-weight: 300;
