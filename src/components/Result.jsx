@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { useLocation, useNavigate } from 'react-router-dom';
 
+import Button from './Button';
 import Error from './Error';
 import Loading from './Loading';
 import { MBTI_RESULT } from '../constants/mbti';
@@ -44,9 +45,13 @@ const Result = () => {
                 <StDescription>
                     <p>{mbtiInfo.DESCRIPTION}</p>
                 </StDescription>
-                <StRestartBtn type="button" onClick={() => {navigate('/')}}>
+                {/* <StRestartBtn type="button" onClick={() => {navigate('/')}}>
                     Do It Again
-                </StRestartBtn>
+                </StRestartBtn> */}
+                <StBtnWrapper>
+                    <Button btnName="Do It Again" onClick={() => {navigate('/')}}/>
+                    <Button btnName="Copy Link" onClick={() => {navigate('/')}}/>
+                </StBtnWrapper>
             </StResult>
         </StResultWrapper >
         :
@@ -54,6 +59,8 @@ const Result = () => {
     );
 };
 
+    /* margin: 12rem 0 0 11rem; */
+    /* padding: 1rem 2rem; */
 export default Result;
 
 const StResultWrapper = styled.section`
@@ -76,7 +83,6 @@ const StResultWrapper = styled.section`
 const StResult = styled.article`
     display: flex;
     flex-direction: column;
-    /* align-items: center; */
     
     width: 100rem;
     height: 160rem;
@@ -113,18 +119,9 @@ const StDescription = styled.section`
     }
 `;
 
-const StRestartBtn = styled.button`
-    width: 25rem;
-    height: 3.3rem;
-
-    margin-top: 4rem;
-
-    border-radius: 3rem;
-    font-family: 'NeoDunggeunmo';
-    font-size: 2.4rem;
-    font-weight: 500;
-
-    &:hover {
-        color: white;
-    }
-`;
+const StBtnWrapper = styled.div`
+    display: flex;
+    gap : 2rem;
+    
+    margin: 12rem 0 0 11rem;
+`
