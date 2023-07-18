@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { useLocation, useNavigate } from 'react-router-dom';
 
+import Error from './Error';
 import Loading from './Loading';
 import { MBTI_RESULT } from '../constants/mbti';
 import { getMBTI } from '../lib/api';
@@ -10,7 +11,7 @@ const Result = () => {
     const [mbti, setMbti] = useState("ISFP");
     const mbtiInfo = MBTI_RESULT.find(item => item.MBTI === mbti);
     const [loading, setLoading] = useState(true);
-    
+
     const navigate = useNavigate();
     const location = useLocation();
     const { url } = location.state;
@@ -26,7 +27,6 @@ const Result = () => {
             setMbti(resMbti?.mbti);
         } catch (error) {
             console.log('Error fetching MBTI data:', error);
-            setError(error);
         } finally {
             setLoading(false);
         }
@@ -37,6 +37,7 @@ const Result = () => {
     }
 
     return (
+        mbtiInfo ? 
         <StResultWrapper>
             <StResult mbtiColor={mbtiInfo.COLOR}>
                 <h1>{mbti}</h1>
@@ -47,7 +48,9 @@ const Result = () => {
                     Do It Again
                 </StRestartBtn>
             </StResult>
-        </StResultWrapper>
+        </StResultWrapper >
+        :
+        <Error />
     );
 };
 
@@ -86,7 +89,7 @@ const StResult = styled.article`
     width: 60rem;
     height: 60rem;
 
-    background: url("./BG_result2.png");
+    background: url("./BG_result.png");
     background-size: cover;
 
     & > h1 {
