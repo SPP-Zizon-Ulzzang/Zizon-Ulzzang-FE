@@ -11,20 +11,20 @@ import styled from 'styled-components';
 const Result = () => {
     const [mbti, setMbti] = useState("ESFJ");
     const mbtiInfo = MBTI_RESULT.find(item => item.MBTI === mbti);
-    // const [loading, setLoading] = useState(true);
+    const [loading, setLoading] = useState(true);
 
     const navigate = useNavigate();
     const location = useLocation();
-    // const { url } = location.state;
-
-    // useEffect(() => {
-    //     getMBTIData(url);
-    // }, [url]);
+    const { url } = location.state;
 
     useEffect(() => {
-        const randomIndex = Math.floor(Math.random() * MBTI_RESULT.length);
-        setMbti(MBTI_RESULT[randomIndex].MBTI)
-    }, [])
+        getMBTIData(url);
+    }, [url]);
+
+    // useEffect(() => {
+    //     const randomIndex = Math.floor(Math.random() * MBTI_RESULT.length);
+    //     setMbti(MBTI_RESULT[randomIndex].MBTI)
+    // }, [])
 
     const getMBTIData = async (url) => {
         setLoading(true);
@@ -38,9 +38,9 @@ const Result = () => {
         }
     }
 
-    // if (loading) {
-    //     return <Loading />;
-    // }
+    if (loading) {
+        return <Loading />;
+    }
 
     return (
         mbtiInfo ? 
