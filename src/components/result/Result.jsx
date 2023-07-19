@@ -9,7 +9,7 @@ import { getMBTI } from '../../lib/api';
 import styled from 'styled-components';
 
 const Result = () => {
-    const [mbti, setMbti] = useState();
+    const [mbti, setMbti] = useState("");
     const mbtiInfo = MBTI_RESULT.find(item => item.MBTI === mbti);
     const [loading, setLoading] = useState(true);
 
@@ -17,6 +17,8 @@ const Result = () => {
     const location = useLocation();
     const { username } = location.state;
 
+    console.log(username);
+    
     useEffect(() => {
         getMBTIData(username);
     }, [username]);
