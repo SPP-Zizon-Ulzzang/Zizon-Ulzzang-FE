@@ -46,15 +46,14 @@ const Result = () => {
         mbtiInfo ? 
         <StResultWrapper>
             <StResult>
-                <StMbtiResult mbtiColor={mbtiInfo.COLOR}>
-                        <h1>{mbti}</h1>
+                <StMbtiResult>
+                        <h1><span>MBTI</span>gram</h1>
                         <p>Let's predict MBTI with posts on Instagram!</p> 
                         <img src='./mbtiicons.png' alt='mbtiicons' />
                 </StMbtiResult>
-
                 <StMbtiContents>
-                    <StDescription>
-                        <h2>Description</h2>    
+                    <StDescription mbtiColor={mbtiInfo.COLOR}>
+                        <h2>{mbti}</h2>    
                         <p>{mbtiInfo.DESCRIPTION}</p>
                     </StDescription>
                     <StBtnWrapper>
@@ -128,21 +127,26 @@ const StMbtiResult = styled.header`
     margin: 14rem 0 0 8rem;
     
     font-family: 'NeoDunggeunmo';
-    /* background-color: pink; */
 
     & > h1 {
-        margin-bottom: 1rem;
+        margin-bottom: 2rem;
         
-        color : ${props => props.mbtiColor};
+        color : #99D8FF;
         font-size: 12rem;
         font-weight: 800;
 
+        text-align: center;
         text-shadow: -0.3rem 0 black, 0 0.3rem black, 0.3rem 0 black, 0 -0.3rem black;
+        letter-spacing : 2rem;
+
+        & > span {
+            color : #FDBECF;
+            font-size: 12rem;
+        }
     }
     & > p {  
         overflow-y : scroll;
 
-        /* height: 10rem; */
         margin-bottom: 1.5rem;
         
         font-size: 2.5rem;
@@ -169,15 +173,18 @@ const StDescription = styled.article`
     font-family: 'NeoDunggeunmo';
 
     & > h2 {
-        margin-bottom: 1.5rem;
+        margin-bottom: 0.5rem;
 
-        font-size: 3.5rem;
+        color : ${props => props.mbtiColor};
+        font-size: 9rem;
         font-weight: 800;
+        text-shadow: -0.3rem 0 black, 0 0.3rem black, 0.3rem 0 black, 0 -0.3rem black;
+
     }
     & > p {
         overflow-y: scroll;
         
-        height: 44rem;
+        height: 40rem;
         
         font-size: 2rem;
         font-weight: 300;
