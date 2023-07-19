@@ -15,21 +15,21 @@ const Result = () => {
 
     const navigate = useNavigate();
     const location = useLocation();
-    const { url } = location.state;
+    const { username } = location.state;
 
     useEffect(() => {
-        getMBTIData(url);
-    }, [url]);
+        getMBTIData(username);
+    }, [username]);
 
     // useEffect(() => {
     //     const randomIndex = Math.floor(Math.random() * MBTI_RESULT.length);
     //     setMbti(MBTI_RESULT[randomIndex].MBTI)
     // }, [])
 
-    const getMBTIData = async (url) => {
+    const getMBTIData = async (username) => {
         setLoading(true);
         try {
-            const resMbti = await getMBTI(url);
+            const resMbti = await getMBTI(username);
             setMbti(resMbti?.mbti);
         } catch (error) {
             console.log('Error fetching MBTI data:', error);
