@@ -9,7 +9,7 @@ import { getMBTI } from '../../lib/api';
 import styled from 'styled-components';
 
 const Result = () => {
-    const [mbti, setMbti] = useState("ESFJ");
+    const [mbti, setMbti] = useState("INFP");
     const mbtiInfo = MBTI_RESULT.find(item => item.MBTI === mbti);
     const [loading, setLoading] = useState(true);
 
@@ -77,7 +77,7 @@ const Result = () => {
                     </StCelebrity>
                     <StChemistry>
                         <h2>Chemistry</h2>    
-                        <p>mbti 궁합</p>
+                        <img src={mbtiInfo.CHEMISTRY} alt={mbtiInfo.MBTI} />
                     </StChemistry>
                 </StMbtiContents>
 
@@ -204,7 +204,6 @@ const StCelebrity = styled.article`
     height: 35rem;
     margin-top: 7rem;
 
-    /* background-color: yellow; */
     font-family: 'NeoDunggeunmo';
 
     & > h2 {
@@ -258,20 +257,10 @@ const StChemistry = styled.article`
     height: 32rem;
     margin: 10rem 0 0 1rem;
 
-    background-color: lightblue;
     font-family: 'NeoDunggeunmo';
 
     & > h2 {
-        margin-bottom: 1rem;
-
         font-size: 3.5rem;
         font-weight: 800;
-    }
-    & > p {
-        overflow-y: hidden;
-        
-        font-size: 1.8rem;
-        font-weight: 300;
-        line-height: 2.6rem;
     }
 `;

@@ -9,6 +9,7 @@ export const MBTI_RESULT = [
         IMG_CELEB_KOR: './celebs/ENFJ/류승룡.jpg',
         TYPE: 'Righteous Social Activist',
         KEYWORDS: 'eloquent, witty, creative, idealistic, thoughtful, lack of affection, altruism',
+        CHEMISTRY: "./chemistry/chemi_ENFJ.png",
     },
     {
         MBTI: "ENTJ",
@@ -20,6 +21,7 @@ export const MBTI_RESULT = [
         IMG_CELEB_KOR: './celebs/ENTJ/스윙스.jpg',
         TYPE: 'Daring Leaders',
         KEYWORDS: 'leadership, leader, cool-headed, ambitious, responsible, selfish, achievement oriented, perfectionism',
+        CHEMISTRY: "./chemistry/chemi_ENTJ.png",
     },
     {
         MBTI: "ENFP",
@@ -31,6 +33,7 @@ export const MBTI_RESULT = [
         IMG_CELEB_KOR: './celebs/ENFP/뷔.jpg',
         TYPE: 'The Witty Activist',
         KEYWORDS: 'imagination, ideas, enthusiasm, new relationships, free spirit, sensitivity, versatility, persuasive, capricious, challenging, emotional ups and downs',
+        CHEMISTRY: "./chemistry/chemi_ENFP.png",
     },
     {
         MBTI: "ENTP",
@@ -42,6 +45,7 @@ export const MBTI_RESULT = [
         IMG_CELEB_KOR: './celebs/ENTP/김세정.jpg',
         TYPE: 'Debate Enthusiast',
         KEYWORDS: 'Achievement, Revolutionary, Purposefulness, Imagination, Analyst, Rebelliousness, Distraction, Lack of persistence, Improvisation, Dislike of interference, Driving force, Versatility, Discussant, Narcissism, Breaking stereotypes, No prejudice, Competitiveness, Differentiation',
+        CHEMISTRY: "./chemistry/chemi_ENTP.png",
     },
     {
         MBTI: "ESFP",
@@ -53,6 +57,7 @@ export const MBTI_RESULT = [
         IMG_CELEB_KOR: './celebs/ESFP/비.jpg',
         TYPE: 'Free Spirit Celebrity',
         KEYWORDS: 'atmosphere maker, positive, sociable, loyal, hot-tempered, optimistic, straight-legged, passionate, open-minded, simple-minded',
+        CHEMISTRY: "./chemistry/chemi_ESFP.png",
     },
     {
         MBTI: "ESFJ",
@@ -64,6 +69,7 @@ export const MBTI_RESULT = [
         IMG_CELEB_KOR: './celebs/ESFJ/규현.jpg',
         TYPE: 'Sociable Diplomat',
         KEYWORDS: 'kind, sociable, altruistic, docile, kind, sociable, altruistic, docile, gentle, honest, past-oriented, traditional, lack of self-confidence, dedicated, mediator role',
+        CHEMISTRY: "./chemistry/chemi_ESFJ.png",    
     },
     {
         MBTI: "ESTP",
@@ -75,6 +81,7 @@ export const MBTI_RESULT = [
         IMG_CELEB_KOR: './celebs/ESTP/전현무.jpg',
         TYPE: 'Adventurous Entrepreneur',
         KEYWORDS: 'fact bombing, active, pursuit of diversity, pursuit of direct experience Freewheeling, selfish, self-confident, cheerful, wit, current, positive, adaptability, sense, push and pull, distraction, observation',
+        CHEMISTRY: "./chemistry/chemi_ESTP.png",
     },
     {
         MBTI: "ESTJ",
@@ -86,6 +93,7 @@ export const MBTI_RESULT = [
         IMG_CELEB_KOR: './celebs/ESTJ/지수.jpg',
         TYPE: 'Strict Manager',
         KEYWORDS: 'realistic, practical, expressive, logical, analytical, ambitious, enterprising, regular, assertive, unrelenting, calculating, planned',
+        CHEMISTRY: "./chemistry/chemi_ESTJ.png",
     },
     {
         MBTI: "INFP",
@@ -97,6 +105,7 @@ export const MBTI_RESULT = [
         IMG_CELEB_KOR: './celebs/INFP/강호동.jpg',
         TYPE: 'Passionate Moderators',
         KEYWORDS: 'ideal, innocence, romantic, consistent, intuition, rich in sensibility, dreamer, delicate, distracted, lack of logic, conservative, defensive relationships, vulnerable to stress, single-minded, conscious of surroundings, narcissistic, individualistic, considerate of others, hates to hurt others',
+        CHEMISTRY: "./chemistry/chemi_INFP.png",
     },
     {
         MBTI: "INFJ",
@@ -108,6 +117,7 @@ export const MBTI_RESULT = [
         IMG_CELEB_KOR: './celebs/INFJ/차은우.jpg',
         TYPE: 'Bona Fide Advocate',
         KEYWORDS: 'insight, empathy, ideal, determination, sensitivity, perfectionist, boredom, romantic, distraction, quick-witted, clear subjective, independent, strong assertiveness',
+        CHEMISTRY: "./chemistry/chemi_INFJ.png",
     },
     {
         MBTI: "INTP",
@@ -119,6 +129,7 @@ export const MBTI_RESULT = [
         IMG_CELEB_KOR: './celebs/INTP/정은지.jpg',
         TYPE: 'Logical Thinker',
         KEYWORDS: 'strategist, critic, uncooperative, dislikes stereotyped social norms, clear, honest, indifferent to others, lack of empathy, no sense, likes and dislikes, dreamer, eccentric, comprehension, unrealistic, eloquent, logical, objective',
+        CHEMISTRY: "./chemistry/chemi_INTP.png",
     },
     {
         MBTI: "ISTP",
@@ -130,6 +141,7 @@ export const MBTI_RESULT = [
         IMG_CELEB_KOR: './celebs/ISTP/김종민.jpg',
         TYPE: 'All-Rounder',
         KEYWORDS: 'logical, critical, insightful, adaptable, judgmenta, dexterity, independence, generosity, explorer, curiosity, illogical, unpretentious frankness, realistic, improvisation',
+        CHEMISTRY: "./chemistry/chemi_ISTP.png",
     },
     {
         MBTI: "ISFP",
@@ -141,6 +153,7 @@ export const MBTI_RESULT = [
         IMG_CELEB_KOR: './celebs/ISFP/정국.jpg',
         TYPE: 'Curious Artist',
         KEYWORDS: 'emotional, humble, artistic, affectionate, vulnerable, cramming, thinking a lot but not doing it well, choice disorder, personality, hedonic, impulsive, feeling lonely, meticulous, avoiding rules and customs, mysticism',
+        CHEMISTRY: "./chemistry/chemi_ISFP.png",
     },
     {
         MBTI: "ISFJ",
@@ -152,6 +165,7 @@ export const MBTI_RESULT = [
         IMG_CELEB_KOR: './celebs/ISFJ/예지.jpg',
         TYPE: 'Brave Protector',
         KEYWORDS: 'gentleness, passion, caring, empathy, sincerity, cooperative, devoted, wise mother, stable, conflict avoidance, change avoidance, patience, consistency, prudence, idealist, loyalty, nagging',
+        CHEMISTRY: "./chemistry/chemi_ISFJ.png",
     },
     {
         MBTI: "ISTJ",
@@ -163,6 +177,7 @@ export const MBTI_RESULT = [
         IMG_CELEB_KOR: './celebs/ISTJ/차태현.jpg',
         TYPE: 'Integrity Logicist',
         KEYWORDS: 'responsibility, security, quiet, serious, intelligent, stoic, down-to-earth, sense of belonging, preferring regular work, direct',
+        CHEMISTRY: "./chemistry/chemi_ISTJ.png",
     },
     {
         MBTI: "INTJ",
@@ -174,5 +189,6 @@ export const MBTI_RESULT = [
         IMG_CELEB_KOR: './celebs/INTJ/강동원.jpg',
         TYPE: 'The careful strategist',
         KEYWORDS: 'independent, assertive, logical, low sociability, reasonable, planned, dating wrong, mysterious',
+        CHEMISTRY: "./chemistry/chemi_INTJ.png",
     },
 ]
