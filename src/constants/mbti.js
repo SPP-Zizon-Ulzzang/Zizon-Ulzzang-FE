@@ -7,6 +7,8 @@ export const MBTI_RESULT = [
         CELEB_KOR: "Ryu Seung-ryong",
         IMG_CELEB: './celebs/ENFJ/오프라 윈프리.jpg',
         IMG_CELEB_KOR: './celebs/ENFJ/류승룡.jpg',
+        TYPE: 'Righteous Social Activist',
+        KEYWORDS: 'eloquent, witty, creative, idealistic, thoughtful, lack of affection, altruism',
     },
     {
         MBTI: "ENTJ",
@@ -16,6 +18,8 @@ export const MBTI_RESULT = [
         CELEB_KOR: "Swings",
         IMG_CELEB: './celebs/ENTJ/빌 게이츠.jpg',
         IMG_CELEB_KOR: './celebs/ENTJ/스윙스.jpg',
+        TYPE: 'Daring Leaders',
+        KEYWORDS: 'leadership, leader, cool-headed, ambitious, responsible, selfish, achievement oriented, perfectionism',
     },
     {
         MBTI: "ENFP",
@@ -25,6 +29,8 @@ export const MBTI_RESULT = [
         CELEB_KOR: "V",
         IMG_CELEB: './celebs/ENFP/월트 디즈니.jpg',
         IMG_CELEB_KOR: './celebs/ENFP/뷔.jpg',
+        TYPE: 'The Witty Activist',
+        KEYWORDS: 'imagination, ideas, enthusiasm, new relationships, free spirit, sensitivity, versatility, persuasive, capricious, challenging, emotional ups and downs',
     },
     {
         MBTI: "ENTP",
@@ -34,6 +40,8 @@ export const MBTI_RESULT = [
         CELEB_KOR: "Kim Sejeong",
         IMG_CELEB: './celebs/ENTP/버락 오바마.jpg',
         IMG_CELEB_KOR: './celebs/ENTP/김세정.jpg',
+        TYPE: 'An orator who enjoys heated debates',
+        KEYWORDS: 'Achievement, Revolutionary, Purposefulness, Imagination, Analyst, Rebelliousness, Distraction, Lack of persistence, Improvisation, Dislike of interference, Driving force, Versatility, Discussant, Narcissism, Breaking stereotypes, No prejudice, Competitiveness, Differentiation',
     },
     {
         MBTI: "ESFP",
@@ -43,6 +51,8 @@ export const MBTI_RESULT = [
         CELEB_KOR: "Rain",
         IMG_CELEB: './celebs/ESFP/레오나르도 디카프리오.jpg',
         IMG_CELEB_KOR: './celebs/ESFP/비.jpg',
+        TYPE: 'Free Spirit Celebrity',
+        KEYWORDS: 'atmosphere maker, positive, sociable, loyal, hot-tempered, optimistic, straight-legged, passionate, open-minded, simple-minded',
     },
     {
         MBTI: "ESFJ",
@@ -52,6 +62,8 @@ export const MBTI_RESULT = [
         CELEB_KOR: "Kyuhyun",
         IMG_CELEB: './celebs/ESFJ/앤 해서웨이.jpg',
         IMG_CELEB_KOR: './celebs/ESFJ/규현.jpg',
+        TYPE: 'Sociable Diplomat',
+        KEYWORDS: 'kind, sociable, altruistic, docile, kind, sociable, altruistic, docile, gentle, honest, past-oriented, traditional, lack of self-confidence, dedicated, mediator role',
     },
     {
         MBTI: "ESTP",
@@ -59,8 +71,10 @@ export const MBTI_RESULT = [
         COLOR: "#45CFDD",
         CELEB: "Donald Trump",
         CELEB_KOR: "Jun Hyun-moo",
-        IMG_CELEB: './celebs/ESTP/도날드 트럼프.jpg',
+        IMG_CELEB: './celebs/ESTP/도널드 트럼프.jpg',
         IMG_CELEB_KOR: './celebs/ESTP/전현무.jpg',
+        TYPE: 'Adventurous Entrepreneur',
+        KEYWORDS: 'fact bombing, active, pursuit of diversity, pursuit of direct experience Freewheeling, selfish, self-confident, cheerful, wit, current, positive, adaptability, sense, push and pull, distraction, observation',
     },
     {
         MBTI: "ESTJ",
@@ -70,6 +84,8 @@ export const MBTI_RESULT = [
         CELEB_KOR: "Jisoo",
         IMG_CELEB: './celebs/ESTJ/힐러리 클린턴.jpg',
         IMG_CELEB_KOR: './celebs/ESTJ/지수.jpg',
+        TYPE: 'Strict Manager',
+        KEYWORDS: 'realistic, practical, expressive, logical, analytical, ambitious, enterprising, regular, assertive, unrelenting, calculating, planned',
     },
     {
         MBTI: "INFP",
@@ -79,6 +95,8 @@ export const MBTI_RESULT = [
         CELEB_KOR: "Kang Ho-dong",
         IMG_CELEB: './celebs/INFP/존 레논.jpg',
         IMG_CELEB_KOR: './celebs/INFP/강호동.jpg',
+        TYPE: 'Passionate Moderators',
+        KEYWORDS: 'ideal, innocence, romantic, consistent, intuition, rich in sensibility, dreamer, delicate, distracted, lack of logic, conservative, defensive relationships, vulnerable to stress, single-minded, conscious of surroundings, narcissistic, individualistic, considerate of others, hates to hurt others',
     },
     {
         MBTI: "INFJ",
@@ -88,6 +106,8 @@ export const MBTI_RESULT = [
         CELEB_KOR: "Cha Eun-woo",
         IMG_CELEB: './celebs/INFJ/마하트마 간디.jpg',
         IMG_CELEB_KOR: './celebs/INFJ/차은우.jpg',
+        TYPE: 'Bona Fide Advocate',
+        KEYWORDS: 'insight, empathy, ideal, determination, sensitivity, perfectionist, boredom, romantic, distraction, quick-witted, clear subjective, independent, strong assertiveness',
     },
     {
         MBTI: "INTP",
@@ -97,6 +117,8 @@ export const MBTI_RESULT = [
         CELEB_KOR: "Jung Eun-ji",
         IMG_CELEB: './celebs/INTP/아인슈타인.jpg',
         IMG_CELEB_KOR: './celebs/INTP/정은지.jpg',
+        TYPE: 'Logical Thinker',
+        KEYWORDS: 'strategist, critic, uncooperative, dislikes stereotyped social norms, clear, honest, indifferent to others, lack of empathy, no sense, likes and dislikes, dreamer, eccentric, comprehension, unrealistic, eloquent, logical, objective',
     },
     {
         MBTI: "ISTP",
@@ -106,6 +128,8 @@ export const MBTI_RESULT = [
         CELEB_KOR: "Kim Jong-min",
         IMG_CELEB: './celebs/ISTP/스티브 잡스.jpg',
         IMG_CELEB_KOR: './celebs/ISTP/김종민.jpg',
+        TYPE: 'All-Rounder',
+        KEYWORDS: 'logical, critical, insightful, adaptable, judgmenta, dexterity, independence, generosity, explorer, curiosity, illogical, unpretentious frankness, realistic, improvisation',
     },
     {
         MBTI: "ISFP",
@@ -115,6 +139,8 @@ export const MBTI_RESULT = [
         CELEB_KOR: "Jung Kook",
         IMG_CELEB: './celebs/ISFP/마이클 잭슨.jpg',
         IMG_CELEB_KOR: './celebs/ISFP/정국.jpg',
+        TYPE: 'Curious Artist',
+        KEYWORDS: 'emotional, humble, artistic, affectionate, vulnerable, cramming, thinking a lot but not doing it well, choice disorder, personality, hedonic, impulsive, feeling lonely, meticulous, avoiding rules and customs, mysticism',
     },
     {
         MBTI: "ISFJ",
@@ -124,6 +150,8 @@ export const MBTI_RESULT = [
         CELEB_KOR: "Yeji",
         IMG_CELEB: './celebs/ISFJ/테레사 수녀.jpg',
         IMG_CELEB_KOR: './celebs/ISFJ/예지.jpg',
+        TYPE: 'Brave Protector',
+        KEYWORDS: 'gentleness, passion, caring, empathy, sincerity, cooperative, devoted, wise mother, stable, conflict avoidance, change avoidance, patience, consistency, prudence, idealist, loyalty, nagging',
     },
     {
         MBTI: "ISTJ",
@@ -133,6 +161,8 @@ export const MBTI_RESULT = [
         CELEB_KOR: "Cha Tae-hyun",
         IMG_CELEB: './celebs/ISTJ/워렌 버핏.jpg',
         IMG_CELEB_KOR: './celebs/ISTJ/차태현.jpg',
+        TYPE: 'Integrity Logicist',
+        KEYWORDS: 'responsibility, security, quiet, serious, intelligent, stoic, down-to-earth, sense of belonging, preferring regular work, direct',
     },
     {
         MBTI: "INTJ",
@@ -142,5 +172,7 @@ export const MBTI_RESULT = [
         CELEB_KOR: "Gang Dong-Won",
         IMG_CELEB: './celebs/INTJ/마크 주커버그.jpg',
         IMG_CELEB_KOR: './celebs/INTJ/강동원.jpg',
+        TYPE: 'The careful strategist',
+        KEYWORDS: 'independent, assertive, logical, low sociability, reasonable, planned, dating wrong, mysterious',
     },
 ]

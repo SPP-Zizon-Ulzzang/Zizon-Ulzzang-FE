@@ -9,17 +9,22 @@ import { getMBTI } from '../../lib/api';
 import styled from 'styled-components';
 
 const Result = () => {
-    const [mbti, setMbti] = useState("ISFP");
+    const [mbti, setMbti] = useState("ESFJ");
     const mbtiInfo = MBTI_RESULT.find(item => item.MBTI === mbti);
     // const [loading, setLoading] = useState(true);
 
     const navigate = useNavigate();
     const location = useLocation();
-    const { url } = location.state;
+    // const { url } = location.state;
 
     // useEffect(() => {
     //     getMBTIData(url);
     // }, [url]);
+
+    useEffect(() => {
+        const randomIndex = Math.floor(Math.random() * MBTI_RESULT.length);
+        setMbti(MBTI_RESULT[randomIndex].MBTI)
+    }, [])
 
     const getMBTIData = async (url) => {
         setLoading(true);
@@ -67,7 +72,8 @@ const Result = () => {
                                 <figcaption>{mbtiInfo.CELEB_KOR}</figcaption>
                             </figure>
                         </StCelebImgWrapper>
-                        <p>이런 연예인이랑 같은 mbti입니당 이런 연예인이랑 같은 mbti입니당 이런 연예인이랑 같은 mbti입니당 이런 연예인이랑 같은 mbti입니당 이런 연예인이랑 같은 mbti입니당 이런 연예인이랑 같은 mbti입니당 이런 연예인이랑 같은 mbti입니당</p>
+                            <strong>{mbtiInfo.TYPE}</strong>
+                            <p>{mbtiInfo.KEYWORDS}</p>
                     </StCelebrity>
                     <StChemistry>
                         <h2>Chemistry</h2>    
@@ -130,7 +136,7 @@ const StMbtiResult = styled.header`
         text-shadow: -0.3rem 0 black, 0 0.3rem black, 0.3rem 0 black, 0 -0.3rem black;
     }
     & > p {  
-        overflow-y : hidden;
+        overflow-y : scroll;
         height: 10rem;
         
         font-size: 1.8rem;
@@ -177,11 +183,11 @@ const StBtnWrapper = styled.section`
 `
 
 const StCelebrity = styled.article`
-    width: 30rem;
+    width: 32rem;
     height: 35rem;
     margin-top: 7rem;
 
-    background-color: yellow;
+    /* background-color: yellow; */
     font-family: 'NeoDunggeunmo';
 
     & > h2 {
@@ -190,27 +196,35 @@ const StCelebrity = styled.article`
         font-size: 3.5rem;
         font-weight: 800;
     }
+    & > strong {
+        padding-left: 1rem;
+
+        font-size: 2.2rem;
+        font-weight: 600;
+    }
     & > p {
-        overflow-y: hidden;
+        overflow-y: scroll;
         
-        height: 15rem;
+        height: 10rem;
+        margin-top: 0.5rem;
+        padding-left: 1rem;
         
         font-size: 1.8rem;
         font-weight: 300;
-        line-height: 2.6rem;
+        line-height: 2rem;
     }
 `;
 
 const StCelebImgWrapper = styled.div`
     display: flex;
     justify-content: center;
-    gap: 1rem;
+    gap: 2rem;
 
-    margin-bottom: 1rem;
+    margin-bottom: 1.5rem;
 
     & > figure > img {
-        width: 12rem;
-        height: 12rem;
+        width: 13rem;
+        height: 13rem;
 
         object-fit: cover;
     }
