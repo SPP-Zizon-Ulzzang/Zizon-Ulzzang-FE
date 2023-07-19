@@ -47,8 +47,9 @@ const Result = () => {
         <StResultWrapper>
             <StResult>
                 <StMbtiResult mbtiColor={mbtiInfo.COLOR}>
-                    <h1>{mbti}</h1>
-                    <p>어쩌고저쩌고 설명 적을꺼임 어쩌고저쩌고 설명 적을꺼임 어쩌고저쩌고 설명 적을꺼임 어쩌고저쩌고 설명 적을꺼임 어쩌고저쩌고 설명 적을꺼임 어쩌고저쩌고 설명 적을꺼임 어쩌고저쩌고 설명 적을꺼임 어쩌고저쩌고 설명 적을꺼임 어쩌고저쩌고 설명 적을꺼임 어쩌고저쩌고 설명 적을꺼임 어쩌고저쩌고 설명 적을꺼임 어쩌고저쩌고 설명 적을꺼임 어쩌고저쩌고 설명 적을꺼임 어쩌고저쩌고 설명 적을꺼임 어쩌고저쩌고 설명 적을꺼임 어쩌고저쩌고 설명 적을꺼임어쩌고저쩌고 설명 적을꺼임 어쩌고저쩌고 설명 적을꺼임 어쩌고저쩌고 설명 적을꺼임어쩌고저쩌고 설명 적을꺼임 어쩌고저쩌고 설명 적을꺼임 어쩌고저쩌고 설명 적을꺼임</p>
+                        <h1>{mbti}</h1>
+                        <img src='./mbtiicons.png' alt='mbtiicons' />
+                    {/* <p>어쩌고저쩌고 설명 적을꺼임 어쩌고저쩌고 설명 적을꺼임 어쩌고저쩌고 설명 적을꺼임 어쩌고저쩌고 설명 적을꺼임 어쩌고저쩌고 설명 적을꺼임 어쩌고저쩌고 설명 적을꺼임 어쩌고저쩌고 설명 적을꺼임 어쩌고저쩌고 설명 적을꺼임 어쩌고저쩌고 설명 적을꺼임 어쩌고저쩌고 설명 적을꺼임 어쩌고저쩌고 설명 적을꺼임 어쩌고저쩌고 설명 적을꺼임 어쩌고저쩌고 설명 적을꺼임 어쩌고저쩌고 설명 적을꺼임 어쩌고저쩌고 설명 적을꺼임 어쩌고저쩌고 설명 적을꺼임어쩌고저쩌고 설명 적을꺼임 어쩌고저쩌고 설명 적을꺼임 어쩌고저쩌고 설명 적을꺼임어쩌고저쩌고 설명 적을꺼임 어쩌고저쩌고 설명 적을꺼임 어쩌고저쩌고 설명 적을꺼임</p> */}
                 </StMbtiResult>
 
                 <StMbtiContents>
@@ -121,10 +122,13 @@ const StResult = styled.div`
 `;
 
 const StMbtiResult = styled.header`
-    width: 73rem;
+    width: 76rem;
+    height: 23rem;
+
     margin: 14rem 0 0 8rem;
     
     font-family: 'NeoDunggeunmo';
+    /* background-color: pink; */
 
     & > h1 {
         margin-bottom: 1rem;
@@ -140,6 +144,9 @@ const StMbtiResult = styled.header`
         height: 10rem;
         
         font-size: 1.8rem;
+    }
+    & > img {
+        width: 100%;
     }
 `;
 

@@ -40,7 +40,7 @@ export const MBTI_RESULT = [
         CELEB_KOR: "Kim Sejeong",
         IMG_CELEB: './celebs/ENTP/버락 오바마.jpg',
         IMG_CELEB_KOR: './celebs/ENTP/김세정.jpg',
-        TYPE: 'An orator who enjoys heated debates',
+        TYPE: 'Debate Enthusiast',
         KEYWORDS: 'Achievement, Revolutionary, Purposefulness, Imagination, Analyst, Rebelliousness, Distraction, Lack of persistence, Improvisation, Dislike of interference, Driving force, Versatility, Discussant, Narcissism, Breaking stereotypes, No prejudice, Competitiveness, Differentiation',
     },
     {
