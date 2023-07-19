@@ -41,9 +41,9 @@ const Result = () => {
     if (loading) {
         return <Loading />;
     }
-    if (!mbti) {
-        return <Error />;
-    }
+    // if (!mbti) {
+    //     return <Error />;
+    // }
 
     return (
         mbtiInfo ? 
