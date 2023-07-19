@@ -4,7 +4,7 @@ import styled from 'styled-components';
 import { useNavigate } from 'react-router-dom';
 
 const Home = () => {
-    const [url, setUrl] = useState("");
+    const [username, setUsername] = useState("");
     const [expanded, setExpanded] = useState(false);
 
     const navigate = useNavigate();
@@ -15,11 +15,11 @@ const Home = () => {
         //     return;
         // }
 
-        navigate('/result', { state: { url } });
+        navigate('/result', { state: { username } });
     }
     const handleNameChange = (e) => {
-        setUrl(e.target.value)
-        localStorage.setItem('url', url);
+        setUsername(e.target.value)
+        // localStorage.setItem('url', username);
     }
     const handleNameClick = () => {
         setExpanded(!expanded);
@@ -31,10 +31,10 @@ const Home = () => {
             <StNameInput>
                 <input
                     type="text"
-                    name="url"
-                    value={url}
+                    name="username"
+                    value={username}
                     onChange={handleNameChange}
-                    placeholder='Please Enter a Instagram Post URL. ⏎'>
+                    placeholder='Please Enter a Instagram Username. ⏎'>
                 </input>
                 <button type="button" onClick={handleSubmit}>Find MBTI</button>
             </StNameInput>

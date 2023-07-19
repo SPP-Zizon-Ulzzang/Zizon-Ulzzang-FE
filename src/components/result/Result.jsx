@@ -48,7 +48,7 @@ const Result = () => {
             <StResult>
                 <StMbtiResult>
                         <h1><span>MBTI</span>gram</h1>
-                        <p>Let's predict MBTI with posts on Instagram!</p> 
+                        <p>Let's predict MBTI with Instagram!</p> 
                         <img src='./mbtiicons.png' alt='mbtiicons' />
                 </StMbtiResult>
                 <StMbtiContents>
