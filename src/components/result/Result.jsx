@@ -9,7 +9,7 @@ import { getMBTI } from '../../lib/api';
 import styled from 'styled-components';
 
 const Result = () => {
-    const [mbti, setMbti] = useState("INFP");
+    const [mbti, setMbti] = useState();
     const mbtiInfo = MBTI_RESULT.find(item => item.MBTI === mbti);
     const [loading, setLoading] = useState(true);
 
@@ -40,6 +40,9 @@ const Result = () => {
 
     if (loading) {
         return <Loading />;
+    }
+    if (!mbti) {
+        return <Error />;
     }
 
     return (
@@ -145,8 +148,6 @@ const StMbtiResult = styled.header`
         }
     }
     & > p {  
-        overflow-y : scroll;
-
         margin-bottom: 1.5rem;
         
         font-size: 2.5rem;
