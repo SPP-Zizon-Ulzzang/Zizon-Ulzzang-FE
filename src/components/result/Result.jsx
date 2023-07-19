@@ -48,8 +48,8 @@ const Result = () => {
             <StResult>
                 <StMbtiResult mbtiColor={mbtiInfo.COLOR}>
                         <h1>{mbti}</h1>
+                        <p>Let's predict MBTI with posts on Instagram!</p> 
                         <img src='./mbtiicons.png' alt='mbtiicons' />
-                    {/* <p>어쩌고저쩌고 설명 적을꺼임 어쩌고저쩌고 설명 적을꺼임 어쩌고저쩌고 설명 적을꺼임 어쩌고저쩌고 설명 적을꺼임 어쩌고저쩌고 설명 적을꺼임 어쩌고저쩌고 설명 적을꺼임 어쩌고저쩌고 설명 적을꺼임 어쩌고저쩌고 설명 적을꺼임 어쩌고저쩌고 설명 적을꺼임 어쩌고저쩌고 설명 적을꺼임 어쩌고저쩌고 설명 적을꺼임 어쩌고저쩌고 설명 적을꺼임 어쩌고저쩌고 설명 적을꺼임 어쩌고저쩌고 설명 적을꺼임 어쩌고저쩌고 설명 적을꺼임 어쩌고저쩌고 설명 적을꺼임어쩌고저쩌고 설명 적을꺼임 어쩌고저쩌고 설명 적을꺼임 어쩌고저쩌고 설명 적을꺼임어쩌고저쩌고 설명 적을꺼임 어쩌고저쩌고 설명 적을꺼임 어쩌고저쩌고 설명 적을꺼임</p> */}
                 </StMbtiResult>
 
                 <StMbtiContents>
@@ -141,9 +141,12 @@ const StMbtiResult = styled.header`
     }
     & > p {  
         overflow-y : scroll;
-        height: 10rem;
+
+        /* height: 10rem; */
+        margin-bottom: 1.5rem;
         
-        font-size: 1.8rem;
+        font-size: 2.5rem;
+        text-align: center;
     }
     & > img {
         width: 100%;
