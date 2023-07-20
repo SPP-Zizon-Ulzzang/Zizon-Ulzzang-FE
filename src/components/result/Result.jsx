@@ -1,54 +1,53 @@
 import React, { useEffect, useState } from 'react';
+import { getMBTIbyInsta, getMBTIbyIntroduction } from '../../lib/api';
 import { useLocation, useNavigate } from 'react-router-dom';
 
 import Button from '../common/Button';
 import Error from '../common/Error';
 import Loading from '../common/Loading';
 import { MBTI_RESULT } from '../../constants/mbti';
-import { getMBTI } from '../../lib/api';
 import styled from 'styled-components';
 
 const Result = () => {
-    const [mbti, setMbti] = useState("ESFP");
+    const [mbti, setMbti] = useState(null);
     const mbtiInfo = MBTI_RESULT.find(item => item.MBTI === mbti);
     const [loading, setLoading] = useState(true);
+    const [errorStatus, setErrorStatus] = useState(null);
 
     const navigate = useNavigate();
     const location = useLocation();
-    // const { username } = location.state;
+    const { username, introduction } = location.state;
 
-    // console.log(username);
-    
-    // useEffect(() => {
-    //     getMBTIData(username);
-    // }, [username]);
+    useEffect(() => {
+        username ? getMBTIData(username) : getMBTIData(introduction);
+    }, [username, introduction]);
 
     useEffect(() => {
         const randomIndex = Math.floor(Math.random() * MBTI_RESULT.length);
         setMbti(MBTI_RESULT[randomIndex].MBTI)
     }, [])
 
-    // const getMBTIData = async (username) => {
-    //     setLoading(true);
-    //     try {
-    //         const resMbti = await getMBTI(username);
-    //         setMbti(resMbti?.mbti);
-    //     } catch (error) {
-    //         console.log('Error fetching MBTI data:', error);
-    //     } finally {
-    //         setLoading(false);
-    //     }
-    // }
+    const getMBTIData = async (input) => {
+        setLoading(true);
+        try {
+            let resMbti;
+            resMbti = username ? await getMBTIbyInsta(input) : await getMBTIbyIntroduction(input);
+            resMbti?.status === 200 ? setMbti(resMbti?.mbti) : setErrorStatus(resMbti);
+        } catch (error) {
+            console.log(error);
+        } finally {
+            setLoading(false);
+        }
+    }
 
-    // if (loading) {
-    //     return <Loading />;
-    // }
-    // if (!mbti) {
-    //     return <Error />;
-    // }
+    if (loading) {
+        return <Loading />;
+    }
+    if (errorStatus) {
+        return <Error code={errorStatus} />; 
+    }
 
     return (
-        mbtiInfo ? 
         <StResultWrapper>
             <StResult>
                 <StMbtiResult>
@@ -88,8 +87,6 @@ const Result = () => {
 
             </StResult>
         </StResultWrapper >
-        :
-        <Error />
     );
 };
 

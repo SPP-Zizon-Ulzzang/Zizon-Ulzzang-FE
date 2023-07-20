@@ -15,11 +15,13 @@ const Home = () => {
         setSelectedInput(e.target.value);
     };
     const handleSubmit = () => {
-        // if (!url.startsWith("https://www.instagram.com/p/")) {
-        //     alert("Please enter a valid Instagram Post URL.");
+        // if (username==="" || !introduction==="") {
+        //     alert("Please enter a value.");
         //     return;
         // }
-        navigate('/result', { state: { username } });
+        selectedInput === "Instagram ID" ? 
+            navigate('/result', { state: { username } }) :
+            navigate('/result', { state: { introduction } })
     }
     const handleUsernameChange = (e) => {
         setUsername(e.target.value)

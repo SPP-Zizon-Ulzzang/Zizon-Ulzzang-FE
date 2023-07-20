@@ -1,13 +1,36 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
+
 import styled from 'styled-components';
 import { useNavigate } from 'react-router-dom';
 
-const Error = () => {
+const Error = ({code}) => {
+    const [status, setStatus] = useState("./assets/error.svg");
     const navigate = useNavigate();
+
+    const getCode = () => {
+        switch (code) {
+            case 400:
+                setStatus("./assets/error400.svg")
+                break;
+            case 401:
+                setStatus("./assets/error401.svg")
+                break;
+            case 404:
+                setStatus("./assets/error404.svg")
+                break;
+            default:
+                setStatus("./assets/error.svg")
+                break;
+        }
+    }
+
+    useEffect(() => {
+        getCode();
+    }, [code])
 
     return (
         <StErrorWrapper>
-            <img src="./assets/error.svg" alt="error" />
+            <img src={status} alt="error" />
             <button type="button" onClick={()=>{navigate('/')}}>
                 <img src="./assets/retry.png" alt="retry" />
             </button>
