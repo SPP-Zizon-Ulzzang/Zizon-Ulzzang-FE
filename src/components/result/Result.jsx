@@ -9,40 +9,40 @@ import { getMBTI } from '../../lib/api';
 import styled from 'styled-components';
 
 const Result = () => {
-    const [mbti, setMbti] = useState("");
+    const [mbti, setMbti] = useState("ESFP");
     const mbtiInfo = MBTI_RESULT.find(item => item.MBTI === mbti);
     const [loading, setLoading] = useState(true);
 
     const navigate = useNavigate();
     const location = useLocation();
-    const { username } = location.state;
+    // const { username } = location.state;
 
-    console.log(username);
+    // console.log(username);
     
-    useEffect(() => {
-        getMBTIData(username);
-    }, [username]);
-
     // useEffect(() => {
-    //     const randomIndex = Math.floor(Math.random() * MBTI_RESULT.length);
-    //     setMbti(MBTI_RESULT[randomIndex].MBTI)
-    // }, [])
+    //     getMBTIData(username);
+    // }, [username]);
 
-    const getMBTIData = async (username) => {
-        setLoading(true);
-        try {
-            const resMbti = await getMBTI(username);
-            setMbti(resMbti?.mbti);
-        } catch (error) {
-            console.log('Error fetching MBTI data:', error);
-        } finally {
-            setLoading(false);
-        }
-    }
+    useEffect(() => {
+        const randomIndex = Math.floor(Math.random() * MBTI_RESULT.length);
+        setMbti(MBTI_RESULT[randomIndex].MBTI)
+    }, [])
 
-    if (loading) {
-        return <Loading />;
-    }
+    // const getMBTIData = async (username) => {
+    //     setLoading(true);
+    //     try {
+    //         const resMbti = await getMBTI(username);
+    //         setMbti(resMbti?.mbti);
+    //     } catch (error) {
+    //         console.log('Error fetching MBTI data:', error);
+    //     } finally {
+    //         setLoading(false);
+    //     }
+    // }
+
+    // if (loading) {
+    //     return <Loading />;
+    // }
     // if (!mbti) {
     //     return <Error />;
     // }

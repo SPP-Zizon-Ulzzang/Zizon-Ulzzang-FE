@@ -3,10 +3,10 @@ import React, {useEffect, useState} from 'react';
 import styled from 'styled-components';
 
 const Loading = () => {
-    const [loadingText, setLoadingText] = useState('');
+    const [loadingText, setLoadingText] = useState('F');
 
     useEffect(() => {
-    const text = 'Finding MBTI...';
+    const text = 'inding MBTI...';
     let index = 0;
 
     const typeText = () => {
@@ -20,7 +20,7 @@ const Loading = () => {
         return prevText + nextCharacter;
         });
 
-        setTimeout(typeText, 400);
+        setTimeout(typeText, 200);
     };
 
     typeText();

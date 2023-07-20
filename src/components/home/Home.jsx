@@ -5,21 +5,27 @@ import { useNavigate } from 'react-router-dom';
 
 const Home = () => {
     const [username, setUsername] = useState("");
+    const [introduction, setIntroduction] = useState("");
     const [expanded, setExpanded] = useState(false);
+    const [selectedInput, setSelectedInput] = useState('Instagram ID');
 
     const navigate = useNavigate();
 
+    const handleRadioChange = (e) => {
+        setSelectedInput(e.target.value);
+    };
     const handleSubmit = () => {
         // if (!url.startsWith("https://www.instagram.com/p/")) {
         //     alert("Please enter a valid Instagram Post URL.");
         //     return;
         // }
-
         navigate('/result', { state: { username } });
     }
-    const handleNameChange = (e) => {
+    const handleUsernameChange = (e) => {
         setUsername(e.target.value)
-        // localStorage.setItem('url', username);
+    }
+    const handleIntroductionChange = (e) => {
+        setIntroduction(e.target.value)
     }
     const handleNameClick = () => {
         setExpanded(!expanded);
@@ -28,14 +34,51 @@ const Home = () => {
     return (
         <StHomeWrapper >
             <h1><span>MBTI</span>gram</h1>
+            
+            <StRadioWrapper>
+                <StRadio>
+                    <input
+                    type="radio"
+                    id="Instagram ID"
+                    name="inputType"
+                    value="Instagram ID"
+                    checked={selectedInput === 'Instagram ID'}
+                    onChange={handleRadioChange}
+                    />
+                    <span></span>
+                    Instagram ID
+                </StRadio>
+                <StRadio isUsername={selectedInput === 'Instagram ID'}>
+                    <input
+                    type="radio"
+                    id="Self Introduction"
+                    name="inputType"
+                    value="Self Introduction"
+                    checked={selectedInput === 'Self Introduction'}
+                    onChange={handleRadioChange}
+                    />
+                    <span></span>
+                    Self Introduction
+                </StRadio>
+            </StRadioWrapper>
+            
             <StNameInput>
-                <input
-                    type="text"
-                    name="username"
-                    value={username}
-                    onChange={handleNameChange}
-                    placeholder='Please Enter a Instagram Username. ⏎'>
-                </input>
+                {selectedInput === 'Instagram ID' ?
+                    <input
+                        type='text'
+                        name="username"
+                        value={username}
+                        onChange={handleUsernameChange}
+                        placeholder={`Please Enter Instagram ID. ⏎`}
+                    />
+                    : 
+                    <textarea
+                        name="introduction"
+                        value={introduction}
+                        onChange={handleIntroductionChange}
+                        placeholder={`Please Enter your Introduction. ⏎`}
+                    />
+                }
                 <button type="button" onClick={handleSubmit}>Find MBTI</button>
             </StNameInput>
             <StDevelopers onClick={handleNameClick} expanded={expanded}>
@@ -70,6 +113,9 @@ const StHomeWrapper = styled.section`
     background-repeat: no-repeat;
 
     & > h1 {
+        margin-top: -5rem;
+        margin-bottom: 2rem;
+        
         color: white;
         font-family: 'NeoDunggeunmo';
         font-size: 8rem;    
@@ -91,7 +137,7 @@ const StDevelopers = styled.div`
     align-items: center;
 
     position: absolute;
-    bottom: 12rem;
+    bottom: 6rem;
     
     color: white;
     font-family: 'NeoDunggeunmo';
@@ -134,13 +180,64 @@ const StDevelopers = styled.div`
     }
 `;
 
+const StRadioWrapper = styled.div`
+    display: flex;
+    gap: 1rem;
+    
+    padding: 2rem 0;
+`;
+
+const StRadio = styled.label`
+    display: inline-flex;
+    align-items: center;
+
+    margin-right: 1rem;
+    
+    color: white;
+    font-family: 'NeoDunggeunmo';
+    font-size: 1.8rem;    
+    font-weight: 700;
+    
+    cursor: pointer;
+
+    input[type='radio'] {
+        display: none;
+    }
+    
+    span {
+        display: inline-block;
+        position: relative;
+
+        width: 1.4rem;
+        height: 1.4rem;
+        border: 0.25rem solid white;
+        margin-right: 1rem;
+
+    &:after {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 1.4rem;
+        height: 1.4rem;
+        
+        background-color: rgba(255, 255, 255, 0.8);
+        opacity: 0;
+        transition: opacity 0.2s;
+        }
+    }
+
+    input[type='radio']:checked + span:after {
+        opacity: 1;
+    };
+
+`;
+
 const StNameInput = styled.div`
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    
-    padding-top: 4rem;
 
     color: white;
     font-family: 'NeoDunggeunmo';
@@ -148,10 +245,9 @@ const StNameInput = styled.div`
     font-weight: 500;
 
     & > input {
-        margin-left: 1rem;
-        padding: 0 2rem;
         width: 50rem;
         height: 4.5rem;
+        padding: 0 2rem;
 
         border: 0.1rem solid white;
         border-radius: 1rem;
@@ -163,8 +259,23 @@ const StNameInput = styled.div`
         font-weight: 100;
         
         text-align: center;
+    } 
+    & > textarea {
+        width: 50rem;
+        height: 25rem;
+        padding: 1rem 2rem;
 
-    }    
+        border: 0.1rem solid white;
+        border-radius: 1rem;
+        background: transparent;
+
+        color: white;
+        font-family: 'NeoDunggeunmo';
+        font-size: 2rem;    
+        font-weight: 100;
+        
+        text-align: center;
+    } 
     ::placeholder {
         color: white;
         font-family: 'NeoDunggeunmo';
@@ -174,7 +285,7 @@ const StNameInput = styled.div`
 
     & > button {
         width: 17rem;
-        margin-top: 4.5rem;
+        margin-top: 2.5rem;
 
         border: 0.3rem solid white;
         color: white;
