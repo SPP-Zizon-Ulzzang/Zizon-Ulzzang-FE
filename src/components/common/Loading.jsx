@@ -1,36 +1,11 @@
-import React, {useEffect, useState} from 'react';
-
+import React from 'react';
 import styled from 'styled-components';
 
 const Loading = () => {
-    const [loadingText, setLoadingText] = useState('F');
-
-    useEffect(() => {
-    const text = 'inding MBTI...';
-    let index = 0;
-
-    const typeText = () => {
-        setLoadingText(prevText => {
-        const nextCharacter = text[index];
-        index++;
-        if (index === text.length) {
-            setLoadingText("F")
-            index = 0;
-        }
-        return prevText + nextCharacter;
-        });
-
-        setTimeout(typeText, 200);
-    };
-
-    typeText();
-    }, []);
-
-    
     return (
         <StLoadingWrapper>
             <img src="./assets/loading.gif" alt="loading" />
-            <p>{loadingText}</p>
+            <p>Finding MBTI...</p>
         </StLoadingWrapper>
     );
 };
