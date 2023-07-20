@@ -9,7 +9,7 @@ import { getMBTI } from '../../lib/api';
 import styled from 'styled-components';
 
 const Result = () => {
-    const [mbti, setMbti] = useState("ESFJ");
+    const [mbti, setMbti] = useState("");
     const mbtiInfo = MBTI_RESULT.find(item => item.MBTI === mbti);
     const [loading, setLoading] = useState(true);
 
@@ -54,7 +54,7 @@ const Result = () => {
                 <StMbtiResult>
                         <h1><span>MBTI</span>gram</h1>
                         <p>Let's predict MBTI with Instagram!</p> 
-                        <img src='./mbtiicons.png' alt='mbtiicons' />
+                        <img src='./assets/mbtiicons.png' alt='mbtiicons' />
                 </StMbtiResult>
                 <StMbtiContents>
                     <StDescription mbtiColor={mbtiInfo.COLOR}>
@@ -106,7 +106,7 @@ const StResultWrapper = styled.div`
     height: 170vh;
     padding-top: 10rem;
     
-    background: url("./BG.png") center;
+    background: url("./assets/BG.png") center;
     background-size: contain;
     background-repeat: repeat-y;
     font-size: 10rem;
@@ -120,7 +120,7 @@ const StResult = styled.div`
     height: 160rem;
     margin: 10rem 0;
 
-    background: url("./BG_result.png") center;
+    background: url("./assets/BG_result.png") center;
     background-size: contain;
     background-repeat: no-repeat;
 `;

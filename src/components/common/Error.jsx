@@ -7,9 +7,9 @@ const Error = () => {
 
     return (
         <StErrorWrapper>
-            <img src="./error.svg" alt="error" />
+            <img src="./assets/error.svg" alt="error" />
             <button type="button" onClick={()=>{navigate('/')}}>
-                <img src="./retry.png" alt="retry" />
+                <img src="./assets/retry.png" alt="retry" />
             </button>
         </StErrorWrapper>
     );
@@ -27,7 +27,7 @@ const StErrorWrapper = styled.section`
     width: 100%;
     height: 100vh;
     
-    background: url("./BG.png") center;
+    background: url("./assets/BG.png") center;
     background-size: cover;
     background-repeat: repeat-y;
 

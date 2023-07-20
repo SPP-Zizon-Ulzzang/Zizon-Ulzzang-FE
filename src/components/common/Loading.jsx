@@ -4,7 +4,7 @@ import styled from 'styled-components';
 const Loading = () => {
     return (
         <StLoadingWrapper>
-            <img src="./loading.gif" alt="loading" />
+            <img src="./assets/loading.gif" alt="loading" />
             <p>Loading...</p>
         </StLoadingWrapper>
     );
@@ -22,7 +22,7 @@ const StLoadingWrapper = styled.section`
     width: 100%;
     height: 100vh;
     
-    background: url("./BG.png") center;
+    background: url("./assets/BG.png") center;
     background-size: cover;
     background-repeat: repeat-y;
 
