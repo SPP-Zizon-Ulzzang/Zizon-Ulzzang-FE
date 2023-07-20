@@ -18,7 +18,8 @@ const Home = () => {
         setUsername(e.target.value)
     }
     const handleIntroductionChange = (e) => {
-        setIntroduction(e.target.value)
+        const newIntroduction = e.target.value.replace(/%/g, '');
+        setIntroduction(newIntroduction);   
     }
     const handleSubmit = () => {
         if (selectedInput === 'Instagram ID' && username.trim().length < 1) {
