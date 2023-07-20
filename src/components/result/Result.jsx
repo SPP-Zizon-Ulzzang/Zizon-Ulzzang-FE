@@ -22,10 +22,10 @@ const Result = () => {
         username ? getMBTIData(username) : getMBTIData(introduction);
     }, [username, introduction]);
 
-    useEffect(() => {
-        const randomIndex = Math.floor(Math.random() * MBTI_RESULT.length);
-        setMbti(MBTI_RESULT[randomIndex].MBTI)
-    }, [])
+    // useEffect(() => {
+    //     const randomIndex = Math.floor(Math.random() * MBTI_RESULT.length);
+    //     setMbti(MBTI_RESULT[randomIndex].MBTI)
+    // }, [])
 
     const getMBTIData = async (input) => {
         setLoading(true);

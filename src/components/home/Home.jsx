@@ -14,20 +14,24 @@ const Home = () => {
     const handleRadioChange = (e) => {
         setSelectedInput(e.target.value);
     };
-    const handleSubmit = () => {
-        // if (username==="" || !introduction==="") {
-        //     alert("Please enter a value.");
-        //     return;
-        // }
-        selectedInput === "Instagram ID" ? 
-            navigate('/result', { state: { username } }) :
-            navigate('/result', { state: { introduction } })
-    }
     const handleUsernameChange = (e) => {
         setUsername(e.target.value)
     }
     const handleIntroductionChange = (e) => {
         setIntroduction(e.target.value)
+    }
+    const handleSubmit = () => {
+        if (selectedInput === 'Instagram ID' && username.trim().length < 1) {
+            alert('Please enter Instagram ID.');
+            return;
+        }
+        else if (selectedInput === 'Self Introduction' && introduction.trim().length < 20) {
+            alert('Please enter at least 20 characters.');
+            return;
+        }
+        selectedInput === "Instagram ID" ? 
+            navigate('/result', { state: { username } }) :
+            navigate('/result', { state: { introduction } })
     }
     const handleNameClick = () => {
         setExpanded(!expanded);
