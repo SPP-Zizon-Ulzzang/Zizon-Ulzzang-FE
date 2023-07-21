@@ -173,7 +173,7 @@ const StDevelopers = styled.div`
 
     position: absolute;
     bottom: 6rem;
-    
+
     color: white;
     font-family: 'NeoDunggeunmo';
     font-size: 1.8rem;
@@ -213,12 +213,24 @@ const StDevelopers = styled.div`
             color: white;
         }
     }
+
+
+    @media all and (max-width: 550px){
+        & > div {
+            display: none;
+        }
+        & > p:hover {
+            color: white;
+            cursor: default;
+        }
+    }
 `;
 
 const StRadioWrapper = styled.div`
     display: flex;
     gap: 1rem;
     
+    margin-left: 2rem;
     padding: 2rem 0;
 `;
 
@@ -265,7 +277,6 @@ const StRadio = styled.label`
     input[type='radio']:checked + span:after {
         opacity: 1;
     };
-
 `;
 
 const StNameInput = styled.div`
@@ -274,13 +285,15 @@ const StNameInput = styled.div`
     justify-content: center;
     align-items: center;
 
+    width: 100vw;
+
     color: white;
     font-family: 'NeoDunggeunmo';
     font-size: 3.6rem;    
     font-weight: 500;
 
     & > input {
-        width: 50rem;
+        width: 40%;
         height: 4.5rem;
         padding: 0 2rem;
 
@@ -296,7 +309,7 @@ const StNameInput = styled.div`
         text-align: center;
     } 
     & > textarea {
-        width: 50rem;
+        width: 40%;
         height: 25rem;
         padding: 1rem 2rem;
 
@@ -334,4 +347,31 @@ const StNameInput = styled.div`
         border-color: #B8DCFF;
         color: #B8DCFF;
     }
+
+
+    @media all and (max-width: 430px) {
+        & > input {
+            width: 80%;
+            font-size: 1.4rem;    
+        }
+        & > textarea {
+            width: 80%;
+            font-size: 1.4rem;    
+        }
+
+        ::placeholder {
+            font-size: 1.4rem;    
+        }
+    }
+    @media all and (max-width: 550px) { 
+        & > input {
+            width: 60%;
+            font-size: 1.6rem;    
+        }
+        & > textarea {
+            width: 60%;
+            font-size: 1.6rem;    
+        }
+    }
 `;
+
