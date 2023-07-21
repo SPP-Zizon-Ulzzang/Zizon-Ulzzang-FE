@@ -31,7 +31,7 @@ const Error = ({code}) => {
     return (
         <StErrorWrapper>
             <img src={status} alt="error" />
-            <button type="button" onClick={()=>{navigate('/')}}>
+            <button type="button" onClick={()=>{location.reload()}}>
                 <img src="./assets/retry.png" alt="retry" />
             </button>
         </StErrorWrapper>

@@ -1,5 +1,8 @@
 import React, { useState } from 'react';
+import { getMBTIbyInsta, getMBTIbyIntroduction } from '../../lib/api';
 
+import Error from '../common/Error';
+import Loading from '../common/Loading';
 import styled from 'styled-components';
 import { useNavigate } from 'react-router-dom';
 
@@ -8,6 +11,9 @@ const Home = () => {
     const [introduction, setIntroduction] = useState("");
     const [expanded, setExpanded] = useState(false);
     const [selectedInput, setSelectedInput] = useState('Instagram ID');
+    
+    const [loading, setLoading] = useState(false);
+    const [errorStatus, setErrorStatus] = useState(null);
 
     const navigate = useNavigate();
 
@@ -26,17 +32,39 @@ const Home = () => {
             alert('Please enter Instagram ID.');
             return;
         }
-        else if (selectedInput === 'Self Introduction' && introduction.trim().length < 20) {
+        if (selectedInput === 'Self Introduction' && introduction.trim().length < 20) {
             alert('Please enter at least 20 characters.');
             return;
         }
-        selectedInput === "Instagram ID" ? 
-            navigate('/result', { state: { username } }) :
-            navigate('/result', { state: { introduction } })
+        selectedInput === "Instagram ID" ? getMBTIData(username) : getMBTIData(introduction)
     }
     const handleNameClick = () => {
         setExpanded(!expanded);
     };
+    
+    const getMBTIData = async (input) => {
+        setLoading(true);
+        try {
+            let resMbti;
+            resMbti = username ? await getMBTIbyInsta(input) : await getMBTIbyIntroduction(input);
+            if (resMbti?.status === 200) {
+                navigate(`/result?mbti=${resMbti?.mbti}`);
+            } else {
+                setErrorStatus(resMbti);
+            }
+        } catch (error) {
+            console.log(error);
+        } finally {
+            setLoading(false);
+        }
+    }
+
+    if (loading) {
+        return <Loading />;
+    }
+    if (errorStatus) {
+        return <Error code={errorStatus} />; 
+    }
 
     return (
         <StHomeWrapper >
