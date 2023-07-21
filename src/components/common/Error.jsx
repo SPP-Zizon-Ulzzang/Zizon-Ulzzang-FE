@@ -65,4 +65,10 @@ const StErrorWrapper = styled.section`
     & > button > img {
         width: 100%;
     }
+
+    @media all and (max-width: 500px) { 
+        & > img {
+            width: 30rem;
+        }
+    }
 `
