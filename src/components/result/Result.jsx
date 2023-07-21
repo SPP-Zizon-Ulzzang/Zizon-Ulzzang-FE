@@ -1,4 +1,5 @@
 import Button from '../common/Button';
+import CopyToClipboard from 'react-copy-to-clipboard';
 import { MBTI_RESULT } from '../../constants/mbti';
 import React from 'react';
 import styled from 'styled-components';
@@ -26,7 +27,12 @@ const Result = () => {
                     </StDescription>
                     <StBtnWrapper>
                         <Button btnName="Do It Again" onClick={() => {navigate('/')}}/>
-                        <Button btnName="Copy Link" onClick={() => {navigate('/')}}/>
+                        <CopyToClipboard
+                        text={window.location.href}
+                        onCopy={() => alert('Link copied to clipboard')}
+                        >
+                            <Button btnName="Copy Link" />
+                        </CopyToClipboard>
                     </StBtnWrapper>
                     <StCelebrity>
                         <h2>Celebrity</h2>    
