@@ -25,7 +25,7 @@ const Result = () => {
                         <h2>{mbti}</h2>    
                         <p>{mbtiInfo.DESCRIPTION}</p>
                     </StDescription>
-                    <StBtnWrapper>
+                    {/* <StBtnWrapper>
                         <Button btnName="Do It Again" onClick={() => {navigate('/')}}/>
                         <CopyToClipboard
                         text={window.location.href}
@@ -33,8 +33,8 @@ const Result = () => {
                         >
                             <Button btnName="Copy Link" />
                         </CopyToClipboard>
-                    </StBtnWrapper>
-                    <StCelebrity>
+                    </StBtnWrapper> */}
+                    {/* <StCelebrity>
                         <h2>Celebrity</h2>    
                         <StCelebImgWrapper>
                             <figure>
@@ -52,7 +52,7 @@ const Result = () => {
                     <StChemistry>
                         <h2>Chemistry</h2>    
                         <img src={mbtiInfo.CHEMISTRY} alt={mbtiInfo.MBTI} />
-                    </StChemistry>
+                    </StChemistry> */}
                 </StMbtiContents>
 
             </StResult>
@@ -150,16 +150,14 @@ const StMbtiResult = styled.header`
         height: 13.3rem;
         margin-right: 0;
         margin-top: 4rem;
+        margin-bottom: 4rem;
 
         background: url("./assets/Result_1.png") center;
         background-size: contain;
         background-repeat: no-repeat;
         
-        width: 100%;
-
         & > h1 {
-            padding: 3rem 2rem 0 2rem;
-            /* padding-top: 3rem; */
+            padding: 2.5rem 2rem 0 2rem;
             margin-bottom: 1rem;
 
             font-size: 5rem;
@@ -167,7 +165,7 @@ const StMbtiResult = styled.header`
             letter-spacing : 0.4rem;
 
             & > span {
-            font-size: 5rem;
+                font-size: 5rem;
             }
         }
         & > p {  
@@ -193,6 +191,14 @@ const StMbtiContents = styled.section`
 
     /* background-color: pink;
     opacity: 0.8; */
+
+    @media all and (max-width: 1023px) {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+
+        max-width: 32rem;
+    }
 `;
 
 const StDescription = styled.article`
@@ -224,6 +230,37 @@ const StDescription = styled.article`
         font-size: 2rem;
         font-weight: 300;
         line-height: 2.6rem;
+    }
+
+    @media all and (max-width: 1023px) {
+        display: flex;
+        flex-direction: column;
+
+        width: 100%;
+        max-width: 29rem;
+        height: 34.23rem;
+        padding: 0;
+        
+        background: url("./assets/Result_2.png");
+        background-size: contain;
+        background-repeat: no-repeat;
+
+        & > h2 {
+            margin: 0;
+            padding: 2.5rem 0 0 2rem;
+
+            font-size: 5.5rem;
+            text-shadow: -0.15rem 0 black, 0 0.15rem black, 0.15rem 0 black, 0 -0.15rem black;
+        }
+        & > p {
+            width: 25rem;
+            height: 23.3rem;
+            margin: 0;
+            padding: 0 0 1rem 1.5rem;
+
+            font-size: 1.7rem;
+            line-height: 2rem;
+        }
     }
 `;
 
