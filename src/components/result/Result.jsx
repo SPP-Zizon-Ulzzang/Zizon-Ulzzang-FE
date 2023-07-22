@@ -97,8 +97,8 @@ const StMbtiResult = styled.header`
     height: 38rem;
     margin-right: 20rem;
 
-    background-color: yellow;
-    opacity: 0.8;
+    /* background-color: yellow;
+    opacity: 0.8; */
     
     font-family: 'NeoDunggeunmo';
 
@@ -146,12 +146,12 @@ const StMbtiContents = styled.section`
 const StDescription = styled.article`
     width: 49rem;
     height: 54rem;
-    padding-right: 3rem;
+    padding-right: 4rem;
     
     font-family: 'NeoDunggeunmo';
 
-    background-color: blue;
-    opacity: 0.8;
+    /* background-color: blue;
+    opacity: 0.8; */
 
     & > h2 {
         margin-bottom: 0.5rem;
@@ -184,19 +184,19 @@ const StBtnWrapper = styled.section`
     height: 22rem;
     padding-bottom: 2rem;
     
-    background-color: orange;
-    opacity: 0.8;
+    /* background-color: orange;
+    opacity: 0.8; */
 `
 
 const StCelebrity = styled.article`
-    width: 31rem;
+    width: 30rem;
     height: 38rem;
-    padding-right: 3rem;
+    padding-right: 7rem;
 
     font-family: 'NeoDunggeunmo';
 
-    /* background-color: green; */
-    opacity: 0.8;
+    /* background-color: green;
+    opacity: 0.8; */
 
     & > h2 {
         padding: 2rem 0 0 2rem;
@@ -206,7 +206,7 @@ const StCelebrity = styled.article`
         font-weight: 800;
     }
     & > strong {
-        padding-left: 2rem;
+        padding-left: 1.5rem;
 
         font-size: 2.2rem;
         font-weight: 600;
@@ -216,7 +216,7 @@ const StCelebrity = styled.article`
         
         height: 8rem;
         margin-top: 0.5rem;
-        padding: 0 1rem 0 2.5rem;
+        padding: 0 0.5rem 0 2rem;
         
         font-size: 1.8rem;
         font-weight: 300;
@@ -229,7 +229,7 @@ const StCelebImgWrapper = styled.div`
     justify-content: center;
     gap: 2rem;
 
-    width: 33rem;
+    width: 31rem;
     margin-bottom: 1.5rem;
 
     & > figure > img {
@@ -247,16 +247,22 @@ const StCelebImgWrapper = styled.div`
 `;
 
 const StChemistry = styled.article`
-    width: 38rem;
+    width: 34rem;
     height: 40rem;
+    padding-left: 3rem;
 
     font-family: 'NeoDunggeunmo';
 
-    background-color: red;
-    opacity: 0.8;
+    /* background-color: red;
+    opacity: 0.8; */
 
     & > h2 {
+        padding-top: 5rem;
+        
         font-size: 3.5rem;
         font-weight: 800;
+    }
+    & > img {
+        width: 75%;
     }
 `;
