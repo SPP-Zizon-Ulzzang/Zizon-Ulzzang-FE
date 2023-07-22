@@ -13,15 +13,15 @@ export default Button;
 
 
 const StBtn = styled.button`
-    width: 18rem;
-    height: 8rem;
+    width: 11rem;
+    height: 6rem;
     
     border: 0.3rem solid #0A6EBD;
     border-radius: 2rem;
     color: #0A6EBD;
     background: #AEE2FF;
     font-family: 'NeoDunggeunmo';
-    font-size: 2.4rem;
+    font-size: 2rem;
     
     transform-style: preserve-3d;
     transition: transform 150ms cubic-bezier(0, 0, 0.58, 1);
@@ -44,33 +44,33 @@ const StBtn = styled.button`
         transition: transform 150ms cubic-bezier(0, 0, 0.58, 1),
         box-shadow 150ms cubic-bezier(0, 0, 0.58, 1);
     } 
-    &:hover {
-        background: #5A96E3;
-        color: white;
+    @media all and (min-width: 1023px) {
+        width: 18rem;
+        height: 8rem;
         
-        transform: translate(0, 0.25em);
+        font-size: 2.4rem;
 
-        &::before {
-            box-shadow: 0 0 0 0.2rem #0A6EBD,
-                0 0.5rem 0 0 #0A6EBD;
-            transform: translate3d(0, 0.5rem, -1rem);
+        &:hover {
+            background: #5A96E3;
+            color: white;
+            
+            transform: translate(0, 0.25em);
+
+            &::before {
+                box-shadow: 0 0 0 0.2rem #0A6EBD,
+                    0 0.5rem 0 0 #0A6EBD;
+                transform: translate3d(0, 0.5rem, -1rem);
+            }
         }
-    }
-    &:active {
-        background: #AEE2FF;
-        transform: translate(0rem, 0.75rem);
+        &:active {
+            background: #AEE2FF;
+            transform: translate(0rem, 0.75rem);
 
-        &::before {
-            box-shadow: 0 0 0 0.2rem #0A6EBD,
-                0 0 #0A6EBD;
-            transform: translate3d(0, 0, -1em);
+            &::before {
+                box-shadow: 0 0 0 0.2rem #0A6EBD,
+                    0 0 #0A6EBD;
+                transform: translate3d(0, 0, -1em);
+            }
         }
-    }
-
-    @media all and (max-width: 1023px) {
-        width: 10rem;
-        height: 6rem;
-
-        font-size: 1.8rem;
     }
 `;
