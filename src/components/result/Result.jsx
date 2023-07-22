@@ -69,9 +69,9 @@ const StResultWrapper = styled.div`
     align-items: center;
     overflow-y: scroll;
     
-    width: 100%;
+    width: 100vw;
     height: 170vh;
-    padding-top: 10rem;
+    /* padding-top: 10rem; */
     
     background: url("./assets/BG.png") center;
     background-size: contain;
@@ -81,13 +81,16 @@ const StResultWrapper = styled.div`
 
 const StResult = styled.div`
     display: flex;
+    /* justify-content: center; */
+    /* align-items: center; */
     flex-direction: column;
     
-    width: 100rem;
-    height: 160rem;
-    margin: 10rem 0;
+    width: 80%;
+    max-width: 100rem;
+    /* height: 160rem; */
+    /* margin: 10rem auto; */
 
-    background: url("./assets/BG_result.png") center;
+    background: url("./assets/BG_result.png");
     background-size: contain;
     background-repeat: no-repeat;
 `;
