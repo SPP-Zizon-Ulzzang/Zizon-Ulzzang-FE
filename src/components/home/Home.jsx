@@ -163,6 +163,10 @@ const StHomeWrapper = styled.section`
             font-weight: 700;
         }
     }
+
+    @media all and (max-width: 430px) {
+        height: 90vh;
+    }
 `
 
 const StDevelopers = styled.div`
@@ -213,7 +217,6 @@ const StDevelopers = styled.div`
             color: white;
         }
     }
-
 
     @media all and (max-width: 550px){
         & > div {
@@ -333,7 +336,7 @@ const StNameInput = styled.div`
 
     & > button {
         width: 17rem;
-        margin-top: 2.5rem;
+        margin-top: 4.5rem;
 
         border: 0.3rem solid white;
         color: white;
@@ -352,25 +355,24 @@ const StNameInput = styled.div`
     @media all and (max-width: 430px) {
         & > input {
             width: 80%;
-            font-size: 1.4rem;    
+            font-size: 1.6rem;    
         }
         & > textarea {
             width: 80%;
-            font-size: 1.4rem;    
+            font-size: 1.6rem;    
         }
-
         ::placeholder {
-            font-size: 1.4rem;    
+            font-size: 1.6rem;    
         }
     }
     @media all and (max-width: 550px) { 
         & > input {
-            width: 60%;
-            font-size: 1.6rem;    
+            width: 75%;
+            font-size: 1.8rem;    
         }
         & > textarea {
-            width: 60%;
-            font-size: 1.6rem;    
+            width: 75%;
+            font-size: 1.8rem;    
         }
     }
 `;
