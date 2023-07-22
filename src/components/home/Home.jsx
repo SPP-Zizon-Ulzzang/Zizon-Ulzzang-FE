@@ -117,7 +117,7 @@ const Home = () => {
                 <button type="button" onClick={handleSubmit}>Find MBTI</button>
             </StNameInput>
             <StDevelopers onClick={handleNameClick} expanded={expanded}>
-                <p>© [SPP 2023] Team Zizon-Ulzzang</p>
+                <p>[Team BTSpa] ©mbtigramspp</p>
                 {expanded && (
                     <div>
                         <a href="https://github.com/Yugyeong-Ji" target="_blank"><span>YUGYEONG JI</span></a>
