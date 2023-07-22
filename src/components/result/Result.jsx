@@ -65,13 +65,12 @@ export default Result;
 const StResultWrapper = styled.div`
     display: flex;
     flex-direction: column;
-    justify-content: center;
     align-items: center;
     overflow-y: scroll;
     
     width: 100vw;
     height: 170vh;
-    /* padding-top: 10rem; */
+    padding-top: 10rem;
     
     background: url("./assets/BG.png") center;
     background-size: contain;
@@ -81,14 +80,10 @@ const StResultWrapper = styled.div`
 
 const StResult = styled.div`
     display: flex;
-    /* justify-content: center; */
-    /* align-items: center; */
     flex-direction: column;
     
     width: 80%;
     max-width: 100rem;
-    /* height: 160rem; */
-    /* margin: 10rem auto; */
 
     background: url("./assets/BG_result.png");
     background-size: contain;
@@ -96,10 +91,13 @@ const StResult = styled.div`
 `;
 
 const StMbtiResult = styled.header`
-    width: 76rem;
-    height: 23rem;
+    width: 100%;
+    /* height: 23rem; */
+    height: 40%;
 
-    margin: 14rem 0 0 8rem;
+    /* margin: 14rem 0 0 8rem; */
+    background-color: yellow;
+    opacity: 0.8;
     
     font-family: 'NeoDunggeunmo';
 
