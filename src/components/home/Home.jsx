@@ -163,10 +163,6 @@ const StHomeWrapper = styled.section`
             font-weight: 700;
         }
     }
-
-    @media all and (max-width: 430px) {
-        height: 90vh;
-    }
 `
 
 const StDevelopers = styled.div`
@@ -220,11 +216,13 @@ const StDevelopers = styled.div`
 
     @media all and (max-width: 550px){
         & > div {
-            display: none;
-        }
-        & > p:hover {
-            color: white;
-            cursor: default;
+            display: flex;
+            flex-direction: column;
+            gap:1rem;
+            
+            & > a:not(:last-child)::after {
+                content: "";
+            }
         }
     }
 `;
