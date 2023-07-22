@@ -69,8 +69,7 @@ const StResultWrapper = styled.div`
     overflow-y: scroll;
     
     width: 100vw;
-    height: 170vh;
-    padding-top: 10rem;
+    padding: 10rem 0;
     
     background: url("./assets/BG.png") center;
     background-size: contain;
@@ -82,8 +81,7 @@ const StResult = styled.div`
     display: flex;
     flex-direction: column;
     
-    width: 80%;
-    max-width: 100rem;
+    width: 90rem;
 
     background: url("./assets/BG_result.png");
     background-size: contain;
@@ -92,10 +90,8 @@ const StResult = styled.div`
 
 const StMbtiResult = styled.header`
     width: 100%;
-    /* height: 23rem; */
-    height: 40%;
+    height: 38rem;
 
-    /* margin: 14rem 0 0 8rem; */
     background-color: yellow;
     opacity: 0.8;
     
@@ -134,14 +130,21 @@ const StMbtiContents = styled.section`
     flex-wrap: wrap;
     
     width: 100%;
-    height: 90rem;
+    height: 78rem;
+
+    background-color: pink;
+    opacity: 0.8;
 `;
 
 const StDescription = styled.article`
-    width: 42rem;
-    margin: 9.5rem 0 0 11rem;
+    width: 52rem;
+    height: 54rem;
+    /* margin: 9.5rem 0 0 11rem; */
     
     font-family: 'NeoDunggeunmo';
+
+    background-color: blue;
+    opacity: 0.8;
 
     & > h2 {
         margin-bottom: 0.5rem;
@@ -167,15 +170,20 @@ const StBtnWrapper = styled.section`
     display: flex;
     gap : 2rem;
     
-    margin: 13rem 0 0 10rem;
+    height: 24rem;
+    
+    background-color: orange;
+    opacity: 0.8;
 `
 
 const StCelebrity = styled.article`
-    width: 32rem;
-    height: 35rem;
-    margin-top: 7rem;
+    width: 38rem;
+    height: 38rem;
 
     font-family: 'NeoDunggeunmo';
+
+    background-color: green;
+    opacity: 0.8;
 
     & > h2 {
         margin-bottom: 1rem;
@@ -215,7 +223,7 @@ const StCelebImgWrapper = styled.div`
 
         object-fit: cover;
     }
-     & > figure > figcaption {
+    & > figure > figcaption {
         margin-top: 0.4rem;
         text-align: center;
 
@@ -224,11 +232,13 @@ const StCelebImgWrapper = styled.div`
 `;
 
 const StChemistry = styled.article`
-    width: 30rem;
-    height: 32rem;
-    margin: 10rem 0 0 1rem;
+    width: 38rem;
+    height: 40rem;
 
     font-family: 'NeoDunggeunmo';
+
+    background-color: red;
+    opacity: 0.8;
 
     & > h2 {
         font-size: 3.5rem;
