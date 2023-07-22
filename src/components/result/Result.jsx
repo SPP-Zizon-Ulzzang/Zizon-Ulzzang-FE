@@ -89,8 +89,13 @@ const StResult = styled.div`
 `;
 
 const StMbtiResult = styled.header`
-    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    
+    width: 95%;
     height: 38rem;
+    margin-right: 20rem;
 
     background-color: yellow;
     opacity: 0.8;
@@ -98,7 +103,8 @@ const StMbtiResult = styled.header`
     font-family: 'NeoDunggeunmo';
 
     & > h1 {
-        margin-bottom: 2rem;
+        padding-top: 13rem;
+        margin-bottom: 1.5rem;
         
         color : #99D8FF;
         font-size: 12rem;
@@ -114,13 +120,14 @@ const StMbtiResult = styled.header`
         }
     }
     & > p {  
-        margin-bottom: 1.5rem;
+        margin-bottom: 1rem;
         
         font-size: 2.5rem;
         text-align: center;
     }
     & > img {
-        width: 100%;
+        margin-left: -3rem;
+        width: 75%;
     }
 `;
 
