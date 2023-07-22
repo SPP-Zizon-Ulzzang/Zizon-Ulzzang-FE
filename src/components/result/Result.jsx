@@ -68,11 +68,11 @@ const StResultWrapper = styled.div`
     overflow-y: scroll;
     
     width: 100%;
-    height: 100vh;
+    height: fit-content;
     padding: 10rem 0;
     
     background: url("./assets/BG.png") center;
-    background-size: cover;
+    background-size: contain;
     background-repeat: repeat-y;
     font-size: 10rem;
 
