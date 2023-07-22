@@ -49,12 +49,11 @@ const Result = () => {
                             <strong>{mbtiInfo.TYPE}</strong>
                             <p>{mbtiInfo.KEYWORDS}</p>
                     </StCelebrity>
-                    {/* <StChemistry>
+                    <StChemistry>
                         <h2>Chemistry</h2>    
                         <img src={mbtiInfo.CHEMISTRY} alt={mbtiInfo.MBTI} />
-                    </StChemistry> */}
+                    </StChemistry>
                 </StMbtiContents>
-
             </StResult>
         </StResultWrapper >
     );
@@ -69,12 +68,14 @@ const StResultWrapper = styled.div`
     overflow-y: scroll;
     
     width: 100%;
+    height: 100vh;
     padding: 10rem 0;
     
     background: url("./assets/BG.png") center;
     background-size: cover;
     background-repeat: repeat-y;
     font-size: 10rem;
+
 `;
 
 const StResult = styled.div`
@@ -86,7 +87,8 @@ const StResult = styled.div`
     background: url("./assets/BG_result.png");
     background-size: contain;
     background-repeat: no-repeat;
-
+    border: 0.05rem solid black;
+    border-bottom: 0.15rem solid black;
 
     @media all and (max-width: 1023px) {
         display: flex;
@@ -95,7 +97,7 @@ const StResult = styled.div`
         align-items: center;
 
         background: url("./assets/Result_BG.png");
-        background-size: contain;
+        background-size: cover;
         background-repeat: no-repeat;
         
         width: 90%;
@@ -108,7 +110,7 @@ const StMbtiResult = styled.header`
     flex-direction: column;
     align-items: center;
     
-    width: 95%;
+    width: 100%;
     height: 38rem;
     margin-right: 20rem;
 
@@ -149,8 +151,8 @@ const StMbtiResult = styled.header`
         width: 100%;
         height: 13.3rem;
         margin-right: 0;
-        margin-top: 4rem;
-        margin-bottom: 2rem;
+        margin-top: 6rem;
+        margin-bottom: 4rem;
 
         background: url("./assets/Result_1.png") center;
         background-size: contain;
@@ -200,6 +202,7 @@ const StMbtiContents = styled.section`
         gap: 4rem;
 
         max-width: 32rem;
+        height: 130rem;
     }
 `;
 
@@ -242,7 +245,6 @@ const StDescription = styled.article`
         max-width: 29rem;
         height: 34.23rem;
         padding: 0;
-        /* margin-bottom: 4rem; */
         
         background: url("./assets/Result_2.png");
         background-size: contain;
@@ -284,8 +286,8 @@ const StBtnWrapper = styled.section`
 
         width: 25.4rem;
         height: 10rem;
-        padding-top: 2.3rem;
-        padding-bottom: 4rem;
+        padding-top: 0.5rem;
+        padding-bottom: 0rem;
         
         background: url("./assets/Result_3.png");
         background-size: contain;
@@ -327,9 +329,28 @@ const StCelebrity = styled.article`
         font-weight: 300;
         line-height: 2rem;
     }
-
+    
     @media all and (max-width: 1023px) {
+        width: 100%;
+        max-width: 25.4rem;
+        height: 32.5rem;
         padding: 0;
+        
+        background: url("./assets/Result_4.png");
+        background-size: contain;
+        background-repeat: no-repeat;
+
+        & > h2 {
+            padding: 3rem 0 0 2rem;
+            font-size: 2.4rem;
+        }
+        & > strong {
+            font-size: 1.6rem;
+        }
+        & > p {
+            width: 80%;
+            font-size: 1.5rem;
+        }
     }
 `;
 
@@ -353,6 +374,18 @@ const StCelebImgWrapper = styled.div`
 
         font-size: 1.6rem;
     }
+
+    @media all and (max-width: 1023px) {
+        width: 25rem;
+        
+        & > figure > img {
+            width: 9rem;
+            height: 9rem;
+        }
+        & > figure > figcaption {
+            font-size: 1.2rem;
+        }
+    }
 `;
 
 const StChemistry = styled.article`
@@ -373,5 +406,29 @@ const StChemistry = styled.article`
     }
     & > img {
         width: 75%;
+    }
+
+    @media all and (max-width: 1023px) {
+        /* width: 100%;
+        max-width: 25.4rem;
+        height: 32.5rem;
+        padding: 0;
+         */
+        width: 100%;
+        max-width: 25.4rem;
+        padding: 0%;
+        
+        background: url("./assets/Result_4-1.png");
+        background-size: contain;
+        background-repeat: no-repeat;
+
+        & > h2 {
+            padding: 3.5rem 0 0 2rem;
+            font-size: 2.4rem;
+        }
+        & > img {
+            width: 85%;
+            padding: 1rem 0 0 1.5rem;
+        }
     }
 `;
