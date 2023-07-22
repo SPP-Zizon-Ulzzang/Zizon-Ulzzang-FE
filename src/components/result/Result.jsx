@@ -177,9 +177,12 @@ const StDescription = styled.article`
 
 const StBtnWrapper = styled.section`
     display: flex;
+    justify-content: center;
+    align-items: center;
     gap : 2rem;
     
-    height: 24rem;
+    height: 22rem;
+    padding-bottom: 2rem;
     
     background-color: orange;
     opacity: 0.8;
