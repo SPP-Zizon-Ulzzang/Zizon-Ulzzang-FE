@@ -139,8 +139,8 @@ const StMbtiContents = styled.section`
     width: 100%;
     height: 78rem;
 
-    background-color: pink;
-    opacity: 0.8;
+    /* background-color: pink;
+    opacity: 0.8; */
 `;
 
 const StDescription = styled.article`
@@ -186,22 +186,24 @@ const StBtnWrapper = styled.section`
 `
 
 const StCelebrity = styled.article`
-    width: 38rem;
+    width: 31rem;
     height: 38rem;
+    padding-right: 3rem;
 
     font-family: 'NeoDunggeunmo';
 
-    background-color: green;
+    /* background-color: green; */
     opacity: 0.8;
 
     & > h2 {
+        padding: 2rem 0 0 2rem;
         margin-bottom: 1rem;
 
         font-size: 3.5rem;
         font-weight: 800;
     }
     & > strong {
-        padding-left: 1rem;
+        padding-left: 2rem;
 
         font-size: 2.2rem;
         font-weight: 600;
@@ -209,9 +211,9 @@ const StCelebrity = styled.article`
     & > p {
         overflow-y: scroll;
         
-        height: 10rem;
+        height: 8rem;
         margin-top: 0.5rem;
-        padding-left: 1rem;
+        padding: 0 1rem 0 2.5rem;
         
         font-size: 1.8rem;
         font-weight: 300;
@@ -224,6 +226,7 @@ const StCelebImgWrapper = styled.div`
     justify-content: center;
     gap: 2rem;
 
+    width: 33rem;
     margin-bottom: 1.5rem;
 
     & > figure > img {
