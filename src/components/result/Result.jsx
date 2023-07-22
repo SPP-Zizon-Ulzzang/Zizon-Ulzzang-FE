@@ -68,11 +68,11 @@ const StResultWrapper = styled.div`
     align-items: center;
     overflow-y: scroll;
     
-    width: 100vw;
+    width: 100%;
     padding: 10rem 0;
     
     background: url("./assets/BG.png") center;
-    background-size: contain;
+    background-size: cover;
     background-repeat: repeat-y;
     font-size: 10rem;
 `;
@@ -89,16 +89,18 @@ const StResult = styled.div`
 
 
     @media all and (max-width: 1023px) {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+
         background: url("./assets/Result_BG.png");
         background-size: contain;
         background-repeat: no-repeat;
-
         
-        width: 34rem;
+        width: 90%;
+        max-width: 34rem;
     }
-    /* @media all and (max-width: 800px) {
-        width: 40rem;
-    } */
 `;
 
 const StMbtiResult = styled.header`
@@ -111,8 +113,8 @@ const StMbtiResult = styled.header`
     margin-right: 20rem;
 
     /* background-color: yellow;
-    opacity: 0.8; */
-    
+    opacity: 0.8;
+     */
     font-family: 'NeoDunggeunmo';
 
     & > h1 {
@@ -141,6 +143,43 @@ const StMbtiResult = styled.header`
     & > img {
         margin-left: -3rem;
         width: 75%;
+    }
+
+    @media all and (max-width: 1023px) {
+        width: 100%;
+        height: 13.3rem;
+        margin-right: 0;
+        margin-top: 4rem;
+
+        background: url("./assets/Result_1.png") center;
+        background-size: contain;
+        background-repeat: no-repeat;
+        
+        width: 100%;
+
+        & > h1 {
+            padding: 3rem 2rem 0 2rem;
+            /* padding-top: 3rem; */
+            margin-bottom: 1rem;
+
+            font-size: 5rem;
+            text-shadow: -0.15rem 0 black, 0 0.15rem black, 0.15rem 0 black, 0 -0.15rem black;
+            letter-spacing : 0.4rem;
+
+            & > span {
+            font-size: 5rem;
+            }
+        }
+        & > p {  
+            margin-bottom: 0.5rem;
+
+            font-size: 1.5rem;
+        }
+        & > img {
+            width: 75%;
+            margin-left: 0.2rem;
+            margin-bottom: 1rem;
+        }
     }
 `;
 
