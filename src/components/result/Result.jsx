@@ -34,7 +34,7 @@ const Result = () => {
                             <Button btnName="Copy Link" />
                         </CopyToClipboard>
                     </StBtnWrapper>
-                    {/* <StCelebrity>
+                    <StCelebrity>
                         <h2>Celebrity</h2>    
                         <StCelebImgWrapper>
                             <figure>
@@ -49,7 +49,7 @@ const Result = () => {
                             <strong>{mbtiInfo.TYPE}</strong>
                             <p>{mbtiInfo.KEYWORDS}</p>
                     </StCelebrity>
-                    <StChemistry>
+                    {/* <StChemistry>
                         <h2>Chemistry</h2>    
                         <img src={mbtiInfo.CHEMISTRY} alt={mbtiInfo.MBTI} />
                     </StChemistry> */}
@@ -150,7 +150,7 @@ const StMbtiResult = styled.header`
         height: 13.3rem;
         margin-right: 0;
         margin-top: 4rem;
-        margin-bottom: 4rem;
+        margin-bottom: 2rem;
 
         background: url("./assets/Result_1.png") center;
         background-size: contain;
@@ -196,6 +196,8 @@ const StMbtiContents = styled.section`
         display: flex;
         flex-direction: column;
         align-items: center;
+        flex-wrap: nowrap;
+        gap: 4rem;
 
         max-width: 32rem;
     }
@@ -240,7 +242,7 @@ const StDescription = styled.article`
         max-width: 29rem;
         height: 34.23rem;
         padding: 0;
-        margin-bottom: 4rem;
+        /* margin-bottom: 4rem; */
         
         background: url("./assets/Result_2.png");
         background-size: contain;
@@ -255,8 +257,8 @@ const StDescription = styled.article`
         }
         & > p {
             width: 25rem;
-            height: 23.3rem;
-            margin: 0;
+            height: 24.3rem;
+            margin: 0 0 1.7rem 0;
             padding: 0 0 1rem 1.5rem;
 
             font-size: 1.7rem;
@@ -282,7 +284,8 @@ const StBtnWrapper = styled.section`
 
         width: 25.4rem;
         height: 10rem;
-        padding-top: 0.5rem;
+        padding-top: 2.3rem;
+        padding-bottom: 4rem;
         
         background: url("./assets/Result_3.png");
         background-size: contain;
@@ -323,6 +326,10 @@ const StCelebrity = styled.article`
         font-size: 1.8rem;
         font-weight: 300;
         line-height: 2rem;
+    }
+
+    @media all and (max-width: 1023px) {
+        padding: 0;
     }
 `;
 
