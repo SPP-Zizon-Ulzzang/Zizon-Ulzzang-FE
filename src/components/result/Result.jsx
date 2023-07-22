@@ -86,6 +86,19 @@ const StResult = styled.div`
     background: url("./assets/BG_result.png");
     background-size: contain;
     background-repeat: no-repeat;
+
+
+    @media all and (max-width: 1023px) {
+        background: url("./assets/Result_BG.png");
+        background-size: contain;
+        background-repeat: no-repeat;
+
+        
+        width: 34rem;
+    }
+    /* @media all and (max-width: 800px) {
+        width: 40rem;
+    } */
 `;
 
 const StMbtiResult = styled.header`
