@@ -25,7 +25,7 @@ const Result = () => {
                         <h2>{mbti}</h2>    
                         <p>{mbtiInfo.DESCRIPTION}</p>
                     </StDescription>
-                    {/* <StBtnWrapper>
+                    <StBtnWrapper>
                         <Button btnName="Do It Again" onClick={() => {navigate('/')}}/>
                         <CopyToClipboard
                         text={window.location.href}
@@ -33,7 +33,7 @@ const Result = () => {
                         >
                             <Button btnName="Copy Link" />
                         </CopyToClipboard>
-                    </StBtnWrapper> */}
+                    </StBtnWrapper>
                     {/* <StCelebrity>
                         <h2>Celebrity</h2>    
                         <StCelebImgWrapper>
@@ -240,6 +240,7 @@ const StDescription = styled.article`
         max-width: 29rem;
         height: 34.23rem;
         padding: 0;
+        margin-bottom: 4rem;
         
         background: url("./assets/Result_2.png");
         background-size: contain;
@@ -275,6 +276,14 @@ const StBtnWrapper = styled.section`
     
     /* background-color: orange;
     opacity: 0.8; */
+
+    @media all and (max-width: 1023px) {
+        max-width: 25.4rem;
+        
+        background: url("./assets/Result_3.png");
+        background-size: contain;
+        background-repeat: no-repeat;
+    }
 `
 
 const StCelebrity = styled.article`

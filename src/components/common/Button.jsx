@@ -66,4 +66,11 @@ const StBtn = styled.button`
             transform: translate3d(0, 0, -1em);
         }
     }
+
+    @media all and (max-width: 1023px) {
+        width: 10rem;
+        height: 6rem;
+
+        font-size: 1.8rem;
+    }
 `;
