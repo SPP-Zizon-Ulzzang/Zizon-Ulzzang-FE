@@ -144,9 +144,9 @@ const StMbtiContents = styled.section`
 `;
 
 const StDescription = styled.article`
-    width: 52rem;
+    width: 49rem;
     height: 54rem;
-    /* margin: 9.5rem 0 0 11rem; */
+    padding-right: 3rem;
     
     font-family: 'NeoDunggeunmo';
 
@@ -155,6 +155,7 @@ const StDescription = styled.article`
 
     & > h2 {
         margin-bottom: 0.5rem;
+        padding: 4rem 0 0 9rem;
 
         color : ${props => props.mbtiColor};
         font-size: 9rem;
@@ -165,7 +166,8 @@ const StDescription = styled.article`
     & > p {
         overflow-y: scroll;
         
-        height: 40rem;
+        height: 37rem;
+        padding: 0rem 2rem 0rem 9rem;
         
         font-size: 2rem;
         font-weight: 300;
