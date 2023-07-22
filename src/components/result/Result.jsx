@@ -278,7 +278,11 @@ const StBtnWrapper = styled.section`
     opacity: 0.8; */
 
     @media all and (max-width: 1023px) {
-        max-width: 25.4rem;
+        gap : 1rem;
+
+        width: 25.4rem;
+        height: 10rem;
+        padding-top: 0.5rem;
         
         background: url("./assets/Result_3.png");
         background-size: contain;
