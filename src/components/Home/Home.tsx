@@ -20,11 +20,8 @@ const Home = () => {
       <IcHomeLogo className="home-logo" />
       <StHomeContent>
         <h2>AI가 분석한 나의 MBTI는?</h2>
-        <p>
-          인스타그램 피드 게시글을 분석해 MBTI를
-          <br />
-          예측하고 여러 사람들과 궁합을 측정해 보세요!
-        </p>
+        <p>인스타그램 피드 게시글을 분석해 MBTI를</p>
+        <p>예측하고 여러 사람들과 궁합을 측정해 보세요!</p>
         <StMainImage />
       </StHomeContent>
       <StBtnWrapper>
@@ -86,7 +83,7 @@ const StMainImage = styled.div`
   background-color: ${({ theme }) => theme.colors.Description};
 `;
 
-const StBtnWrapper = styled.div`
+export const StBtnWrapper = styled.div`
   position: fixed;
   bottom: 2.33rem;
 

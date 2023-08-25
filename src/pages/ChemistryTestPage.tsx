@@ -1,5 +1,7 @@
+import { Chemistry } from '../components/Chemistry';
+
 const ChemistryTestPage = () => {
-  return <div></div>;
+  return <Chemistry />;
 };
 
 export default ChemistryTestPage;

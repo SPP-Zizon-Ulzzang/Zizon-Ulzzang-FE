@@ -6,7 +6,7 @@ const Input = () => {
 
 export default Input;
 
-const StInput = styled.input`
+export const StInput = styled.input`
   box-sizing: border-box;
 
   padding: 1.248rem 5.2rem;
