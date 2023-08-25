@@ -1,13 +1,11 @@
 import { useEffect, useState } from 'react';
+import { useParams } from 'react-router-dom';
 import { styled } from 'styled-components';
 
 import { getMBTI } from '../../libs/apis/mbti';
 
-interface PersonalResultProps {
-  id: string;
-}
-
-const PersonalResult = ({ id }: PersonalResultProps) => {
+const PersonalResult = () => {
+  const { id } = useParams();
   const [mbti, setMbti] = useState('');
 
   const [loading, setLoading] = useState(true);
@@ -16,6 +14,7 @@ const PersonalResult = ({ id }: PersonalResultProps) => {
   const getMBTIData = async (id: string) => {
     try {
       const resMbti = await getMBTI(id);
+      console.log(resMbti);
       if (resMbti?.status === 200) {
         setMbti(resMbti.mbti);
       } else {
@@ -29,7 +28,10 @@ const PersonalResult = ({ id }: PersonalResultProps) => {
   };
 
   useEffect(() => {
-    getMBTIData(id);
+    if (id) {
+      console.log(id);
+      getMBTIData(id);
+    }
   }, [id]);
 
   if (loading) return '로딩중...';
