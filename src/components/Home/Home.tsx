@@ -7,7 +7,7 @@ const Home = () => {
   const handleClickPersonal = () => {
     console.log('handleClickPersonal');
   };
-  const handleClickTeam = () => {
+  const handleClickChemistry = () => {
     console.log('handleClickTeam');
   };
   return (
@@ -25,7 +25,7 @@ const Home = () => {
       </StHomeContent>
       <StBtnWrapper>
         <Button buttonName="나의 MBTI 예측하기" isActive={true} onClick={handleClickPersonal} />
-        <Button buttonName="MBTI 궁합 분석하기" isActive={true} onClick={handleClickTeam} />
+        <Button buttonName="MBTI 궁합 분석하기" isActive={true} onClick={handleClickChemistry} />
       </StBtnWrapper>
     </StHomeWrapper>
   );
