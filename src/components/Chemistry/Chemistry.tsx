@@ -8,15 +8,23 @@ import { StInput } from '../Common/Input/Input';
 
 const Chemistry = () => {
   const [inputId, setInputId] = useState('');
+  const [inputIdList, setInputIdList] = useState<string[]>([]);
 
   const handleChemistry = () => {
     console.log('handleChemistry');
   };
+
   const handleAddMemeber = () => {
-    console.log('handleAddMemeber');
+    if (inputIdList.length >= 5) {
+      console.log('최대 5명');
+      return;
+    }
+    setInputIdList((prev) => [...prev, inputId]);
+    setInputId('');
   };
-  const handleDeleteMemeber = () => {
-    console.log('handleDeleteMemeber');
+
+  const handleDeleteMember = (deleteId: string) => {
+    setInputIdList((prev) => prev.filter((id) => id !== deleteId));
   };
 
   return (
@@ -40,7 +48,9 @@ const Chemistry = () => {
             {inputId ? <IcPlusActive /> : <IcPlusDisabled />}
           </StInputBtn>
         </StInputWrapper>
-        <InputId id="wasabiihater" handleDelete={handleDeleteMemeber} />
+        {inputIdList.map((id) => (
+          <InputId key={id} id={id} handleDelete={() => handleDeleteMember(id)} />
+        ))}
       </StPredictWrapper>
     </BaseLayout>
   );

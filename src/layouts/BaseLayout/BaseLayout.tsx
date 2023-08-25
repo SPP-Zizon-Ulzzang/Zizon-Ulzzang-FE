@@ -33,9 +33,9 @@ const BaseLayout = ({
         {children}
         <span>*비공개 계정이거나, 게시물이 없는 경우 MBTI 예측이 불가합니다.</span>
       </StMain>
-      <StBtnWrapper>
+      <StBaseBtnWrapper>
         <Button buttonName="분석하기" isActive={true} onClick={handlePredict} />
-      </StBtnWrapper>
+      </StBaseBtnWrapper>
     </>
   );
 };
@@ -80,4 +80,8 @@ const StMain = styled.main`
     color: ${({ theme }) => theme.colors.Information};
     ${({ theme }) => theme.fonts.Information};
   }
+`;
+
+const StBaseBtnWrapper = styled(StBtnWrapper)`
+  /* bottom: 10.1rem; */
 `;
