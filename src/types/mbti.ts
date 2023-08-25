@@ -10,3 +10,9 @@ export interface MBTIInfo extends MBTIgramResponse {
     [key: string]: number;
   };
 }
+
+export interface RankInfo extends MBTIgramResponse {
+  rank: {
+    [key: string]: string;
+  };
+}
