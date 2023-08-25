@@ -11,9 +11,11 @@ export const StInput = styled.input`
 
   padding: 1.248rem 5.2rem;
   width: 70%;
+  min-width: 20.3rem;
 
   border: none;
   border-radius: 7.2rem;
+  color: #363636;
   background-color: ${({ theme }) => theme.colors.Input_Area};
   ${({ theme }) => theme.fonts.Input_Before};
 

@@ -3,6 +3,7 @@ import { styled } from 'styled-components';
 
 import { IcPlusActive, IcPlusDisabled } from '../../assets/icons';
 import { BaseLayout } from '../../layouts/BaseLayout';
+import { InputId } from '../Common/Input';
 import { StInput } from '../Common/Input/Input';
 
 const Chemistry = () => {
@@ -11,9 +12,11 @@ const Chemistry = () => {
   const handleChemistry = () => {
     console.log('handleChemistry');
   };
-
   const handleAddMemeber = () => {
     console.log('handleAddMemeber');
+  };
+  const handleDeleteMemeber = () => {
+    console.log('handleDeleteMemeber');
   };
 
   return (
@@ -33,10 +36,11 @@ const Chemistry = () => {
             }}
             placeholder="인스타그램 ID를 입력하세요."
           ></StInputMember>
-          <button type="button" onClick={handleAddMemeber}>
+          <StInputBtn type="button" onClick={handleAddMemeber}>
             {inputId ? <IcPlusActive /> : <IcPlusDisabled />}
-          </button>
+          </StInputBtn>
         </StInputWrapper>
+        <InputId id="wasabiihater" handleDelete={handleDeleteMemeber} />
       </StPredictWrapper>
     </BaseLayout>
   );
@@ -53,26 +57,27 @@ const StPredictWrapper = styled.section`
   max-width: 43rem;
 `;
 
-const StInputWrapper = styled.div`
+export const StInputWrapper = styled.div`
   display: flex;
   gap: 0.836rem;
 
   width: 70%;
-
-  & > button {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-
-    min-width: 4.8rem;
-    height: 4.8rem;
-
-    border-radius: 7.2rem;
-    background-color: ${({ theme }) => theme.colors.Input_Area};
-  }
 `;
 
-const StInputMember = styled(StInput)`
+export const StInputBtn = styled.button`
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  min-width: 4.8rem;
+  height: 4.8rem;
+
+  border-radius: 7.2rem;
+  background-color: ${({ theme }) => theme.colors.Input_Area};
+`;
+
+export const StInputMember = styled(StInput)`
   width: 100%;
+
   padding: 1.248rem 2.352rem;
 `;
