@@ -8,7 +8,7 @@ const Home = () => {
   const navigate = useNavigate();
 
   const handleClickPersonal = () => {
-    navigate('/predict');
+    navigate('/mbti');
   };
   const handleClickChemistry = () => {
     navigate('/chemistry');

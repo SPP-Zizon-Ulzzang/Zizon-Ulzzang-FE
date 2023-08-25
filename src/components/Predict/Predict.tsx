@@ -1,11 +1,21 @@
+import { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import { styled } from 'styled-components';
 
 import { BaseLayout } from '../../layouts/BaseLayout';
 import { Input } from '../Common/Input';
 
 const Predict = () => {
+  const [input, setInput] = useState('');
+
+  const navigate = useNavigate();
+
   const handlePredict = () => {
-    console.log('handlePredict');
+    navigate(`/result/${input}`);
+  };
+
+  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    setInput(e.target.value);
   };
 
   return (
@@ -16,7 +26,7 @@ const Predict = () => {
       descriptText2="예측하고 여러 사람들과 궁합을 측정해 보세요!"
     >
       <StPredictWrapper>
-        <Input />
+        <Input value={input} onChange={handleInputChange} />
       </StPredictWrapper>
     </BaseLayout>
   );

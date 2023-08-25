@@ -1,7 +1,19 @@
 import { styled } from 'styled-components';
 
-const Input = () => {
-  return <StInput type="text" placeholder="인스타그램 ID를 입력하세요."></StInput>;
+interface InputProps {
+  value: string;
+  onChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
+}
+
+const Input = ({ value, onChange }: InputProps) => {
+  return (
+    <StInput
+      type="text"
+      placeholder="인스타그램 ID를 입력하세요."
+      value={value}
+      onChange={onChange}
+    ></StInput>
+  );
 };
 
 export default Input;
