@@ -146,7 +146,7 @@ ${reset}
 
 #root, body, html {
   width: 100vw;
-  height: 100vh;
+  height: 100dvh;
   max-width: 43rem;
   margin: 0 auto;
   overflow-y: auto;
