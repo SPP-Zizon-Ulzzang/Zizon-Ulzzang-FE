@@ -2,7 +2,7 @@ import { css } from 'styled-components';
 
 export const fonts = {
   Main: css`
-    font-family: DM Sans;
+    font-family: 'DM Sans', sans-serif;
     font-size: 1.6rem;
     font-style: normal;
     font-weight: 700;
@@ -10,7 +10,7 @@ export const fonts = {
     letter-spacing: -0.032rem;
   `,
   Description: css`
-    font-family: DM Sans;
+    font-family: 'DM Sans', sans-serif;
     font-size: 1.2rem;
     font-style: normal;
     font-weight: 500;
@@ -18,15 +18,23 @@ export const fonts = {
     letter-spacing: -0.024rem;
   `,
   Button: css`
-    font-family: DM Sans;
+    font-family: 'DM Sans', sans-serif;
     font-size: 1.4rem;
     font-style: normal;
     font-weight: 700;
     line-height: 2.4rem; /* 171.429% */
     letter-spacing: -0.028rem;
   `,
+  Input_Main: css`
+    font-family: 'DM Sans', sans-serif;
+    font-size: 2.2rem;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 2.4rem; /* 109.091% */
+    letter-spacing: 0.022rem;
+  `,
   Input_Before: css`
-    font-family: DM Sans;
+    font-family: 'DM Sans', sans-serif;
     font-size: 1.2rem;
     font-style: normal;
     font-weight: 400;
@@ -34,7 +42,7 @@ export const fonts = {
     letter-spacing: -0.024rem;
   `,
   Input_After: css`
-    font-family: DM Sans;
+    font-family: 'DM Sans', sans-serif;
     font-size: 1.4rem;
     font-style: normal;
     font-weight: 500;
@@ -42,7 +50,7 @@ export const fonts = {
     letter-spacing: -0.028rem;
   `,
   Information: css`
-    font-family: DM Sans;
+    font-family: 'DM Sans', sans-serif;
     font-size: 0.9rem;
     font-style: normal;
     font-weight: 500;

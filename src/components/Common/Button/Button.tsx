@@ -17,6 +17,8 @@ const Button = ({ buttonName, isActive, onClick }: ButtonProps) => {
 export default Button;
 
 const StButton = styled.button<{ isactive: string }>`
+  box-sizing: border-box;
+
   width: 70%;
   height: 4.8rem;
 

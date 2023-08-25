@@ -1,15 +1,19 @@
+import { useNavigate } from 'react-router-dom';
 import { styled } from 'styled-components';
 
 import { IcHomeLogo } from '../../assets/icons';
 import { Button } from '../Common/Button';
 
 const Home = () => {
+  const navigate = useNavigate();
+
   const handleClickPersonal = () => {
-    console.log('handleClickPersonal');
+    navigate('/predict');
   };
   const handleClickChemistry = () => {
-    console.log('handleClickTeam');
+    navigate('/chemistry');
   };
+
   return (
     <StHomeWrapper>
       <h1 className="sr-only">MBTIgram</h1>

@@ -1,5 +1,7 @@
+import { Predict } from '../components/Predict';
+
 const PersonalTestPage = () => {
-  return <div></div>;
+  return <Predict />;
 };
 
 export default PersonalTestPage;

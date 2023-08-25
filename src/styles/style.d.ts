@@ -15,6 +15,7 @@ declare module 'styled-components' {
       Main: SerializedStyles;
       Description: SerializedStyles;
       Button: SerializedStyles;
+      Input_Main: SerialzedStyles;
       Input_Before: SerialzedStyles;
       Input_After: SerializedStyles;
       Information: SerializedStyles;

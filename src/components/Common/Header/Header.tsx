@@ -10,7 +10,7 @@ const Header = () => {
 
 export default Header;
 
-const StHeaderWrapper = styled.header`
+export const StHeaderWrapper = styled.header`
   & > .sr-only {
     position: absolute;
     clip: rect(1px, 1px, 1px, 1px);
