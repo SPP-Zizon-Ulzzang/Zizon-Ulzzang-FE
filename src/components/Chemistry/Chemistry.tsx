@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import { styled } from 'styled-components';
 
 import { IcPlusActive, IcPlusDisabled } from '../../assets/icons';
@@ -10,8 +11,10 @@ const Chemistry = () => {
   const [inputId, setInputId] = useState('');
   const [inputIdList, setInputIdList] = useState<string[]>([]);
 
+  const navigate = useNavigate();
+
   const handleChemistry = () => {
-    console.log('handleChemistry');
+    navigate('/result/chemistry', { state: { inputIdList } });
   };
 
   const handleAddMemeber = () => {

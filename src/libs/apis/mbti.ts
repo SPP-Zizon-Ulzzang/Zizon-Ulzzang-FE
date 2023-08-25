@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-import { MBTIInfo, RankInfo } from '../../types/mbti';
+import { ChemistryInfo, MBTIInfo, RankInfo } from '../../types/mbti';
 
 export const client = axios.create({
   baseURL: import.meta.env.VITE_BASE_URL,
@@ -22,6 +22,19 @@ export const getMBTI = async (snsUrl: string) => {
 export const getRank = async () => {
   try {
     const data = await client.get<RankInfo>('/rank');
+    console.log('data: ', data.data);
+    return data.data;
+  } catch (err) {
+    console.error(err);
+  }
+};
+
+export const getChemistry = async (idList: string[]) => {
+  try {
+    const queryParams = idList.map((id, index) => `id${index}=${id}`).join('&');
+    const url = `https://mbtigram.shop/chemistry?${queryParams}`;
+
+    const data = await client.get<ChemistryInfo>(`/chemistry?${url}`);
     console.log('data: ', data.data);
     return data.data;
   } catch (err) {

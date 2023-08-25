@@ -16,3 +16,18 @@ export interface RankInfo extends MBTIgramResponse {
     [key: string]: string;
   };
 }
+
+interface MemberData {
+  instaId: string;
+  mbti: string;
+  relationships: number[];
+}
+
+export interface ChemistryInfo extends MBTIgramResponse {
+  data: {
+    member: number;
+    member_mbti: string[];
+    avg: number;
+    member_data: MemberData[];
+  };
+}
