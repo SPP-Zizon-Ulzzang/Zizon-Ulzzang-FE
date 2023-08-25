@@ -1,12 +1,9 @@
-import { useState } from 'react';
-
-import viteLogo from '../../../../../vite.svg';
-import { ReactLogo } from './assets/icons';
+import Router from './Router';
 
 function App() {
   return (
     <>
-      <ReactLogo />
+      <Router />
     </>
   );
 }
