@@ -1,7 +1,7 @@
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import { RecoilRoot } from 'recoil';
 
-import HomePage from './pages/HomePage';
+import { ChemistryTestPage, HomePage, PersonalTestPage } from './pages';
 
 function Router() {
   return (
@@ -9,8 +9,9 @@ function Router() {
       <RecoilRoot>
         <Routes>
           <Route path="/" element={<HomePage />} />
-          {/* <Route path="/result" element={<ResultPage />} />
-          <Route path="*" element={<ErrorPage />} /> */}
+          <Route path="/predict" element={<PersonalTestPage />} />
+          <Route path="/chemistry" element={<ChemistryTestPage />} />
+          {/* <Route path="*" element={<ErrorPage />} /> */}
         </Routes>
       </RecoilRoot>
     </BrowserRouter>
