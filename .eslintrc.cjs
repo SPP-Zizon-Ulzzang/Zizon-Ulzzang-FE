@@ -25,5 +25,10 @@ module.exports = {
     'max-len': 'off',
     'react-hooks/exhaustive-deps': 'off',
     'no-nested-ternary': 'off',
+    'no-unused-vars': 'off',
+    '@typescript-eslint/no-unused-vars': [
+      'error',
+      { varsIgnorePattern: '^_', argsIgnorePattern: '^_' },
+    ],
   },
 };
