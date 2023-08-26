@@ -29,6 +29,12 @@ const Home = () => {
           <IcHomeCharacter />
         </StMainImage>
       </StHomeContent>
+      <a href="https://www.cutercounter.com/" target="_blank">
+        <img
+          src="https://www.cutercounter.com/hits.php?id=hxncopf&nd=6&style=1"
+          alt="visitor counter"
+        />
+      </a>
       <StBtnWrapper>
         <Button buttonName="나의 MBTI 예측하기" isActive={true} onClick={handleClickPersonal} />
         <Button buttonName="MBTI 궁합 분석하기" isActive={true} onClick={handleClickChemistry} />
