@@ -11,9 +11,8 @@ export const client = axios.create({
 
 export const getMBTI = async (snsUrl: string) => {
   try {
-    const data = await client.get<MBTIInfo>(`/sns/instagram?snsUrl=${snsUrl}`);
-    console.log('data: ', data.data);
-    return data.data;
+    const { data } = await client.get<MBTIInfo>(`/sns/instagram?snsUrl=${snsUrl}`);
+    return data;
   } catch (err) {
     console.error(err);
   }
@@ -21,9 +20,8 @@ export const getMBTI = async (snsUrl: string) => {
 
 export const getRank = async () => {
   try {
-    const data = await client.get<RankInfo>('/rank');
-    console.log('data: ', data.data);
-    return data.data;
+    const { data } = await client.get<RankInfo>('/rank');
+    return data;
   } catch (err) {
     console.error(err);
   }
@@ -32,11 +30,8 @@ export const getRank = async () => {
 export const getChemistry = async (idList: string[]) => {
   try {
     const queryParams = idList.map((id, index) => `id${index}=${id}`).join('&');
-    const url = `https://mbtigram.shop/chemistry?${queryParams}`;
-
-    const data = await client.get<ChemistryInfo>(`/chemistry?${url}`);
-    console.log('data: ', data.data);
-    return data.data;
+    const { data } = await client.get<ChemistryInfo>(`/sns/instagram/chemistry?${queryParams}`);
+    return data;
   } catch (err) {
     console.error(err);
   }

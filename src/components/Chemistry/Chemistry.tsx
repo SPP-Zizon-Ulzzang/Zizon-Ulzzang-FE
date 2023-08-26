@@ -18,16 +18,25 @@ const Chemistry = () => {
   };
 
   const handleAddMemeber = () => {
+    if (!inputId) {
+      alert('인스타그램 ID를 입력하세요.');
+      return;
+    }
+    if (inputIdList.includes(inputId)) {
+      alert('이미 추가된 인스타그램 ID입니다.');
+      return;
+    }
     if (inputIdList.length >= 5) {
-      console.log('최대 5명');
+      alert('최대 5명까지 추가할 수 있습니다.');
+      setInputId('');
       return;
     }
     setInputIdList((prev) => [...prev, inputId]);
     setInputId('');
   };
 
-  const handleDeleteMember = (deleteId: string) => {
-    setInputIdList((prev) => prev.filter((id) => id !== deleteId));
+  const handleDeleteMember = (deleteIdx: number) => {
+    setInputIdList((prev) => prev.filter((_, index) => index !== deleteIdx));
   };
 
   return (
@@ -47,12 +56,12 @@ const Chemistry = () => {
             }}
             placeholder="인스타그램 ID를 입력하세요."
           ></StInputMember>
-          <StInputBtn type="button" onClick={handleAddMemeber}>
+          <StInputBtn type="button" disabled={!inputId} onClick={handleAddMemeber}>
             {inputId ? <IcPlusActive /> : <IcPlusDisabled />}
           </StInputBtn>
         </StInputWrapper>
-        {inputIdList.map((id) => (
-          <InputId key={id} id={id} handleDelete={() => handleDeleteMember(id)} />
+        {inputIdList.map((id, index) => (
+          <InputId key={index} id={id} handleDelete={() => handleDeleteMember(index)} />
         ))}
       </StPredictWrapper>
     </BaseLayout>

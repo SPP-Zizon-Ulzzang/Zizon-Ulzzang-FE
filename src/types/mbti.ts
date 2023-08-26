@@ -17,7 +17,7 @@ export interface RankInfo extends MBTIgramResponse {
   };
 }
 
-interface MemberData {
+export interface MemberData {
   instaId: string;
   mbti: string;
   relationships: number[];
