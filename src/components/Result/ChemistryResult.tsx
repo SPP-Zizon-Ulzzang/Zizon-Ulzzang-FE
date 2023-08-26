@@ -4,6 +4,7 @@ import { styled } from 'styled-components';
 
 import { getChemistry } from '../../libs/apis/mbti';
 import { ChemistryInfo, MemberData } from '../../types/mbti';
+import { Error } from '../Common/Error';
 
 const ChemistryResult = () => {
   const { state } = useLocation();
@@ -22,7 +23,7 @@ const ChemistryResult = () => {
         setChemistry(resData);
         setMemberData(resData.data.member_data);
       } else {
-        setErrorStatus(resData?.status);
+        setErrorStatus(resData);
       }
     } catch (error) {
       console.log(error);
@@ -39,6 +40,9 @@ const ChemistryResult = () => {
   }, [state]);
 
   if (loading) return '로딩중...';
+  if (errorStatus) {
+    return <Error code={errorStatus} />;
+  }
 
   return (
     <StChemistryResult>

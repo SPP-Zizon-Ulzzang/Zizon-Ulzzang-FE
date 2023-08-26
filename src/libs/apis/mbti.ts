@@ -12,9 +12,11 @@ export const client = axios.create({
 export const getMBTI = async (snsUrl: string) => {
   try {
     const { data } = await client.get<MBTIInfo>(`/sns/instagram?snsUrl=${snsUrl}`);
+    console.log(data);
     return data;
-  } catch (err) {
+  } catch (err: any) {
     console.error(err);
+    return err.response?.data.status;
   }
 };
 
@@ -32,7 +34,8 @@ export const getChemistry = async (idList: string[]) => {
     const queryParams = idList.map((id, index) => `id${index}=${id}`).join('&');
     const { data } = await client.get<ChemistryInfo>(`/sns/instagram/chemistry?${queryParams}`);
     return data;
-  } catch (err) {
+  } catch (err: any) {
     console.error(err);
+    return err.response?.data.status;
   }
 };

@@ -4,6 +4,7 @@ import { styled } from 'styled-components';
 
 import { getMBTI, getRank } from '../../libs/apis/mbti';
 import { MBTIInfo, RankInfo } from '../../types/mbti';
+import { Error } from '../Common/Error';
 
 const PersonalResult = () => {
   const { id } = useParams();
@@ -16,11 +17,10 @@ const PersonalResult = () => {
   const getMBTIData = async (id: string) => {
     try {
       const resMbti = await getMBTI(id);
-      console.log(resMbti);
       if (resMbti?.status === 200) {
         setMbti(resMbti);
       } else {
-        setErrorStatus(resMbti?.status);
+        setErrorStatus(resMbti);
       }
     } catch (error) {
       console.log(error);
@@ -44,13 +44,15 @@ const PersonalResult = () => {
 
   useEffect(() => {
     if (id) {
-      console.log(id);
       getMBTIData(id);
       getRankData();
     }
   }, [id]);
 
   if (loading) return '로딩중...';
+  if (errorStatus) {
+    return <Error code={errorStatus} />;
+  }
 
   return (
     <StPersonalResult>

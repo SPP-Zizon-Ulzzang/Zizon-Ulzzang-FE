@@ -4,6 +4,7 @@ import { RecoilRoot } from 'recoil';
 import {
   ChemistryResultPage,
   ChemistryTestPage,
+  ErrorPage,
   HomePage,
   PersonalResultPage,
   PersonalTestPage,
@@ -19,7 +20,7 @@ function Router() {
           <Route path="/result/:id" element={<PersonalResultPage />} />
           <Route path="/chemistry" element={<ChemistryTestPage />} />
           <Route path="/result/chemistry" element={<ChemistryResultPage />} />
-          {/* <Route path="*" element={<ErrorPage />} /> */}
+          <Route path="*" element={<ErrorPage />} />
         </Routes>
       </RecoilRoot>
     </BrowserRouter>
