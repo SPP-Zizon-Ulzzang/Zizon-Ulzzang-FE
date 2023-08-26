@@ -12,7 +12,6 @@ export const client = axios.create({
 export const getMBTI = async (snsUrl: string) => {
   try {
     const { data } = await client.get<MBTIInfo>(`/sns/instagram?snsUrl=${snsUrl}`);
-    console.log(data);
     return data;
   } catch (err: any) {
     console.error(err);

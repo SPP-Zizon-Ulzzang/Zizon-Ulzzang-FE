@@ -16,26 +16,21 @@ const ChemistryResult = () => {
   const [errorStatus, setErrorStatus] = useState<number>();
 
   const getChemistryData = async (idList: string[]) => {
-    try {
-      const resData = await getChemistry(idList);
+    const resData = await getChemistry(idList);
 
-      if (resData?.status === 200) {
-        setChemistry(resData);
-        setMemberData(resData.data.member_data);
-      } else {
-        setErrorStatus(resData);
-      }
-    } catch (error) {
-      console.log(error);
-    } finally {
-      setLoading(false);
+    if (resData?.status === 200) {
+      setChemistry(resData);
+      setMemberData(resData.data.member_data);
+    } else {
+      setErrorStatus(resData);
     }
+
+    setLoading(false);
   };
 
   useEffect(() => {
     if (state) {
       getChemistryData(inputIdList);
-      console.log(memberData);
     }
   }, [state]);
 
@@ -46,7 +41,7 @@ const ChemistryResult = () => {
 
   return (
     <StChemistryResult>
-      {memberData ? (
+      {memberData && (
         <>
           <h3>MBTI 궁합</h3>
           <ol>
@@ -69,7 +64,7 @@ const ChemistryResult = () => {
             ))}
           </ol>
         </>
-      ) : null}
+      )}
     </StChemistryResult>
   );
 };

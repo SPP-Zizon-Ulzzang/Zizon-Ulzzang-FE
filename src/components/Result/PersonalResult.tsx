@@ -15,18 +15,15 @@ const PersonalResult = () => {
   const [errorStatus, setErrorStatus] = useState<number>();
 
   const getMBTIData = async (id: string) => {
-    try {
-      const resMbti = await getMBTI(id);
-      if (resMbti?.status === 200) {
-        setMbti(resMbti);
-      } else {
-        setErrorStatus(resMbti);
-      }
-    } catch (error) {
-      console.log(error);
-    } finally {
-      setLoading(false);
+    const resMbti = await getMBTI(id);
+
+    if (resMbti?.status === 200) {
+      setMbti(resMbti);
+    } else {
+      setErrorStatus(resMbti);
     }
+
+    setLoading(false);
   };
 
   const getRankData = async () => {
@@ -56,7 +53,7 @@ const PersonalResult = () => {
 
   return (
     <StPersonalResult>
-      {mbti && rank ? (
+      {mbti && rank && (
         <>
           <h2>{mbti.mbti}</h2>
           <ol>
@@ -76,7 +73,7 @@ const PersonalResult = () => {
             ))}
           </ol>
         </>
-      ) : null}
+      )}
     </StPersonalResult>
   );
 };
