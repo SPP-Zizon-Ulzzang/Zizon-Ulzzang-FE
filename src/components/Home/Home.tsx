@@ -1,7 +1,7 @@
 import { useNavigate } from 'react-router-dom';
 import { styled } from 'styled-components';
 
-import { IcHomeLogo } from '../../assets/icons';
+import { IcHomeCharacter, IcHomeLogo } from '../../assets/icons';
 import { Button } from '../Common/Button';
 
 const Home = () => {
@@ -20,9 +20,14 @@ const Home = () => {
       <IcHomeLogo className="home-logo" />
       <StHomeContent>
         <h2>AI가 분석한 나의 MBTI는?</h2>
-        <p>인스타그램 피드 게시글을 분석해 MBTI를</p>
-        <p>예측하고 여러 사람들과 궁합을 측정해 보세요!</p>
-        <StMainImage />
+        <p>
+          인스타그램 피드 게시글을 분석해 MBTI를
+          <br />
+          예측하고 여러 사람들과 궁합을 측정해 보세요!
+        </p>
+        <StMainImage>
+          <IcHomeCharacter />
+        </StMainImage>
       </StHomeContent>
       <StBtnWrapper>
         <Button buttonName="나의 MBTI 예측하기" isActive={true} onClick={handleClickPersonal} />
@@ -70,17 +75,24 @@ const StHomeContent = styled.section`
   }
   & > p {
     margin-bottom: 2.449rem;
+
     color: ${({ theme }) => theme.colors.Description};
     ${({ theme }) => theme.fonts.Description};
+
+    text-align: center;
   }
 `;
 
 const StMainImage = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
   margin-bottom: 2.449rem;
   width: 33.7rem;
   height: 27rem;
 
-  background-color: ${({ theme }) => theme.colors.Description};
+  /* background-color: ${({ theme }) => theme.colors.Description}; */
 `;
 
 export const StBtnWrapper = styled.div`
