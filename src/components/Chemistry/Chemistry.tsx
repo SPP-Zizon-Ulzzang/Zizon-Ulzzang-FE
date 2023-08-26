@@ -14,6 +14,10 @@ const Chemistry = () => {
   const navigate = useNavigate();
 
   const handleChemistry = () => {
+    if (inputIdList.length < 2) {
+      alert('2개 이상의 ID를 입력하세요.');
+      return;
+    }
     navigate('/result/chemistry', { state: { inputIdList } });
   };
 
@@ -90,16 +94,30 @@ export const StInputBtn = styled.button`
   display: flex;
   align-items: center;
   justify-content: center;
-
+  /* 
   min-width: 4.8rem;
   height: 4.8rem;
 
-  border-radius: 7.2rem;
+  border-radius: 7.2rem; */
+
+  min-width: 6.4rem;
+  height: 6.4rem;
+  margin-left: -33.333333333%;
+
+  border-radius: 9.6rem;
   background-color: ${({ theme }) => theme.colors.Input_Area};
+
+  transform: scale(0.75);
+  transform-origin: right;
 `;
 
 export const StInputMember = styled(StInput)`
-  width: 100%;
+  /* width: 100%;
+  padding: 1.248rem 2.352rem; */
 
-  padding: 1.248rem 2.352rem;
+  width: 133.3333%;
+  padding: 1.664rem 3.1356rem;
+
+  transform: scale(0.75);
+  transform-origin: left;
 `;
