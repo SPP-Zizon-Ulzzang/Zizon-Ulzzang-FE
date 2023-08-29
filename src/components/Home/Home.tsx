@@ -1,7 +1,9 @@
+import Lottie from 'lottie-react';
 import { useNavigate } from 'react-router-dom';
 import { styled } from 'styled-components';
 
-import { IcHomeCharacter, IcHomeLogo } from '../../assets/icons';
+import { IcHomeLogo } from '../../assets/icons';
+import { LottieLoading } from '../../assets/lottie';
 import { Button } from '../Common/Button';
 
 const Home = () => {
@@ -26,7 +28,7 @@ const Home = () => {
           예측하고 여러 사람들과 궁합을 측정해 보세요!
         </p>
         <StMainImage>
-          <IcHomeCharacter />
+          <Lottie className="lottie" animationData={LottieLoading} loop={true} />
         </StMainImage>
       </StHomeContent>
       <a href="https://www.cutercounter.com/" target="_blank">
@@ -97,8 +99,6 @@ const StMainImage = styled.div`
   margin-bottom: 2.449rem;
   width: 33.7rem;
   height: 27rem;
-
-  /* background-color: ${({ theme }) => theme.colors.Description}; */
 `;
 
 export const StBtnWrapper = styled.div`
