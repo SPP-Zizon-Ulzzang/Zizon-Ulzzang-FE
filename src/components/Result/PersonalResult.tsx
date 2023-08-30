@@ -46,6 +46,12 @@ import { MBTIInfo, RankInfo } from '../../types/mbti';
 import { Error } from '../Common/Error';
 import { Loading } from '../Loading';
 
+interface ResultImgEntry {
+  MBTI: string;
+  main: React.ReactNode;
+  rank: React.ReactNode;
+}
+
 const PersonalResult = () => {
   const { id } = useParams();
   const [mbti, setMbti] = useState<MBTIInfo>();
@@ -56,6 +62,89 @@ const PersonalResult = () => {
 
   const [loading, setLoading] = useState(true);
   const [errorStatus, setErrorStatus] = useState<number>();
+
+  const resultImg: ResultImgEntry[] = [
+    {
+      MBTI: 'ENFJ',
+      main: <IcENFJMain />,
+      rank: <IcENFJRank />,
+    },
+    {
+      MBTI: 'ENFP',
+      main: <IcENFPMain />,
+      rank: <IcENFPRank />,
+    },
+    {
+      MBTI: 'ENTJ',
+      main: <IcENTJMain />,
+      rank: <IcENTJRank />,
+    },
+    {
+      MBTI: 'ENTP',
+      main: <IcENTPMain />,
+      rank: <IcENTPRank />,
+    },
+    {
+      MBTI: 'ESFJ',
+      main: <IcESFJMain />,
+      rank: <IcESFJRank />,
+    },
+    {
+      MBTI: 'ESFP',
+      main: <IcESFPMain />,
+      rank: <IcESFPRank />,
+    },
+    {
+      MBTI: 'ESTJ',
+      main: <IcESTJMain />,
+      rank: <IcESTJRank />,
+    },
+    {
+      MBTI: 'ESTP',
+      main: <IcESTPMain />,
+      rank: <IcESTPRank />,
+    },
+    {
+      MBTI: 'INFJ',
+      main: <IcINFJMain />,
+      rank: <IcINFJRank />,
+    },
+    {
+      MBTI: 'INFP',
+      main: <IcINFPMain />,
+      rank: <IcINFPRank />,
+    },
+    {
+      MBTI: 'INTJ',
+      main: <IcINTJMain />,
+      rank: <IcINTJRank />,
+    },
+    {
+      MBTI: 'INTP',
+      main: <IcINTPMain />,
+      rank: <IcINTPRank />,
+    },
+    {
+      MBTI: 'ISFJ',
+      main: <IcISFJMain />,
+      rank: <IcISFJRank />,
+    },
+    {
+      MBTI: 'ISFP',
+      main: <IcISFPMain />,
+      rank: <IcISFPRank />,
+    },
+    {
+      MBTI: 'ISTJ',
+      main: <IcISTJMain />,
+      rank: <IcISTJRank />,
+    },
+    {
+      MBTI: 'ISTP',
+      main: <IcISTPMain />,
+      rank: <IcISTPRank />,
+    },
+  ];
 
   const getMBTIData = async (id: string) => {
     const resMbti = await getMBTI(id);
@@ -135,16 +224,17 @@ const PersonalResult = () => {
             <StRank>
               {Object.entries(rank.rank).map(([key, value], index) => {
                 const rankInfo = MBTI_STYLE.find((item) => item.MBTI === key);
+                const imgInfo = resultImg.find((item) => item.MBTI === key);
                 const rankSrc = rankInfo ? rankInfo.img_rank : '';
                 const rankColor = rankInfo ? rankInfo.sub_color : '';
                 const height = ['10.7rem', '7rem', '4.2rem', '2.8rem'][index] || 'auto';
 
                 return (
-                  <li key={key}>
+                  <li key={key} className={key}>
                     {index < 4 ? (
                       <StTopWrapper>
-                        <img src={rankSrc} alt="순위-캐릭터" />
-                        <div style={{ backgroundColor: rankColor, height: height }} />
+                        <StResultImg className={key}>{imgInfo?.rank}</StResultImg>
+                        <div style={{ backgroundColor: rankInfo?.sub_color, height: height }} />
                         <strong>{`${index + 1}`}</strong>
                         <p>{key}</p>
                       </StTopWrapper>
@@ -250,12 +340,6 @@ const StTopWrapper = styled.div`
   margin-top: 2.5rem;
   margin-bottom: 2.43rem;
 
-  & > img {
-    width: 5.8rem;
-    margin-bottom: -1rem;
-
-    z-index: 1;
-  }
   & > div {
     width: 6.8rem;
     height: auto;
@@ -271,3 +355,14 @@ const StTopWrapper = styled.div`
 `;
 
 const StDownWrapper = styled.div``;
+
+const StResultImg = styled.div`
+  z-index: 1;
+
+  & > svg {
+    width: 5.8rem;
+    height: 5.8rem;
+
+    margin-bottom: -1rem;
+  }
+`;
