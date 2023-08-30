@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import { styled } from 'styled-components';
 
+import { MBTI_RESULT, MBTIResult } from '../../constants/MBTI';
 import { getMBTI, getRank } from '../../libs/apis/mbti';
 import { MBTIInfo, RankInfo } from '../../types/mbti';
 import { Error } from '../Common/Error';
@@ -10,6 +11,7 @@ import { Loading } from '../Loading';
 const PersonalResult = () => {
   const { id } = useParams();
   const [mbti, setMbti] = useState<MBTIInfo>();
+  const [mbtiResult, setMbtiResult] = useState<MBTIResult>();
   const [rank, setRank] = useState<RankInfo>();
 
   const [loading, setLoading] = useState(true);
@@ -20,6 +22,7 @@ const PersonalResult = () => {
 
     if (resMbti?.status === 200) {
       setMbti(resMbti);
+      setMbtiResult(MBTI_RESULT.find((item) => item.MBTI === resMbti.mbti));
     } else {
       setErrorStatus(resMbti);
     }
@@ -35,8 +38,6 @@ const PersonalResult = () => {
       }
     } catch (error) {
       console.log(error);
-    } finally {
-      // setLoading(false);
     }
   };
 
@@ -54,9 +55,12 @@ const PersonalResult = () => {
 
   return (
     <StPersonalResult>
-      {mbti && rank && (
+      {mbti && mbtiResult && rank && (
         <>
-          <h2>{mbti.mbti}</h2>
+          <span>{mbtiResult.instaId}</span>
+          <StMainImg src={mbtiResult.img_main} alt="mbti캐릭터" />
+          <h1>{mbtiResult.MBTI}</h1>
+
           <ol>
             내 MBTI 예측 순위
             {Object.entries(mbti.prob).map(([key, value], index) => (
@@ -108,4 +112,8 @@ const StPersonalResult = styled.main`
   & > ol > li {
     ${({ theme }) => theme.fonts.Description};
   }
+`;
+
+const StMainImg = styled.img`
+  width: 19.0284rem;
 `;

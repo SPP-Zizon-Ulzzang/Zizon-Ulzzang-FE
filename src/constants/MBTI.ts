@@ -1,4 +1,14 @@
-const mainSrc = 'src/assets/icons/mbti_main/';
+const mainSrc = '/mbti/';
+
+export interface MBTIResult {
+  MBTI: string;
+  img_main: string;
+  instaId: string;
+  gram: string;
+  title: string;
+  tag: string;
+  description: string;
+}
 
 export const MBTI_RESULT = [
   {
