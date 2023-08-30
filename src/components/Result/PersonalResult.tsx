@@ -5,6 +5,7 @@ import { styled } from 'styled-components';
 import { getMBTI, getRank } from '../../libs/apis/mbti';
 import { MBTIInfo, RankInfo } from '../../types/mbti';
 import { Error } from '../Common/Error';
+import { Loading } from '../Loading';
 
 const PersonalResult = () => {
   const { id } = useParams();
@@ -35,7 +36,7 @@ const PersonalResult = () => {
     } catch (error) {
       console.log(error);
     } finally {
-      setLoading(false);
+      // setLoading(false);
     }
   };
 
@@ -46,7 +47,7 @@ const PersonalResult = () => {
     }
   }, [id]);
 
-  if (loading) return '로딩중...';
+  if (loading) return <Loading />;
   if (errorStatus) {
     return <Error code={errorStatus} />;
   }

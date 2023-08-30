@@ -1,4 +1,5 @@
 import axios from 'axios';
+import NProgress from 'nprogress';
 
 import { ChemistryInfo, MBTIInfo, RankInfo } from '../../types/mbti';
 
@@ -8,6 +9,34 @@ export const client = axios.create({
     'Content-type': 'application/json',
   },
 });
+
+let responseCount = 0;
+
+client.interceptors.request.use((config) => {
+  console.log('요청');
+  responseCount = 0;
+  NProgress.start();
+  return config;
+});
+
+client.interceptors.response.use(
+  (response) => {
+    console.log('성공 응답');
+    responseCount++;
+    if (responseCount === 2) {
+      NProgress.done();
+    }
+    return response;
+  },
+  (error) => {
+    console.log('에러 응답');
+    responseCount++;
+    if (responseCount === 2) {
+      NProgress.done();
+    }
+    return Promise.reject(error);
+  },
+);
 
 export const getMBTI = async (snsUrl: string) => {
   try {
