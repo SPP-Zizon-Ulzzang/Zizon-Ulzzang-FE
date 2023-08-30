@@ -14,6 +14,12 @@ const Chemistry = () => {
 
   const navigate = useNavigate();
 
+  const transitions = useTransition(inputIdList, {
+    from: { opacity: 0.8, transform: 'translateY(-40px) rotate(0deg)' },
+    enter: { opacity: 1, transform: 'translateY(0px) rotate(0deg)' },
+    config: { tension: 220, friction: 25 },
+  });
+
   const handleChemistry = () => {
     if (inputIdList.length < 2) {
       alert('2개 이상의 ID를 입력하세요.');
@@ -65,8 +71,13 @@ const Chemistry = () => {
             {inputId ? <IcPlusActive /> : <IcPlusDisabled />}
           </StInputBtn>
         </StInputWrapper>
-        {inputIdList.map((id, index) => (
-          <InputId key={index} id={id} handleDelete={() => handleDeleteMember(index)} />
+        {transitions((style, id) => (
+          <animated.div
+            key={id}
+            style={{ ...style, width: '100%', display: 'flex', justifyContent: 'center' }}
+          >
+            <InputId id={id} handleDelete={() => handleDeleteMember(inputIdList.indexOf(id))} />
+          </animated.div>
         ))}
       </StPredictWrapper>
     </BaseLayout>

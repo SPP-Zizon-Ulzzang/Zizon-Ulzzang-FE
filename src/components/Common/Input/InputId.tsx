@@ -1,3 +1,5 @@
+import { useState } from 'react';
+import { animated, useSpring } from 'react-spring';
 import { styled } from 'styled-components';
 
 import { IcDelete } from '../../../assets/icons';
@@ -7,11 +9,18 @@ interface InputIdProps {
   handleDelete: () => void;
 }
 const InputId = ({ id, handleDelete }: InputIdProps) => {
+  const deleteButtonRotation = useSpring({
+    transform: 'rotate(-90deg)',
+    config: { mass: 1, tension: 80, friction: 60 },
+  });
+
   return (
     <StInputIdWrapper>
       <StInputId>{id}</StInputId>
       <StInputIdBtn type="button" onClick={handleDelete}>
-        <IcDelete />
+        <animated.div style={deleteButtonRotation}>
+          <IcDelete />
+        </animated.div>
       </StInputIdBtn>
     </StInputIdWrapper>
   );
@@ -25,6 +34,8 @@ const StInputIdWrapper = styled.div`
 
   width: 70%;
   margin-top: 0.886rem;
+
+  z-index: 1000000;
 `;
 
 const StInputId = styled.div`
