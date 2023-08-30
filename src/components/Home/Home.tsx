@@ -4,6 +4,7 @@ import { styled } from 'styled-components';
 
 import { IcHomeLogo } from '../../assets/icons';
 import { LottieLoading } from '../../assets/lottie';
+import { MBTI_RESULT } from '../../constants/MBTI';
 import { Button } from '../Common/Button';
 
 const Home = () => {
@@ -18,6 +19,11 @@ const Home = () => {
 
   return (
     <StHomeWrapper>
+      {/* <p>{MBTI_RESULT[0].MBTI}</p>
+      <p>{MBTI_RESULT[0].description}</p>
+      <p>
+        <img src={MBTI_RESULT[0].img_main} alt="dd" />
+      </p> */}
       <h1 className="sr-only">MBTIgram</h1>
       <IcHomeLogo className="home-logo" />
       <StHomeContent>
