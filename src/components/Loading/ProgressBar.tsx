@@ -1,27 +1,15 @@
 import 'nprogress/nprogress.css';
 
 import NProgress from 'nprogress';
-import { useEffect, useState } from 'react';
+import { useEffect } from 'react';
 import { styled } from 'styled-components';
 
 const ProgressBar = () => {
-  const [width, setWidth] = useState(0);
-
   useEffect(() => {
-    NProgress.configure({ showSpinner: false });
     NProgress.configure({ parent: '.myProgressBar' });
-    // NProgress.start();
-
-    return () => {
-      // NProgress.done();
-    };
   }, []);
 
-  return (
-    <StProgressBar className="myProgressBar">
-      <StPercent style={{ width: `${width}%` }} />
-    </StProgressBar>
-  );
+  return <StProgressBar className="myProgressBar" />;
 };
 
 export default ProgressBar;
@@ -36,16 +24,15 @@ const StProgressBar = styled.div`
   border-radius: 7.2rem;
   background-color: #f6f6f6;
 
-  #nprogress .spinner {
-    top: 50%;
-    right: 50%;
+  #nprogress .bar {
+    width: 100%;
+    height: 0.6675rem;
+    border-radius: 7.2rem;
+
+    background: #373737;
   }
-`;
 
-const StPercent = styled(StProgressBar)`
-  margin-top: 0rem;
-
-  background-color: #373737;
-
-  transition: width 0.2s ease-in-out;
+  #nprogress .peg {
+    display: none;
+  }
 `;

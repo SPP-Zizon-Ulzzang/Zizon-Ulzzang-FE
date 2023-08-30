@@ -10,28 +10,30 @@ export const client = axios.create({
   },
 });
 
-let responseCount = 0;
+let requestCount = 0;
 
 client.interceptors.request.use((config) => {
-  console.log('요청');
-  responseCount = 0;
-  NProgress.start();
+  if (requestCount === 0) {
+    NProgress.start();
+    NProgress.configure({ showSpinner: false });
+    NProgress.configure({ minimum: 0.9 });
+    NProgress.configure({ speed: 400 });
+  }
+  requestCount++;
   return config;
 });
 
 client.interceptors.response.use(
   (response) => {
-    console.log('성공 응답');
-    responseCount++;
-    if (responseCount === 2) {
+    requestCount--;
+    if (requestCount === 0) {
       NProgress.done();
     }
     return response;
   },
   (error) => {
-    console.log('에러 응답');
-    responseCount++;
-    if (responseCount === 2) {
+    requestCount--;
+    if (requestCount === 0) {
       NProgress.done();
     }
     return Promise.reject(error);
