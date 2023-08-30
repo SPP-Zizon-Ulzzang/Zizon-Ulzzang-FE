@@ -59,10 +59,14 @@ const PersonalResult = () => {
         <>
           <span>{mbtiResult.instaId}</span>
           <StMainImg src={mbtiResult.img_main} alt="mbti캐릭터" />
+          <h2>{mbtiResult.gram}</h2>
           <h1>{mbtiResult.MBTI}</h1>
+          <strong>{mbtiResult.title}</strong>
+          <p>{mbtiResult.tag}</p>
+          <p>{mbtiResult.description}</p>
 
           <ol>
-            내 MBTI 예측 순위
+            나의 MBTI 예측 순위
             {Object.entries(mbti.prob).map(([key, value], index) => (
               <li key={key}>
                 {index + 1}위: {key} {value}%
