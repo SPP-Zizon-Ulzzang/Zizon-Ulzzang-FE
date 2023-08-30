@@ -230,7 +230,7 @@ const PersonalResult = () => {
           <StRankWrapper>
             <h2>AI가 분석한 이용자 MBTI 순위</h2>
             <StRank>
-              {Object.entries(rank.rank).map(([key, value], index) => {
+              {Object.entries(rank.rank).map(([key], index) => {
                 const rankInfo = MBTI_STYLE.find((item) => item.MBTI === key);
                 const imgInfo = resultImg.find((item) => item.MBTI === key);
                 const height = ['10.7rem', '7rem', '4.2rem', '2.8rem'][index] || 'auto';
