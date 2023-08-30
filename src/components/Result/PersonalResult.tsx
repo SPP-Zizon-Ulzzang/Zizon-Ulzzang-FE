@@ -2,8 +2,9 @@ import { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import { styled } from 'styled-components';
 
-import { MBTI_COLOR, MBTIColor } from '../../constants/color';
+import { IcBallon2 } from '../../assets/icons';
 import { MBTI_RESULT, MBTIResult } from '../../constants/MBTI';
+import { MBTI_STYLE } from '../../constants/result';
 import { getMBTI, getRank } from '../../libs/apis/mbti';
 import { MBTIInfo, RankInfo } from '../../types/mbti';
 import { Error } from '../Common/Error';
@@ -27,7 +28,7 @@ const PersonalResult = () => {
       setMbti(resMbti);
       setMbtiResult(MBTI_RESULT.find((item) => item.MBTI === resMbti.mbti));
 
-      const colorInfo = MBTI_COLOR.find((item) => item.MBTI === resMbti.mbti);
+      const colorInfo = MBTI_STYLE.find((item) => item.MBTI === resMbti.mbti);
       setResultMainColor(colorInfo?.main_color);
     } else {
       setErrorStatus(resMbti);
@@ -69,6 +70,7 @@ const PersonalResult = () => {
           <h1>{mbtiResult.MBTI}</h1>
 
           <StDescWrapper>
+            <IcBallon2 />
             <strong>{mbtiResult.title}</strong>
             <p style={{ color: resultMainColor }}>{mbtiResult.tag}</p>
             <p>{mbtiResult.description}</p>
@@ -78,7 +80,7 @@ const PersonalResult = () => {
             <h2>나의 MBTI 예측 순위</h2>
             <StMBTIProb>
               {Object.entries(mbti.prob).map(([key, value], index) => {
-                const colorInfo = MBTI_COLOR.find((item) => item.MBTI === key);
+                const colorInfo = MBTI_STYLE.find((item) => item.MBTI === key);
                 const mainColor = colorInfo ? colorInfo.main_color : '#000';
 
                 return (
@@ -94,13 +96,29 @@ const PersonalResult = () => {
 
           <StRankWrapper>
             <h2>AI가 분석한 이용자 MBTI 순위</h2>
-            <ol>
-              {Object.entries(rank.rank).map(([key, value], index) => (
-                <li key={key}>
-                  {index + 1}위: {key} {value}%
-                </li>
-              ))}
-            </ol>
+            <StRank>
+              {Object.entries(rank.rank).map(([key, value], index) => {
+                const rankInfo = MBTI_STYLE.find((item) => item.MBTI === key);
+                const rankSrc = rankInfo ? rankInfo.img_rank : '';
+                const rankColor = rankInfo ? rankInfo.sub_color : '';
+                const height = ['10.7rem', '7rem', '4.2rem', '2.8rem'][index] || 'auto';
+
+                return (
+                  <li key={key}>
+                    {index < 4 ? (
+                      <StTopWrapper>
+                        <img src={rankSrc} alt="순위-캐릭터" />
+                        <div style={{ backgroundColor: rankColor, height: height }} />
+                        <strong>{`${index + 1}`}</strong>
+                        <p>{key}</p>
+                      </StTopWrapper>
+                    ) : (
+                      <StDownWrapper>{`${index + 1}. ${key}`}</StDownWrapper>
+                    )}
+                  </li>
+                );
+              })}
+            </StRank>
           </StRankWrapper>
         </>
       )}
@@ -128,6 +146,7 @@ const StMainImg = styled.img`
 `;
 
 const StDescWrapper = styled.section`
+  position: relative;
   width: 100%;
   margin-bottom: 2.54rem;
   padding: 1.56rem 2rem 1.28rem 2rem;
@@ -137,6 +156,14 @@ const StDescWrapper = styled.section`
   border-radius: 2rem;
   background-color: #ffffff;
   filter: drop-shadow(0px 0px 5px rgba(0, 0, 0, 0.1));
+
+  & > p {
+    word-break: keep-all;
+  }
+  & > svg {
+    position: absolute;
+    top: -3.6rem;
+  }
 `;
 
 const StProbWrapper = styled(StDescWrapper)`
@@ -164,9 +191,47 @@ const StProbRank = styled.div`
 
   width: 3.446rem;
   height: 3.446rem;
+  margin-top: 1.87rem;
 
   color: #ffffff;
   border-radius: 10rem;
 `;
 
-const StRankWrapper = styled.section``;
+const StRankWrapper = styled(StDescWrapper)``;
+
+const StRank = styled.ol`
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  justify-items: center;
+  align-items: end;
+`;
+
+const StTopWrapper = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  margin-top: 2.5rem;
+  margin-bottom: 2.43rem;
+
+  & > img {
+    width: 5.8rem;
+    margin-bottom: -1rem;
+
+    z-index: 1;
+  }
+  & > div {
+    width: 6.8rem;
+    height: auto;
+
+    border-radius: 0.3rem;
+  }
+  & > strong {
+    margin-top: -1rem;
+    margin-bottom: 1.5rem;
+
+    color: white;
+  }
+`;
+
+const StDownWrapper = styled.div``;
