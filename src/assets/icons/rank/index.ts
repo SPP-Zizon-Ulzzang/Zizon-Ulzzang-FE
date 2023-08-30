@@ -1,0 +1,16 @@
+export { ReactComponent as IcENFJRank } from './enfj-21.svg';
+export { ReactComponent as IcENFPRank } from './enfp-21.svg';
+export { ReactComponent as IcENTJRank } from './entj-21.svg';
+export { ReactComponent as IcENTPRank } from './entp-21.svg';
+export { ReactComponent as IcESFJRank } from './esfj-21.svg';
+export { ReactComponent as IcESFPRank } from './esfp-21.svg';
+export { ReactComponent as IcESTJRank } from './estj-21.svg';
+export { ReactComponent as IcESTPRank } from './estp-21.svg';
+export { ReactComponent as IcINFJRank } from './infj-21.svg';
+export { ReactComponent as IcINFPRank } from './infp-21.svg';
+export { ReactComponent as IcINTJRank } from './intj-21.svg';
+export { ReactComponent as IcINTPRank } from './intp-21.svg';
+export { ReactComponent as IcISFJRank } from './isfj-21.svg';
+export { ReactComponent as IcISFPRank } from './isfp-21.svg';
+export { ReactComponent as IcISTJRank } from './istj-21.svg';
+export { ReactComponent as IcISTPRank } from './istp-21.svg';

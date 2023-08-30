@@ -3,6 +3,42 @@ import { useParams } from 'react-router-dom';
 import { styled } from 'styled-components';
 
 import { IcBallon2 } from '../../assets/icons';
+import {
+  IcENFJMain,
+  IcENFPMain,
+  IcENTJMain,
+  IcENTPMain,
+  IcESFJMain,
+  IcESFPMain,
+  IcESTJMain,
+  IcESTPMain,
+  IcINFJMain,
+  IcINFPMain,
+  IcINTJMain,
+  IcINTPMain,
+  IcISFJMain,
+  IcISFPMain,
+  IcISTJMain,
+  IcISTPMain,
+} from '../../assets/icons/mbti';
+import {
+  IcENFJRank,
+  IcENFPRank,
+  IcENTJRank,
+  IcENTPRank,
+  IcESFJRank,
+  IcESFPRank,
+  IcESTJRank,
+  IcESTPRank,
+  IcINFJRank,
+  IcINFPRank,
+  IcINTJRank,
+  IcINTPRank,
+  IcISFJRank,
+  IcISFPRank,
+  IcISTJRank,
+  IcISTPRank,
+} from '../../assets/icons/rank';
 import { MBTI_RESULT, MBTIResult } from '../../constants/MBTI';
 import { MBTI_STYLE } from '../../constants/result';
 import { getMBTI, getRank } from '../../libs/apis/mbti';

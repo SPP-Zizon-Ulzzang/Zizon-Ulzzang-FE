@@ -1,0 +1,16 @@
+export { ReactComponent as IcENFJMain } from './enfj-22.svg';
+export { ReactComponent as IcENFPMain } from './enfp-22.svg';
+export { ReactComponent as IcENTJMain } from './entj-22.svg';
+export { ReactComponent as IcENTPMain } from './entp-22.svg';
+export { ReactComponent as IcESFJMain } from './esfj-22.svg';
+export { ReactComponent as IcESFPMain } from './esfp-22.svg';
+export { ReactComponent as IcESTJMain } from './estj-22.svg';
+export { ReactComponent as IcESTPMain } from './estp-22.svg';
+export { ReactComponent as IcINFJMain } from './infj-22.svg';
+export { ReactComponent as IcINFPMain } from './infp-22.svg';
+export { ReactComponent as IcINTJMain } from './intj-22.svg';
+export { ReactComponent as IcINTPMain } from './intp-22.svg';
+export { ReactComponent as IcISFJMain } from './isfj-22.svg';
+export { ReactComponent as IcISFPMain } from './isfp-22.svg';
+export { ReactComponent as IcISTJMain } from './istj-22.svg';
+export { ReactComponent as IcISTPMain } from './istp-22.svg';
