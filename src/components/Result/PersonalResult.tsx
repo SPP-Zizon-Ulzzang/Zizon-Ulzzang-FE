@@ -12,6 +12,8 @@ import { Loading } from '../Loading';
 const PersonalResult = () => {
   const { id } = useParams();
   const [mbti, setMbti] = useState<MBTIInfo>();
+  const [resultMainColor, setResultMainColor] = useState<string>();
+
   const [mbtiResult, setMbtiResult] = useState<MBTIResult>();
   const [rank, setRank] = useState<RankInfo>();
 
@@ -24,6 +26,9 @@ const PersonalResult = () => {
     if (resMbti?.status === 200) {
       setMbti(resMbti);
       setMbtiResult(MBTI_RESULT.find((item) => item.MBTI === resMbti.mbti));
+
+      const colorInfo = MBTI_COLOR.find((item) => item.MBTI === resMbti.mbti);
+      setResultMainColor(colorInfo?.main_color);
     } else {
       setErrorStatus(resMbti);
     }
@@ -62,9 +67,12 @@ const PersonalResult = () => {
           <StMainImg src={mbtiResult.img_main} alt="mbti캐릭터" />
           <h2>{mbtiResult.gram}</h2>
           <h1>{mbtiResult.MBTI}</h1>
-          <strong>{mbtiResult.title}</strong>
-          <p>{mbtiResult.tag}</p>
-          <p>{mbtiResult.description}</p>
+
+          <StDescWrapper>
+            <strong>{mbtiResult.title}</strong>
+            <p style={{ color: resultMainColor }}>{mbtiResult.tag}</p>
+            <p>{mbtiResult.description}</p>
+          </StDescWrapper>
 
           <StProbWrapper>
             <h2>나의 MBTI 예측 순위</h2>
@@ -72,13 +80,10 @@ const PersonalResult = () => {
               {Object.entries(mbti.prob).map(([key, value], index) => {
                 const colorInfo = MBTI_COLOR.find((item) => item.MBTI === key);
                 const mainColor = colorInfo ? colorInfo.main_color : '#000';
-                const subColor = colorInfo ? colorInfo.sub_color : '#000';
 
                 return (
                   <StProb key={key}>
-                    <StProbRank style={{ backgroundColor: mainColor, color: subColor }}>
-                      {index + 1}
-                    </StProbRank>
+                    <StProbRank style={{ backgroundColor: mainColor }}>{index + 1}</StProbRank>
                     <div>{key}</div>
                     <div>{value}%</div>
                   </StProb>
@@ -108,7 +113,6 @@ export default PersonalResult;
 const StPersonalResult = styled.main`
   display: flex;
   flex-direction: column;
-  justify-content: center;
   align-items: center;
 
   width: 100%;
@@ -123,14 +127,20 @@ const StMainImg = styled.img`
   width: 19.0284rem;
 `;
 
-const StProbWrapper = styled.section`
+const StDescWrapper = styled.section`
   width: 100%;
-  padding: 1.76rem 1.8rem 1.8rem 1.8rem;
+  margin-bottom: 2.54rem;
+  padding: 1.56rem 2rem 1.28rem 2rem;
+
   box-sizing: border-box;
 
   border-radius: 2rem;
   background-color: #ffffff;
   filter: drop-shadow(0px 0px 5px rgba(0, 0, 0, 0.1));
+`;
+
+const StProbWrapper = styled(StDescWrapper)`
+  padding: 1.76rem 1.8rem 1.8rem 1.8rem;
 `;
 
 const StMBTIProb = styled.ol`
