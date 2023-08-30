@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import { styled } from 'styled-components';
 
+import { MBTI_COLOR, MBTIColor } from '../../constants/color';
 import { MBTI_RESULT, MBTIResult } from '../../constants/MBTI';
 import { getMBTI, getRank } from '../../libs/apis/mbti';
 import { MBTIInfo, RankInfo } from '../../types/mbti';
@@ -65,22 +66,37 @@ const PersonalResult = () => {
           <p>{mbtiResult.tag}</p>
           <p>{mbtiResult.description}</p>
 
-          <ol>
-            나의 MBTI 예측 순위
-            {Object.entries(mbti.prob).map(([key, value], index) => (
-              <li key={key}>
-                {index + 1}위: {key} {value}%
-              </li>
-            ))}
-          </ol>
-          <ol>
-            MBTIgram 사용자 랭킹
-            {Object.entries(rank.rank).map(([key, value], index) => (
-              <li key={key}>
-                {index + 1}위: {key} {value}%
-              </li>
-            ))}
-          </ol>
+          <StProbWrapper>
+            <h2>나의 MBTI 예측 순위</h2>
+            <StMBTIProb>
+              {Object.entries(mbti.prob).map(([key, value], index) => {
+                const colorInfo = MBTI_COLOR.find((item) => item.MBTI === key);
+                const mainColor = colorInfo ? colorInfo.main_color : '#000';
+                const subColor = colorInfo ? colorInfo.sub_color : '#000';
+
+                return (
+                  <StProb key={key}>
+                    <StProbRank style={{ backgroundColor: mainColor, color: subColor }}>
+                      {index + 1}
+                    </StProbRank>
+                    <div>{key}</div>
+                    <div>{value}%</div>
+                  </StProb>
+                );
+              })}
+            </StMBTIProb>
+          </StProbWrapper>
+
+          <StRankWrapper>
+            <h2>AI가 분석한 이용자 MBTI 순위</h2>
+            <ol>
+              {Object.entries(rank.rank).map(([key, value], index) => (
+                <li key={key}>
+                  {index + 1}위: {key} {value}%
+                </li>
+              ))}
+            </ol>
+          </StRankWrapper>
         </>
       )}
     </StPersonalResult>
@@ -97,27 +113,50 @@ const StPersonalResult = styled.main`
 
   width: 100%;
   height: 100%;
+  padding: 0 1.8rem;
 
-  & > h2 {
-    margin-bottom: 2rem;
-
-    ${({ theme }) => theme.fonts.Input_Main};
-  }
-
-  & > ol {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-
-    margin-top: 2rem;
-
-    ${({ theme }) => theme.fonts.Main};
-  }
-  & > ol > li {
-    ${({ theme }) => theme.fonts.Description};
-  }
+  box-sizing: border-box;
+  background-color: #fbfbfb;
 `;
 
 const StMainImg = styled.img`
   width: 19.0284rem;
 `;
+
+const StProbWrapper = styled.section`
+  width: 100%;
+  padding: 1.76rem 1.8rem 1.8rem 1.8rem;
+  box-sizing: border-box;
+
+  border-radius: 2rem;
+  background-color: #ffffff;
+  filter: drop-shadow(0px 0px 5px rgba(0, 0, 0, 0.1));
+`;
+
+const StMBTIProb = styled.ol`
+  display: flex;
+  justify-content: space-between;
+
+  width: 100%;
+`;
+
+const StProb = styled.li`
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+`;
+
+const StProbRank = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  width: 3.446rem;
+  height: 3.446rem;
+
+  color: #ffffff;
+  border-radius: 10rem;
+`;
+
+const StRankWrapper = styled.section``;
