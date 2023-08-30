@@ -56,6 +56,7 @@ const PersonalResult = () => {
   const { id } = useParams();
   const [mbti, setMbti] = useState<MBTIInfo>();
   const [resultMainColor, setResultMainColor] = useState<string>();
+  const [resultMainImg, setResultMainImg] = useState<React.ReactNode | null>(null);
 
   const [mbtiResult, setMbtiResult] = useState<MBTIResult>();
   const [rank, setRank] = useState<RankInfo>();
@@ -155,6 +156,9 @@ const PersonalResult = () => {
 
       const colorInfo = MBTI_STYLE.find((item) => item.MBTI === resMbti.mbti);
       setResultMainColor(colorInfo?.main_color);
+
+      const imgInfo = resultImg.find((item) => item.MBTI === resMbti.mbti);
+      setResultMainImg(imgInfo?.main);
     } else {
       setErrorStatus(resMbti);
     }
@@ -189,10 +193,14 @@ const PersonalResult = () => {
     <StPersonalResult>
       {mbti && mbtiResult && rank && (
         <>
+          <StAlelt>아직 미완성입니다!!! 개발중입니다 에러 아닙니다</StAlelt>
           <span>{mbtiResult.instaId}</span>
-          <StMainImg src={mbtiResult.img_main} alt="mbti캐릭터" />
-          <h2>{mbtiResult.gram}</h2>
-          <h1>{mbtiResult.MBTI}</h1>
+
+          <StProfile>
+            <div>{resultMainImg}</div>
+            <h2>{mbtiResult.gram}</h2>
+            <h1>{mbtiResult.MBTI}</h1>
+          </StProfile>
 
           <StDescWrapper>
             <IcBallon2 />
@@ -225,8 +233,6 @@ const PersonalResult = () => {
               {Object.entries(rank.rank).map(([key, value], index) => {
                 const rankInfo = MBTI_STYLE.find((item) => item.MBTI === key);
                 const imgInfo = resultImg.find((item) => item.MBTI === key);
-                const rankSrc = rankInfo ? rankInfo.img_rank : '';
-                const rankColor = rankInfo ? rankInfo.sub_color : '';
                 const height = ['10.7rem', '7rem', '4.2rem', '2.8rem'][index] || 'auto';
 
                 return (
@@ -254,6 +260,11 @@ const PersonalResult = () => {
 
 export default PersonalResult;
 
+const StAlelt = styled.p`
+  font-size: 5rem;
+  color: blue;
+`;
+
 const StPersonalResult = styled.main`
   display: flex;
   flex-direction: column;
@@ -267,8 +278,12 @@ const StPersonalResult = styled.main`
   background-color: #fbfbfb;
 `;
 
-const StMainImg = styled.img`
-  width: 19.0284rem;
+const StProfile = styled.div`
+  margin-bottom: 7.2rem;
+  & > div > svg {
+    width: 19.5rem;
+    height: 19.7rem;
+  }
 `;
 
 const StDescWrapper = styled.section`
