@@ -21,11 +21,11 @@ export default Input;
 export const StInput = styled.input`
   box-sizing: border-box;
 
-  /* padding: 1.248rem 5.2rem;
+  padding: 1.248rem 5.2rem;
   width: 70%;
   min-width: 20.3rem;
 
-  border-radius: 7.2rem; */
+  border-radius: 7.2rem;
 
   border: none;
   color: #363636;
@@ -34,14 +34,14 @@ export const StInput = styled.input`
 
   text-align: center;
 
-  font-size: 1.6rem;
+  /* font-size: 1.6rem;
   padding: 1.664rem 8rem;
   width: 93.333331%;
   min-width: 27.06666rem;
   min-height: 6.34rem;
   border-radius: 9.6rem;
 
-  transform: scale(0.75);
+  transform: scale(0.75); */
 
   ::placeholder {
     ${({ theme }) => theme.fonts.Input_Before};

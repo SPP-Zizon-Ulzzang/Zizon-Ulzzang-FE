@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
+import { animated, useTransition } from 'react-spring';
 import { styled } from 'styled-components';
 
 import { IcPlusActive, IcPlusDisabled } from '../../assets/icons';
@@ -35,7 +36,7 @@ const Chemistry = () => {
       setInputId('');
       return;
     }
-    setInputIdList((prev) => [...prev, inputId]);
+    setInputIdList((prev) => [inputId, ...prev]);
     setInputId('');
   };
 
@@ -94,30 +95,30 @@ export const StInputBtn = styled.button`
   display: flex;
   align-items: center;
   justify-content: center;
-  /* 
+
   min-width: 4.8rem;
   height: 4.8rem;
 
-  border-radius: 7.2rem; */
+  border-radius: 7.2rem;
 
-  min-width: 6.4rem;
+  /* min-width: 6.4rem;
   height: 6.4rem;
   margin-left: -33.333333333%;
 
-  border-radius: 9.6rem;
-  background-color: ${({ theme }) => theme.colors.Input_Area};
-
   transform: scale(0.75);
   transform-origin: right;
+
+  border-radius: 9.6rem; */
+  background-color: ${({ theme }) => theme.colors.Input_Area};
 `;
 
 export const StInputMember = styled(StInput)`
-  /* width: 100%;
-  padding: 1.248rem 2.352rem; */
+  width: 100%;
+  padding: 1.248rem 2.352rem;
 
-  width: 133.3333%;
+  /* width: 133.3333%;
   padding: 1.664rem 3.1356rem;
 
   transform: scale(0.75);
-  transform-origin: left;
+  transform-origin: left; */
 `;

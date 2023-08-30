@@ -5,7 +5,6 @@ import { styled } from 'styled-components';
 import { IcHomeLogo } from '../../assets/icons';
 import { LottieLoading } from '../../assets/lottie';
 import { Button } from '../Common/Button';
-import { Loading } from '../Loading';
 
 const Home = () => {
   const navigate = useNavigate();
@@ -19,7 +18,6 @@ const Home = () => {
 
   return (
     <StHomeWrapper>
-      <Loading />
       <h1 className="sr-only">MBTIgram</h1>
       <IcHomeLogo className="home-logo" />
       <StHomeContent>
