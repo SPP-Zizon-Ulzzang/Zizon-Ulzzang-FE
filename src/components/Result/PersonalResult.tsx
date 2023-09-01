@@ -4,11 +4,12 @@ import { useParams } from 'react-router-dom';
 import { styled } from 'styled-components';
 
 import { IcArrowDown, IcBallon2, IcInstaHamburger, IcInstaPlus } from '../../assets/icons';
-import { RESULT_IMG } from '../../constants/image';
 import { MBTI_RESULT, MBTIResult } from '../../constants/MBTI';
 import { MBTI_STYLE } from '../../constants/result';
 import { getMBTI, getRank } from '../../libs/apis/mbti';
 import { MBTIInfo, RankInfo } from '../../types/mbti';
+import { mapMBTIToColor } from '../../utils/mapMBTIToColor';
+import { mapMBTIToImage } from '../../utils/mapMBTIToImage';
 import { Error } from '../Common/Error';
 import { Loading } from '../Loading';
 import { ResultButton } from './';
@@ -16,40 +17,37 @@ import { ResultButton } from './';
 const PersonalResult = () => {
   const { id } = useParams();
   const [mbti, setMbti] = useState<MBTIInfo>();
-  const [resultMainColor, setResultMainColor] = useState<string>();
-  const [resultMainImg, setResultMainImg] = useState<React.ReactNode | null>(null);
-
   const [mbtiResult, setMbtiResult] = useState<MBTIResult>();
   const [rank, setRank] = useState<RankInfo>();
+  const [resultMainColor, setResultMainColor] = useState<string>();
+  const [resultMainImg, setResultMainImg] = useState<React.ReactNode | null>(null);
+  const resultRef = useRef<HTMLElement | null>(null);
 
   const [loading, setLoading] = useState(true);
   const [errorStatus, setErrorStatus] = useState<number>();
-
-  const resultRef = useRef<HTMLElement | null>(null);
 
   const handleSaveImage = () => {
     if (resultRef.current) {
       const originalWidth = resultRef.current.offsetWidth;
       const originalHeight = resultRef.current.offsetHeight;
+      const originalBackgroundColor = resultRef.current.style.background;
+
       resultRef.current.style.width = `450px`;
       resultRef.current.style.height = `800px`;
       resultRef.current.style.padding = `0 18px 18px 18px`;
       resultRef.current.style.boxSizing = `border-box`;
-
-      const originalBackgroundColor = resultRef.current.style.background;
       resultRef.current.style.background =
         'linear-gradient(162deg, rgba(255, 142, 223, 0.5) 0.69%,rgba(255, 188, 125, 0.5) 101.5%)';
 
       html2canvas(resultRef.current).then((canvas) => {
         const image = canvas.toDataURL('image/png');
-
         const link = document.createElement('a');
         link.href = image;
         link.download = 'mbtigram_result_image.png';
         link.click();
       });
-      resultRef.current.style.background = originalBackgroundColor;
 
+      resultRef.current.style.background = originalBackgroundColor;
       resultRef.current.style.width = `${originalWidth}px`;
       resultRef.current.style.height = `${originalHeight}px`;
       resultRef.current.style.padding = `0 18px`;
@@ -63,16 +61,11 @@ const PersonalResult = () => {
     if (resMbti?.status === 200) {
       setMbti(resMbti);
       setMbtiResult(MBTI_RESULT.find((item) => item.MBTI === resMbti.mbti));
-
-      const colorInfo = MBTI_STYLE.find((item) => item.MBTI === resMbti.mbti);
-      setResultMainColor(colorInfo?.main_color);
-
-      const imgInfo = RESULT_IMG.find((item) => item.MBTI === resMbti.mbti);
-      setResultMainImg(imgInfo?.main);
+      setResultMainColor(mapMBTIToColor(resMbti.mbti).main_color);
+      setResultMainImg(mapMBTIToImage(resMbti.mbti).main_image);
     } else {
       setErrorStatus(resMbti);
     }
-
     setLoading(false);
   };
 
@@ -132,13 +125,12 @@ const PersonalResult = () => {
               <h2>나의 MBTI 예측 순위</h2>
               <StMBTIProb>
                 {Object.entries(mbti.prob).map(([key, value], index) => {
-                  const colorInfo = MBTI_STYLE.find((item) => item.MBTI === key);
-                  const mainColor = colorInfo ? colorInfo.main_color : '#000';
-
                   return (
                     <StProb key={key}>
-                      <StProbRank style={{ backgroundColor: mainColor }}>{index + 1}</StProbRank>
-                      <p style={{ color: mainColor }}>{key}</p>
+                      <StProbRank style={{ backgroundColor: mapMBTIToColor(key).main_color }}>
+                        {index + 1}
+                      </StProbRank>
+                      <p style={{ color: mapMBTIToColor(key).main_color }}>{key}</p>
                       <span>{value.toFixed(1)}%</span>
                     </StProb>
                   );
@@ -153,16 +145,18 @@ const PersonalResult = () => {
             <h2>AI가 분석한 이용자 MBTI 순위</h2>
             <StRank>
               {Object.entries(rank.rank).map(([key], index) => {
-                const rankInfo = MBTI_STYLE.find((item) => item.MBTI === key);
-                const imgInfo = RESULT_IMG.find((item) => item.MBTI === key);
                 const height = ['10.7rem', '7rem', '4.2rem', '2.8rem'][index] || 'auto';
-
                 return (
                   <li key={key}>
                     {index < 4 ? (
                       <StTopWrapper>
-                        <StResultImg>{imgInfo?.rank}</StResultImg>
-                        <div style={{ backgroundColor: rankInfo?.sub_color, height: height }} />
+                        <StResultImg>{mapMBTIToImage(key).rank_image}</StResultImg>
+                        <div
+                          style={{
+                            backgroundColor: mapMBTIToColor(key).sub_color,
+                            height: height,
+                          }}
+                        />
                         <strong>{`${index + 1}`}</strong>
                         <p>{key}</p>
                       </StTopWrapper>

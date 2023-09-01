@@ -26,14 +26,13 @@ const ResultButton = ({ onClickDownload }: ResultButtonProps) => {
         >
           처음으로
         </StRestart>
-        <StShare type="button" onClick={shareModalState.toggle}>
+        <StShare type="button" onClick={imageModalState.toggle}>
           <IcDownload />
         </StShare>
-        <StShare type="button" onClick={imageModalState.toggle}>
+        <StShare type="button" onClick={shareModalState.toggle}>
           <IcUpload />
         </StShare>
       </StResultButton>
-
       <ShareModal isShowing={shareModalState.isShowing} handleClose={shareModalState.toggle} />
       <ImageModal
         isShowing={imageModalState.isShowing}
