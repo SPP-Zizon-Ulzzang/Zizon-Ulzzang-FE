@@ -3,54 +3,13 @@ import { useParams } from 'react-router-dom';
 import { styled } from 'styled-components';
 
 import { IcBallon2 } from '../../assets/icons';
-import {
-  IcENFJMain,
-  IcENFPMain,
-  IcENTJMain,
-  IcENTPMain,
-  IcESFJMain,
-  IcESFPMain,
-  IcESTJMain,
-  IcESTPMain,
-  IcINFJMain,
-  IcINFPMain,
-  IcINTJMain,
-  IcINTPMain,
-  IcISFJMain,
-  IcISFPMain,
-  IcISTJMain,
-  IcISTPMain,
-} from '../../assets/icons/mbti';
-import {
-  IcENFJRank,
-  IcENFPRank,
-  IcENTJRank,
-  IcENTPRank,
-  IcESFJRank,
-  IcESFPRank,
-  IcESTJRank,
-  IcESTPRank,
-  IcINFJRank,
-  IcINFPRank,
-  IcINTJRank,
-  IcINTPRank,
-  IcISFJRank,
-  IcISFPRank,
-  IcISTJRank,
-  IcISTPRank,
-} from '../../assets/icons/rank';
+import { RESULT_IMG } from '../../constants/image';
 import { MBTI_RESULT, MBTIResult } from '../../constants/MBTI';
 import { MBTI_STYLE } from '../../constants/result';
 import { getMBTI, getRank } from '../../libs/apis/mbti';
 import { MBTIInfo, RankInfo } from '../../types/mbti';
 import { Error } from '../Common/Error';
 import { Loading } from '../Loading';
-
-interface ResultImgEntry {
-  MBTI: string;
-  main: React.ReactNode;
-  rank: React.ReactNode;
-}
 
 const PersonalResult = () => {
   const { id } = useParams();
@@ -64,89 +23,6 @@ const PersonalResult = () => {
   const [loading, setLoading] = useState(true);
   const [errorStatus, setErrorStatus] = useState<number>();
 
-  const resultImg: ResultImgEntry[] = [
-    {
-      MBTI: 'ENFJ',
-      main: <IcENFJMain />,
-      rank: <IcENFJRank />,
-    },
-    {
-      MBTI: 'ENFP',
-      main: <IcENFPMain />,
-      rank: <IcENFPRank />,
-    },
-    {
-      MBTI: 'ENTJ',
-      main: <IcENTJMain />,
-      rank: <IcENTJRank />,
-    },
-    {
-      MBTI: 'ENTP',
-      main: <IcENTPMain />,
-      rank: <IcENTPRank />,
-    },
-    {
-      MBTI: 'ESFJ',
-      main: <IcESFJMain />,
-      rank: <IcESFJRank />,
-    },
-    {
-      MBTI: 'ESFP',
-      main: <IcESFPMain />,
-      rank: <IcESFPRank />,
-    },
-    {
-      MBTI: 'ESTJ',
-      main: <IcESTJMain />,
-      rank: <IcESTJRank />,
-    },
-    {
-      MBTI: 'ESTP',
-      main: <IcESTPMain />,
-      rank: <IcESTPRank />,
-    },
-    {
-      MBTI: 'INFJ',
-      main: <IcINFJMain />,
-      rank: <IcINFJRank />,
-    },
-    {
-      MBTI: 'INFP',
-      main: <IcINFPMain />,
-      rank: <IcINFPRank />,
-    },
-    {
-      MBTI: 'INTJ',
-      main: <IcINTJMain />,
-      rank: <IcINTJRank />,
-    },
-    {
-      MBTI: 'INTP',
-      main: <IcINTPMain />,
-      rank: <IcINTPRank />,
-    },
-    {
-      MBTI: 'ISFJ',
-      main: <IcISFJMain />,
-      rank: <IcISFJRank />,
-    },
-    {
-      MBTI: 'ISFP',
-      main: <IcISFPMain />,
-      rank: <IcISFPRank />,
-    },
-    {
-      MBTI: 'ISTJ',
-      main: <IcISTJMain />,
-      rank: <IcISTJRank />,
-    },
-    {
-      MBTI: 'ISTP',
-      main: <IcISTPMain />,
-      rank: <IcISTPRank />,
-    },
-  ];
-
   const getMBTIData = async (id: string) => {
     const resMbti = await getMBTI(id);
 
@@ -157,7 +33,7 @@ const PersonalResult = () => {
       const colorInfo = MBTI_STYLE.find((item) => item.MBTI === resMbti.mbti);
       setResultMainColor(colorInfo?.main_color);
 
-      const imgInfo = resultImg.find((item) => item.MBTI === resMbti.mbti);
+      const imgInfo = RESULT_IMG.find((item) => item.MBTI === resMbti.mbti);
       setResultMainImg(imgInfo?.main);
     } else {
       setErrorStatus(resMbti);
@@ -232,7 +108,7 @@ const PersonalResult = () => {
             <StRank>
               {Object.entries(rank.rank).map(([key], index) => {
                 const rankInfo = MBTI_STYLE.find((item) => item.MBTI === key);
-                const imgInfo = resultImg.find((item) => item.MBTI === key);
+                const imgInfo = RESULT_IMG.find((item) => item.MBTI === key);
                 const height = ['10.7rem', '7rem', '4.2rem', '2.8rem'][index] || 'auto';
 
                 return (
