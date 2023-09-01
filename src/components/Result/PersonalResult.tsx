@@ -139,7 +139,7 @@ const PersonalResult = () => {
                     <StProb key={key}>
                       <StProbRank style={{ backgroundColor: mainColor }}>{index + 1}</StProbRank>
                       <p style={{ color: mainColor }}>{key}</p>
-                      <span>{value}%</span>
+                      <span>{value.toFixed(1)}%</span>
                     </StProb>
                   );
                 })}
