@@ -28,7 +28,7 @@ const ShareModal = ({ isShowing, handleClose }: ShareModalProps) => {
       const timer = setTimeout(() => {
         setShowCompleteModal(false);
         handleClose();
-      }, 3000);
+      }, 2000);
       return () => clearTimeout(timer);
     }
   }, [showCompleteModal]);
@@ -120,7 +120,7 @@ const StModal = styled.div`
   }
   &.fade-out {
     opacity: 0;
-    transition: opacity 3s ease-in-out;
+    transition: opacity 2.5s ease-in-out;
   }
 `;
 

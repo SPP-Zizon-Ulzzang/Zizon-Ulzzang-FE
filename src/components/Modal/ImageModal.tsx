@@ -13,14 +13,17 @@ interface ImageModalProps {
 const ImageModal = ({ isShowing, handleClose, handleSave }: ImageModalProps) => {
   const [showCompleteModal, setShowCompleteModal] = useState(false);
 
-  const handleSaveImg = () => {};
+  const handleSaveImage = () => {
+    setShowCompleteModal(true);
+    handleSave();
+  };
 
   useEffect(() => {
     if (showCompleteModal) {
       const timer = setTimeout(() => {
         setShowCompleteModal(false);
         handleClose();
-      }, 3000);
+      }, 2000);
       return () => clearTimeout(timer);
     }
   }, [showCompleteModal]);
@@ -41,7 +44,7 @@ const ImageModal = ({ isShowing, handleClose, handleSave }: ImageModalProps) => 
                   취소하기
                 </StShareBtn>
                 <StDivider />
-                <StShareBtn type="button" onClick={handleSave}>
+                <StShareBtn type="button" onClick={handleSaveImage}>
                   저장하기
                 </StShareBtn>
               </StBtnWrapper>
