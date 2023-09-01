@@ -2,7 +2,7 @@ import { css } from 'styled-components';
 
 export const fonts = {
   Head1: css`
-    font-family: 'Pretendard';
+    font-family: 'DM Sans';
     font-size: 4rem;
     font-style: normal;
     font-weight: 800;

@@ -3,7 +3,10 @@ import { styled } from 'styled-components';
 
 import { IcDownload, IcUpload } from '../../assets/icons';
 
-const ResultButton = () => {
+interface ResultButtonProps {
+  onClickDownload: () => void;
+}
+const ResultButton = ({ onClickDownload }: ResultButtonProps) => {
   const navigate = useNavigate();
 
   return (
@@ -16,7 +19,7 @@ const ResultButton = () => {
       >
         처음으로
       </StRestart>
-      <StShare type="button">
+      <StShare type="button" onClick={onClickDownload}>
         <IcDownload />
       </StShare>
       <StShare type="button">
