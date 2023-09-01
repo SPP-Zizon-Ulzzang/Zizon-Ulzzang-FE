@@ -12,3 +12,5 @@ function App() {
 }
 
 export default App;
+
+// 포트 : "dev": "vite --host 172.20.10.7 --port 4002",

@@ -23,7 +23,8 @@ const Loading = () => {
         <p>
           인스타그램 게시물을 기반으로
           <br />
-          MBTI를 분석하는 중입니다<StDots>{'.'.repeat(dots)}</StDots>
+          MBTI를 분석하는 중입니다
+          <StDots>{'.'.repeat(dots)}</StDots>
         </p>
         <IcBallon />
       </StBallon>
@@ -58,8 +59,11 @@ const StBallon = styled.div`
     position: absolute;
     margin-bottom: 3rem;
 
-    text-align: center;
+    /* text-align: center; */
   }
 `;
 
-const StDots = styled.span``;
+const StDots = styled.span`
+  margin-top: 0.5rem;
+  text-align: center;
+`;
