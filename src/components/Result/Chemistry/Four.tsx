@@ -30,10 +30,8 @@ const StFourWrapper = styled.section`
   grid-template-rows: auto auto;
   grid-template-columns: 1fr 1fr;
 
-  /* & > :first-child {
-    grid-column: span 2;
-    text-align: center;
-  } */
+  width: 100%;
+  height: fit-content;
 `;
 
 const StMembers = styled.div`
@@ -43,11 +41,11 @@ const StMembers = styled.div`
   align-items: center;
 
   & > div > svg {
-    width: 15rem;
-    height: 13rem;
+    width: 7rem;
+    height: 5.6rem;
   }
   & > p {
-    margin-top: -2.5rem;
+    margin-top: -1.5rem;
     padding: 1.21rem 3.3rem 1.05rem 3.3rem;
 
     border-radius: 5.8rem;

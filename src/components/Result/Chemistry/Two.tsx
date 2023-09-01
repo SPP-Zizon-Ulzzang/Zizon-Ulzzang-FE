@@ -35,6 +35,9 @@ const StMembers = styled.div`
   justify-content: center;
   align-items: center;
 
+  width: 100%;
+  height: fit-content;
+
   & > div > svg {
     width: 15rem;
     height: 13rem;

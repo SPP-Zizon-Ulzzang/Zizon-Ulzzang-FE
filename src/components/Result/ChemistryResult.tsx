@@ -96,10 +96,11 @@ const ChemistryResult = () => {
 
   return (
     <StChemistryResultWrapper>
-      {memberData && (
+      {chemistry && memberData && (
         <StChemistryResult>
+          <h1>{Math.floor(chemistry.data.avg)}점!</h1>
           <StImageDownload ref={resultRef}>{chemistryComponent}</StImageDownload>
-          {/* <ResultButton onClickDownload={handleSaveImage} /> */}
+          <ResultButton onClickDownload={handleSaveImage} />
         </StChemistryResult>
       )}
     </StChemistryResultWrapper>
@@ -121,14 +122,23 @@ const StChemistryResultWrapper = styled.main`
     rgba(255, 142, 223, 0.5) 0.69%,
     rgba(255, 188, 125, 0.5) 101.5%
   );
+`;
 
-  & > h3 {
-    margin-bottom: 2rem;
+const StChemistryResult = styled.section`
+  display: flex;
+  flex-direction: column;
+
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+
+  & > h1 {
+    ${({ theme }) => theme.fonts.Head1};
+    text-align: center;
   }
 `;
 
-const StChemistryResult = styled.section``;
-
 const StImageDownload = styled.section`
-  display: flex;
+  /* display: flex; */
+  margin-bottom: 4rem;
 `;
