@@ -59,7 +59,5 @@ const StErrorWrapper = styled.section`
 
   & > p {
     padding: 30% 0;
-
-    /* ${({ theme }) => theme.fonts.Input_Main}; */
   }
 `;
