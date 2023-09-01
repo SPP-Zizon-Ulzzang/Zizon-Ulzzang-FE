@@ -29,7 +29,7 @@ const StProgressBar = styled.div`
     height: 0.6675rem;
     margin-left: 0.5rem;
 
-    background: #373737;
+    background-color: #373737;
     border-radius: 7.2rem;
   }
 

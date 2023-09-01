@@ -2,37 +2,39 @@ import { useNavigate, useParams } from 'react-router-dom';
 import { styled } from 'styled-components';
 
 import { IcDownload, IcUpload } from '../../assets/icons';
-import { shareKakao } from './ShareKakao';
+import useModal from '../../hooks/useModal';
+import { ShareModal } from '../Modal';
 
 interface ResultButtonProps {
   onClickDownload: () => void;
 }
 
 const ResultButton = ({ onClickDownload }: ResultButtonProps) => {
-  const { id } = useParams();
   const navigate = useNavigate();
 
-  const handleKakaoShare = () => {
-    shareKakao(`https://mbtigram.site`);
-  };
+  const imageModalState = useModal();
 
   return (
-    <StResultButton>
-      <StRestart
-        type="button"
-        onClick={() => {
-          navigate('/');
-        }}
-      >
-        처음으로
-      </StRestart>
-      <StShare type="button" onClick={onClickDownload}>
-        <IcDownload />
-      </StShare>
-      <StShare type="button" onClick={handleKakaoShare}>
-        <IcUpload />
-      </StShare>
-    </StResultButton>
+    <>
+      <StResultButton>
+        <StRestart
+          type="button"
+          onClick={() => {
+            navigate('/');
+          }}
+        >
+          처음으로
+        </StRestart>
+        <StShare type="button" onClick={imageModalState.toggle}>
+          <IcDownload />
+        </StShare>
+        <StShare type="button" onClick={imageModalState.toggle}>
+          <IcUpload />
+        </StShare>
+      </StResultButton>
+
+      <ShareModal isShowing={imageModalState.isShowing} handleClose={imageModalState.toggle} />
+    </>
   );
 };
 
