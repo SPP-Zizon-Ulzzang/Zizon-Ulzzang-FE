@@ -13,7 +13,7 @@ const ResultButton = ({ onClickDownload }: ResultButtonProps) => {
   const navigate = useNavigate();
 
   const handleKakaoShare = () => {
-    shareKakao(`https://mbtigram.site/result/${id}`);
+    shareKakao(`https://mbtigram.site`);
   };
 
   return (

@@ -158,10 +158,10 @@ const PersonalResult = () => {
                 const height = ['10.7rem', '7rem', '4.2rem', '2.8rem'][index] || 'auto';
 
                 return (
-                  <li key={key} className={key}>
+                  <li key={key}>
                     {index < 4 ? (
                       <StTopWrapper>
-                        <StResultImg className={key}>{imgInfo?.rank}</StResultImg>
+                        <StResultImg>{imgInfo?.rank}</StResultImg>
                         <div style={{ backgroundColor: rankInfo?.sub_color, height: height }} />
                         <strong>{`${index + 1}`}</strong>
                         <p>{key}</p>

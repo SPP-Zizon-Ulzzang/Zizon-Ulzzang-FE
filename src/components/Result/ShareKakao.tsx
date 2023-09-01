@@ -4,10 +4,6 @@ declare global {
   }
 }
 
-// interface ShareKakaoProps {
-//   route: string;
-// }
-
 const initialize = () => {
   if (!window.Kakao || !window.Kakao.isInitialized()) {
     window.Kakao && window.Kakao.init(import.meta.env.VITE_JS_KEY);
@@ -25,7 +21,7 @@ export const shareKakao = (route: string) => {
         title: 'MBTIgram',
         description: 'AI가 분석한 나의 MBTI는?',
         imageUrl:
-          'https://user-images.githubusercontent.com/73213437/264984882-aa9dd5d7-8d40-4efe-99ba-fde8829b74b1.png',
+          'https://user-images.githubusercontent.com/73213437/265080566-244f072d-9cc4-4045-b68e-135c971c058e.png',
         link: {
           webUrl: route,
           mobileWebUrl: route,
