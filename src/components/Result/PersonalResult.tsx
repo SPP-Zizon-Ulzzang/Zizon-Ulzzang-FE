@@ -69,7 +69,7 @@ const PersonalResult = () => {
     <StPersonalResult>
       {mbti && mbtiResult && rank && (
         <>
-          <StAlelt>아직 미완성입니다!!! 개발중입니다 에러 아닙니다</StAlelt>
+          {/* <StAlelt>아직 미완성입니다!!! 개발중입니다 에러 아닙니다</StAlelt> */}
           <span>{mbtiResult.instaId}</span>
 
           <StProfile>

@@ -84,7 +84,7 @@ const StChemistryResult = styled.main`
   & > h3 {
     margin-bottom: 2rem;
 
-    ${({ theme }) => theme.fonts.Input_Main};
+    /* ${({ theme }) => theme.fonts.Input_Main}; */
   }
   & > ol {
     display: flex;
@@ -93,13 +93,13 @@ const StChemistryResult = styled.main`
     align-items: center;
 
     & > li {
-      ${({ theme }) => theme.fonts.Main};
+      /* ${({ theme }) => theme.fonts.Main}; */
     }
 
     & > p {
       margin-bottom: 1rem;
 
-      ${({ theme }) => theme.fonts.Description};
+      /* ${({ theme }) => theme.fonts.Description}; */
     }
   }
 `;
