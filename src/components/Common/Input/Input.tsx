@@ -28,10 +28,9 @@ export const StInput = styled.input`
   border-radius: 7.2rem;
 
   border: none;
-  color: #363636;
-  background-color: ${({ theme }) => theme.colors.Input_Area};
-  ${({ theme }) => theme.fonts.Input_After};
-
+  color: ${({ theme }) => theme.colors.Black};
+  background-color: ${({ theme }) => theme.colors.Gray2};
+  ${({ theme }) => theme.fonts.Body1};
   text-align: center;
 
   /* font-size: 1.6rem;
@@ -43,8 +42,9 @@ export const StInput = styled.input`
 
   transform: scale(0.75); */
 
-  ::placeholder {
-    ${({ theme }) => theme.fonts.Input_Before};
+  &::placeholder {
+    color: ${({ theme }) => theme.Gray3};
+    ${({ theme }) => theme.fonts.Body6};
   }
   &:focus {
     outline: none;

@@ -120,7 +120,7 @@ export const StInputBtn = styled.button`
   transform-origin: right;
 
   border-radius: 9.6rem; */
-  background-color: ${({ theme }) => theme.colors.Input_Area};
+  background-color: ${({ theme }) => theme.colors.Gray2};
 `;
 
 export const StInputMember = styled(StInput)`

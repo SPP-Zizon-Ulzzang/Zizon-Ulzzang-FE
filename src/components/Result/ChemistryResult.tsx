@@ -5,6 +5,7 @@ import { styled } from 'styled-components';
 import { getChemistry } from '../../libs/apis/mbti';
 import { ChemistryInfo, MemberData } from '../../types/mbti';
 import { Error } from '../Common/Error';
+import { Loading } from '../Loading';
 
 const ChemistryResult = () => {
   const { state } = useLocation();
@@ -34,7 +35,7 @@ const ChemistryResult = () => {
     }
   }, [state]);
 
-  if (loading) return '로딩중...';
+  if (loading) return <Loading isChemistry />;
   if (errorStatus) {
     return <Error code={errorStatus} />;
   }

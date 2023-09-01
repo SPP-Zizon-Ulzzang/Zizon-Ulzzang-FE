@@ -23,8 +23,8 @@ const StButton = styled.button<{ isactive: string }>`
   height: 4.8rem;
 
   border-radius: 7.2rem;
-  color: white;
+  color: ${({ theme }) => theme.colors.White};
   background-color: ${({ theme, isactive }) =>
-    isactive === 'true' ? theme.colors.Button_Active : theme.colors.Button_Disabled};
-  ${({ theme }) => theme.fonts.Button};
+    isactive === 'true' ? theme.colors.Gray5 : theme.colors.Gray4};
+  ${({ theme }) => theme.fonts.Body3};
 `;

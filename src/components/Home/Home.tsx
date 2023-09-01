@@ -4,7 +4,6 @@ import { styled } from 'styled-components';
 
 import { IcHomeLogo } from '../../assets/icons';
 import { LottieLoading } from '../../assets/lottie';
-import { MBTI_RESULT } from '../../constants/MBTI';
 import { Button } from '../Common/Button';
 
 const Home = () => {
@@ -19,11 +18,6 @@ const Home = () => {
 
   return (
     <StHomeWrapper>
-      {/* <p>{MBTI_RESULT[0].MBTI}</p>
-      <p>{MBTI_RESULT[0].description}</p>
-      <p>
-        <img src={MBTI_RESULT[0].img_main} alt="dd" />
-      </p> */}
       <h1 className="sr-only">MBTIgram</h1>
       <IcHomeLogo className="home-logo" />
       <StHomeContent>
@@ -84,14 +78,14 @@ const StHomeContent = styled.section`
 
   & > h2 {
     margin-bottom: 0.718rem;
-    color: ${({ theme }) => theme.colors.Main};
-    ${({ theme }) => theme.fonts.Main};
+    color: ${({ theme }) => theme.colors.Gray5};
+    ${({ theme }) => theme.fonts.Head3};
   }
   & > p {
     margin-bottom: 2.449rem;
 
-    color: ${({ theme }) => theme.colors.Description};
-    ${({ theme }) => theme.fonts.Description};
+    color: ${({ theme }) => theme.colors.Gray4};
+    ${({ theme }) => theme.fonts.Body6};
 
     text-align: center;
   }

@@ -153,7 +153,7 @@ ${reset}
   margin: 0 auto;
   overflow-y: auto;
   
-  background-color: ${({ theme }) => theme.colors.Background};
+  background-color: ${({ theme }) => theme.colors.Gray1};
 
   -ms-overflow-style: none; /* 인터넷 익스플로러 */
   scrollbar-width: none; /* 파이어폭스 */

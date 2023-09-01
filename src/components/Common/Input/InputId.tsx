@@ -48,8 +48,8 @@ const StInputId = styled.div`
 
   border-radius: 7.2rem;
   color: #363636;
-  background-color: ${({ theme }) => theme.colors.Input_Area};
-  ${({ theme }) => theme.fonts.Input_After};
+  background-color: ${({ theme }) => theme.colors.Gray2};
+  ${({ theme }) => theme.fonts.Body1};
 `;
 
 const StInputIdBtn = styled.button`
@@ -61,5 +61,5 @@ const StInputIdBtn = styled.button`
   height: 4.8rem;
 
   border-radius: 7.2rem;
-  background-color: ${({ theme }) => theme.colors.Input_Area};
+  background-color: ${({ theme }) => theme.colors.Gray2};
 `;

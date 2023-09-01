@@ -62,14 +62,14 @@ const StMain = styled.main`
 
   & > h2 {
     padding-bottom: 1.633rem;
-    color: #272727;
-    ${({ theme }) => theme.fonts.Input_Main};
+    color: ${({ theme }) => theme.colors.Gray5};
+    ${({ theme }) => theme.fonts.Head2};
   }
   & > p {
     text-align: center;
 
-    color: ${({ theme }) => theme.colors.Description};
-    ${({ theme }) => theme.fonts.Description};
+    color: ${({ theme }) => theme.colors.Gray4};
+    ${({ theme }) => theme.fonts.Body6};
   }
   & > p:nth-child(3) {
     padding-bottom: 3.684rem;
@@ -77,8 +77,8 @@ const StMain = styled.main`
   & > span {
     padding-top: 0.776rem;
 
-    color: ${({ theme }) => theme.colors.Information};
-    ${({ theme }) => theme.fonts.Information};
+    color: ${({ theme }) => theme.colors.Gray3};
+    ${({ theme }) => theme.fonts.Body7};
   }
 `;
 
