@@ -29,11 +29,13 @@ const Chemistry = () => {
   };
 
   const handleAddMemeber = () => {
-    if (!inputId) {
+    const inputTrimed = inputId.replace(/\s/g, '');
+
+    if (!inputTrimed) {
       alert('인스타그램 ID를 입력하세요.');
       return;
     }
-    if (inputIdList.includes(inputId)) {
+    if (inputIdList.includes(inputTrimed)) {
       alert('이미 추가된 인스타그램 ID입니다.');
       return;
     }
@@ -42,7 +44,7 @@ const Chemistry = () => {
       setInputId('');
       return;
     }
-    setInputIdList((prev) => [inputId, ...prev]);
+    setInputIdList((prev) => [inputTrimed, ...prev]);
     setInputId('');
   };
 

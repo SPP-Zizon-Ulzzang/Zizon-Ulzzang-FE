@@ -11,7 +11,8 @@ const Predict = () => {
   const navigate = useNavigate();
 
   const handlePredict = () => {
-    navigate(`/result/${input}`);
+    const inputTrimed = input.replace(/\s/g, '');
+    navigate(`/result/${inputTrimed}`);
   };
 
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {

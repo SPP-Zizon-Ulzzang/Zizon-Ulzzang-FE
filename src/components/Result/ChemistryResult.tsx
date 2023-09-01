@@ -8,7 +8,7 @@ import { ChemistryInfo, MemberData } from '../../types/mbti';
 import { Error } from '../Common/Error';
 import { Loading } from '../Loading';
 import { ResultButton } from './';
-import { Two } from './Chemistry';
+import { Five, Four, Three, Two } from './Chemistry';
 
 const ChemistryResult = () => {
   const { state } = useLocation();
@@ -27,8 +27,8 @@ const ChemistryResult = () => {
       const originalHeight = resultRef.current.offsetHeight;
       resultRef.current.style.width = `450px`;
       resultRef.current.style.height = `800px`;
-      resultRef.current.style.padding = `0 18px 18px 18px`;
-      resultRef.current.style.boxSizing = `border-box`;
+      // resultRef.current.style.padding = `0 18px 18px 18px`;
+      // resultRef.current.style.boxSizing = `border-box`;
 
       const originalBackgroundColor = resultRef.current.style.background;
       resultRef.current.style.background =
@@ -46,8 +46,8 @@ const ChemistryResult = () => {
 
       resultRef.current.style.width = `${originalWidth}px`;
       resultRef.current.style.height = `${originalHeight}px`;
-      resultRef.current.style.padding = `0 18px`;
-      resultRef.current.style.boxSizing = `border-box`;
+      // resultRef.current.style.padding = `0 18px`;
+      // resultRef.current.style.boxSizing = `border-box`;
     }
   };
 
@@ -75,15 +75,31 @@ const ChemistryResult = () => {
     return <Error code={errorStatus} />;
   }
 
+  let chemistryComponent;
+  switch (memberData?.length) {
+    case 2:
+      chemistryComponent = <Two memberData={memberData} />;
+      break;
+    case 3:
+      chemistryComponent = <Three memberData={memberData} />;
+      break;
+    case 4:
+      chemistryComponent = <Four memberData={memberData} />;
+      break;
+    case 5:
+      chemistryComponent = <Five memberData={memberData} />;
+      break;
+    default:
+      chemistryComponent = null;
+      break;
+  }
+
   return (
     <StChemistryResultWrapper>
       {memberData && (
         <StChemistryResult>
-          <StImageDownload ref={resultRef}>
-            {/* <h3>MBTI 궁합</h3> */}
-            <Two memberData={memberData} />;
-          </StImageDownload>
-          <ResultButton onClickDownload={handleSaveImage} />
+          <StImageDownload ref={resultRef}>{chemistryComponent}</StImageDownload>
+          {/* <ResultButton onClickDownload={handleSaveImage} /> */}
         </StChemistryResult>
       )}
     </StChemistryResultWrapper>

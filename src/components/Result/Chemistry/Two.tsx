@@ -1,8 +1,8 @@
 import { styled } from 'styled-components';
 
-import { RESULT_IMG } from '../../../constants/image';
 import { MemberData } from '../../../types/mbti';
 import { mapMBTIToColor } from '../../../utils/mapMBTIToColor';
+import { mapMBTIToImage } from '../../../utils/mapMBTIToImage';
 
 interface TwoProps {
   memberData: MemberData[];
@@ -11,10 +11,9 @@ const Two = ({ memberData }: TwoProps) => {
   return (
     <StTwoWrapper>
       {memberData.map((member, index) => {
-        const mbtiInfo = RESULT_IMG.find((imgInfo) => imgInfo.MBTI === member.mbti);
         return (
           <StMembers key={index}>
-            <div>{mbtiInfo?.rank}</div>
+            <div>{mapMBTIToImage(member.mbti).rank_image}</div>
             <p style={{ backgroundColor: mapMBTIToColor(member.mbti).sub_color }}>{member.mbti}</p>
             <span>@{member.instaId}</span>
           </StMembers>
@@ -26,7 +25,9 @@ const Two = ({ memberData }: TwoProps) => {
 
 export default Two;
 
-const StTwoWrapper = styled.section``;
+const StTwoWrapper = styled.section`
+  display: flex;
+`;
 
 const StMembers = styled.div`
   display: flex;
