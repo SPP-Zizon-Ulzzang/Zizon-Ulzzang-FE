@@ -9,6 +9,7 @@ interface ShareModalProps {
   isShowing: boolean;
   handleClose: () => void;
 }
+
 const ShareModal = ({ isShowing, handleClose }: ShareModalProps) => {
   const url = 'https://mbtigram.site';
   const [showCompleteModal, setShowCompleteModal] = useState(false);

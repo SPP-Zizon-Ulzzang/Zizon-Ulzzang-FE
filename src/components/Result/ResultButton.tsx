@@ -3,7 +3,7 @@ import { styled } from 'styled-components';
 
 import { IcDownload, IcUpload } from '../../assets/icons';
 import useModal from '../../hooks/useModal';
-import { ShareModal } from '../Modal';
+import { ImageModal, ShareModal } from '../Modal';
 
 interface ResultButtonProps {
   onClickDownload: () => void;
@@ -12,6 +12,7 @@ interface ResultButtonProps {
 const ResultButton = ({ onClickDownload }: ResultButtonProps) => {
   const navigate = useNavigate();
 
+  const shareModalState = useModal();
   const imageModalState = useModal();
 
   return (
@@ -25,7 +26,7 @@ const ResultButton = ({ onClickDownload }: ResultButtonProps) => {
         >
           처음으로
         </StRestart>
-        <StShare type="button" onClick={imageModalState.toggle}>
+        <StShare type="button" onClick={shareModalState.toggle}>
           <IcDownload />
         </StShare>
         <StShare type="button" onClick={imageModalState.toggle}>
@@ -33,7 +34,12 @@ const ResultButton = ({ onClickDownload }: ResultButtonProps) => {
         </StShare>
       </StResultButton>
 
-      <ShareModal isShowing={imageModalState.isShowing} handleClose={imageModalState.toggle} />
+      <ShareModal isShowing={shareModalState.isShowing} handleClose={shareModalState.toggle} />
+      <ImageModal
+        isShowing={imageModalState.isShowing}
+        handleClose={imageModalState.toggle}
+        handleSave={onClickDownload}
+      />
     </>
   );
 };

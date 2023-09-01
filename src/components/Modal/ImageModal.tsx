@@ -1,39 +1,50 @@
+import { useEffect, useState } from 'react';
 import { styled } from 'styled-components';
 
 import { IcCloseModal, IcKakao, IcUrl } from '../../assets/icons';
+import { shareKakao } from '../Result/ShareKakao';
 import { CompleteModal } from './';
 
 interface ImageModalProps {
   isShowing: boolean;
-  handleClose: React.MouseEventHandler;
+  handleClose: () => void;
+  handleSave: () => void;
 }
-const ImageModal = ({ isShowing, handleClose }: ImageModalProps) => {
+const ImageModal = ({ isShowing, handleClose, handleSave }: ImageModalProps) => {
+  const [showCompleteModal, setShowCompleteModal] = useState(false);
+
+  const handleSaveImg = () => {};
+
+  useEffect(() => {
+    if (showCompleteModal) {
+      const timer = setTimeout(() => {
+        setShowCompleteModal(false);
+        handleClose();
+      }, 3000);
+      return () => clearTimeout(timer);
+    }
+  }, [showCompleteModal]);
+
   return (
     isShowing && (
       <StModalWrapper>
-        <StModal>
+        <StModal className={showCompleteModal ? 'fade-out' : ''}>
           {showCompleteModal ? (
-            // CompleteModal을 보여줌
-            <CompleteModal comment={['링크가 클립보드에 복사되었습니다.']} />
+            <CompleteModal comment={['이미지 저장 완료!', '이제 스토리에 공유해볼까요?']} />
           ) : (
             <>
-              공유하기
+              이미지 저장하기
               <IcCloseModal onClick={handleClose} />
               <hr />
               <StBtnWrapper>
-                <StShareBtnWrapper>
-                  <StShareBtn type="button" onClick={handleClose}>
-                    <IcUrl />
-                  </StShareBtn>
-                  링크복사
-                </StShareBtnWrapper>
-                <StShareBtnWrapper>
-                  <StShareBtn type="button" onClick={handleClose}>
-                    <IcKakao />
-                  </StShareBtn>
-                  카카오톡
-                </StShareBtnWrapper>
-              </StBtnWrapper>{' '}
+                <StShareBtn type="button" onClick={handleClose}>
+                  취소하기
+                </StShareBtn>
+                <StDivider />
+                <StShareBtn type="button" onClick={handleSave}>
+                  저장하기
+                </StShareBtn>
+              </StBtnWrapper>
             </>
           )}
         </StModal>
@@ -69,7 +80,7 @@ const StModal = styled.div`
   position: relative;
 
   width: 25.7738rem;
-  height: 18.2563rem;
+  height: fit-content;
   padding: 1.25rem 1.44rem;
 
   box-sizing: border-box;
@@ -87,7 +98,6 @@ const StModal = styled.div`
 
     cursor: pointer;
   }
-
   & > hr {
     width: 100%;
 
@@ -95,36 +105,35 @@ const StModal = styled.div`
     border-top: 0.05rem solid ${({ theme }) => theme.colors.White};
     background-color: ${({ theme }) => theme.colors.White};
   }
+  &.fade-out {
+    opacity: 0;
+    transition: opacity 3s ease-in-out;
+  }
 `;
 
 const StBtnWrapper = styled.div`
   display: flex;
   justify-content: center;
-  gap: 4.82rem;
+  gap: 1.8rem;
 
-  margin-top: 1.34rem;
-`;
-
-const StShareBtnWrapper = styled.div`
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-
-  color: ${({ theme }) => theme.colors.White};
-  ${({ theme }) => theme.fonts.Body4};
+  margin-top: 0.5rem;
 `;
 
 const StShareBtn = styled.button`
   display: flex;
-  flex-direction: column;
   justify-content: center;
   align-items: center;
 
   width: 6.3772rem;
-  height: 6.4259rem;
-  margin-bottom: 0.75rem;
+  height: 4rem;
 
-  border-radius: 7.2rem;
+  color: ${({ theme }) => theme.colors.White};
+`;
+
+const StDivider = styled.div`
+  width: 0.05rem;
+  height: 4rem;
+  margin: 0 1rem;
+
   background-color: ${({ theme }) => theme.colors.White};
 `;
