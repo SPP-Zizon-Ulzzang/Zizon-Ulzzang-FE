@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import { styled } from 'styled-components';
 
-import { IcBallon2 } from '../../assets/icons';
+import { IcArrowDown, IcBallon2, IcInstaHamburger, IcInstaPlus } from '../../assets/icons';
 import { RESULT_IMG } from '../../constants/image';
 import { MBTI_RESULT, MBTIResult } from '../../constants/MBTI';
 import { MBTI_STYLE } from '../../constants/result';
@@ -69,19 +69,27 @@ const PersonalResult = () => {
     <StPersonalResult>
       {mbti && mbtiResult && rank && (
         <>
-          {/* <StAlelt>아직 미완성입니다!!! 개발중입니다 에러 아닙니다</StAlelt> */}
-          <span>{mbtiResult.instaId}</span>
+          <StResultHeader>
+            <div>
+              <h1>{mbtiResult.instaId}</h1>
+              <IcArrowDown />
+            </div>
+            <div>
+              <IcInstaPlus />
+              <IcInstaHamburger />
+            </div>
+          </StResultHeader>
 
           <StProfile>
             <div>{resultMainImg}</div>
-            <h2>{mbtiResult.gram}</h2>
-            <h1>{mbtiResult.MBTI}</h1>
+            <h3 style={{ color: resultMainColor }}>{mbtiResult.gram}</h3>
+            <h2>{mbtiResult.MBTI}</h2>
           </StProfile>
 
           <StDescWrapper>
             <IcBallon2 />
             <strong>{mbtiResult.title}</strong>
-            <p style={{ color: resultMainColor }}>{mbtiResult.tag}</p>
+            <h4 style={{ color: resultMainColor }}>{mbtiResult.tag}</h4>
             <p>{mbtiResult.description}</p>
           </StDescWrapper>
 
@@ -95,8 +103,8 @@ const PersonalResult = () => {
                 return (
                   <StProb key={key}>
                     <StProbRank style={{ backgroundColor: mainColor }}>{index + 1}</StProbRank>
-                    <div>{key}</div>
-                    <div>{value}%</div>
+                    <p style={{ color: mainColor }}>{key}</p>
+                    <span>{value}%</span>
                   </StProb>
                 );
               })}
@@ -136,26 +144,64 @@ const PersonalResult = () => {
 
 export default PersonalResult;
 
-const StAlelt = styled.p`
-  font-size: 5rem;
-  color: blue;
-`;
-
 const StPersonalResult = styled.main`
   display: flex;
   flex-direction: column;
   align-items: center;
 
   width: 100%;
-  height: 100%;
+  height: fit-content;
   padding: 0 1.8rem;
 
   box-sizing: border-box;
-  background-color: #fbfbfb;
+  background: linear-gradient(
+    162deg,
+    rgba(255, 142, 223, 0.5) 0.69%,
+    rgba(255, 188, 125, 0.5) 101.5%
+  );
+`;
+
+const StResultHeader = styled.header`
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+
+  width: 100%;
+  height: 3.17rem;
+  padding-top: 0.77rem;
+
+  & > div > h1 {
+    margin-right: 0.5rem;
+    ${({ theme }) => theme.fonts.Body1};
+  }
+  & > div {
+    display: flex;
+    align-items: center;
+
+    &:last-child {
+      gap: 2.03rem;
+    }
+  }
 `;
 
 const StProfile = styled.div`
-  margin-bottom: 7.2rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  margin-top: 2.2rem;
+  margin-bottom: 3.5rem;
+
+  & > h2 {
+    ${({ theme }) => theme.fonts.Head1};
+    color: ${({ theme }) => theme.colors.Black};
+  }
+  & > h3 {
+    margin-top: 0.88rem;
+    ${({ theme }) => theme.fonts.Head2};
+  }
+
   & > div > svg {
     width: 19.5rem;
     height: 19.7rem;
@@ -174,7 +220,17 @@ const StDescWrapper = styled.section`
   background-color: #ffffff;
   filter: drop-shadow(0px 0px 5px rgba(0, 0, 0, 0.1));
 
+  & > strong {
+    color: ${({ theme }) => theme.colors.Gray5};
+    ${({ theme }) => theme.fonts.Body2};
+  }
+  & > h4 {
+    ${({ theme }) => theme.fonts.Body3};
+  }
   & > p {
+    color: ${({ theme }) => theme.colors.Gray5};
+    ${({ theme }) => theme.fonts.Body4};
+
     word-break: keep-all;
   }
   & > svg {
@@ -185,6 +241,11 @@ const StDescWrapper = styled.section`
 
 const StProbWrapper = styled(StDescWrapper)`
   padding: 1.76rem 1.8rem 1.8rem 1.8rem;
+
+  & > h2 {
+    color: ${({ theme }) => theme.colors.Gray5};
+    ${({ theme }) => theme.fonts.Body2};
+  }
 `;
 
 const StMBTIProb = styled.ol`
@@ -199,6 +260,15 @@ const StProb = styled.li`
   flex-direction: column;
   justify-content: center;
   align-items: center;
+
+  & > p {
+    ${({ theme }) => theme.fonts.Body2};
+  }
+  & > span {
+    margin-top: -0.4rem;
+    color: ${({ theme }) => theme.colors.Gray4};
+    ${({ theme }) => theme.fonts.Body2};
+  }
 `;
 
 const StProbRank = styled.div`
@@ -210,11 +280,17 @@ const StProbRank = styled.div`
   height: 3.446rem;
   margin-top: 1.87rem;
 
-  color: #ffffff;
   border-radius: 10rem;
+  color: ${({ theme }) => theme.colors.White};
+  ${({ theme }) => theme.fonts.Head3};
 `;
 
-const StRankWrapper = styled(StDescWrapper)``;
+const StRankWrapper = styled(StDescWrapper)`
+  & > h2 {
+    color: ${({ theme }) => theme.colors.Gray5};
+    ${({ theme }) => theme.fonts.Body2};
+  }
+`;
 
 const StRank = styled.ol`
   display: grid;
@@ -229,23 +305,39 @@ const StTopWrapper = styled.div`
   align-items: center;
 
   margin-top: 2.5rem;
-  margin-bottom: 2.43rem;
+  /* margin-bottom: 2.43rem; */
 
   & > div {
+    display: flex;
+    justify-content: center;
+
     width: 6.8rem;
     height: auto;
+    margin-bottom: -0.5rem;
 
     border-radius: 0.3rem;
   }
   & > strong {
-    margin-top: -1rem;
-    margin-bottom: 1.5rem;
+    margin-top: -1.5rem;
 
-    color: white;
+    color: ${({ theme }) => theme.colors.White};
+    ${({ theme }) => theme.fonts.Body3};
+  }
+  & > p {
+    margin-top: -0.5rem;
+    margin-bottom: 0.5rem;
+
+    color: ${({ theme }) => theme.colors.Gray5};
+    ${({ theme }) => theme.fonts.Body3};
   }
 `;
 
-const StDownWrapper = styled.div``;
+const StDownWrapper = styled.div`
+  margin-top: -0.4rem;
+
+  color: ${({ theme }) => theme.colors.Gray4};
+  ${({ theme }) => theme.fonts.Body3};
+`;
 
 const StResultImg = styled.div`
   z-index: 1;
