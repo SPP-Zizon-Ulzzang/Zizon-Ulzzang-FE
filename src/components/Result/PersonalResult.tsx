@@ -10,6 +10,7 @@ import { getMBTI, getRank } from '../../libs/apis/mbti';
 import { MBTIInfo, RankInfo } from '../../types/mbti';
 import { Error } from '../Common/Error';
 import { Loading } from '../Loading';
+import { ResultButton } from './';
 
 const PersonalResult = () => {
   const { id } = useParams();
@@ -110,7 +111,7 @@ const PersonalResult = () => {
               })}
             </StMBTIProb>
           </StProbWrapper>
-
+          <ResultButton />
           <StRankWrapper>
             <h2>AI가 분석한 이용자 MBTI 순위</h2>
             <StRank>

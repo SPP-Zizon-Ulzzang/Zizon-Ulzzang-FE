@@ -22,6 +22,6 @@
 
     "types": ["vite-plugin-svgr/client"]
   },
-  "include": ["src", "Router.ts"],
+  "include": ["src", "Router.ts", "src/components/Result/.tsx"],
   "references": [{ "path": "./tsconfig.node.json" }]
 }
