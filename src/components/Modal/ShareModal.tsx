@@ -1,7 +1,9 @@
+import { useEffect, useState } from 'react';
 import { styled } from 'styled-components';
 
 import { IcCloseModal, IcKakao, IcUrl } from '../../assets/icons';
 import { shareKakao } from '../Result/ShareKakao';
+import { CompleteModal } from './';
 
 interface ShareModalProps {
   isShowing: boolean;
@@ -9,37 +11,54 @@ interface ShareModalProps {
 }
 const ShareModal = ({ isShowing, handleClose }: ShareModalProps) => {
   const url = 'https://mbtigram.site';
+  const [showCompleteModal, setShowCompleteModal] = useState(false);
 
   const handleCopyLink = () => {
     navigator.clipboard.writeText(url).then(() => {
-      alert('링크가 클립보드에 복사되었습니다.');
+      setShowCompleteModal(true);
     });
   };
   const handleKakaoShare = () => {
     shareKakao(url);
   };
 
+  useEffect(() => {
+    if (showCompleteModal) {
+      const timer = setTimeout(() => {
+        setShowCompleteModal(false);
+        handleClose();
+      }, 3000);
+      return () => clearTimeout(timer);
+    }
+  }, [showCompleteModal]);
+
   return (
     isShowing && (
       <StModalWrapper>
-        <StModal>
-          공유하기
-          <IcCloseModal onClick={handleClose} />
-          <hr />
-          <StBtnWrapper>
-            <StShareBtnWrapper>
-              <StShareBtn type="button" onClick={handleCopyLink}>
-                <IcUrl />
-              </StShareBtn>
-              링크복사
-            </StShareBtnWrapper>
-            <StShareBtnWrapper>
-              <StShareBtn type="button" onClick={handleKakaoShare}>
-                <IcKakao />
-              </StShareBtn>
-              카카오톡
-            </StShareBtnWrapper>
-          </StBtnWrapper>
+        <StModal className={showCompleteModal ? 'fade-out' : ''}>
+          {showCompleteModal ? (
+            <CompleteModal comment={['링크가 클립보드에 복사되었습니다.']} />
+          ) : (
+            <>
+              공유하기
+              <IcCloseModal onClick={handleClose} />
+              <hr />
+              <StBtnWrapper>
+                <StShareBtnWrapper>
+                  <StShareBtn type="button" onClick={handleCopyLink}>
+                    <IcUrl />
+                  </StShareBtn>
+                  링크복사
+                </StShareBtnWrapper>
+                <StShareBtnWrapper>
+                  <StShareBtn type="button" onClick={handleKakaoShare}>
+                    <IcKakao />
+                  </StShareBtn>
+                  카카오톡
+                </StShareBtnWrapper>
+              </StBtnWrapper>
+            </>
+          )}
         </StModal>
       </StModalWrapper>
     )
@@ -73,7 +92,7 @@ const StModal = styled.div`
   position: relative;
 
   width: 25.7738rem;
-  height: 18.2563rem;
+  height: fit-content;
   padding: 1.25rem 1.44rem;
 
   box-sizing: border-box;
@@ -91,13 +110,16 @@ const StModal = styled.div`
 
     cursor: pointer;
   }
-
   & > hr {
     width: 100%;
 
     border: none;
     border-top: 0.05rem solid ${({ theme }) => theme.colors.White};
     background-color: ${({ theme }) => theme.colors.White};
+  }
+  &.fade-out {
+    opacity: 0;
+    transition: opacity 3s ease-in-out;
   }
 `;
 
@@ -107,6 +129,7 @@ const StBtnWrapper = styled.div`
   gap: 4.82rem;
 
   margin-top: 1.34rem;
+  margin-bottom: 0.78rem;
 `;
 
 const StShareBtnWrapper = styled.div`

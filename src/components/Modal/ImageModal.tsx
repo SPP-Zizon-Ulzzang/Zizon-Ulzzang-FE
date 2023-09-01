@@ -1,6 +1,7 @@
 import { styled } from 'styled-components';
 
 import { IcCloseModal, IcKakao, IcUrl } from '../../assets/icons';
+import { CompleteModal } from './';
 
 interface ImageModalProps {
   isShowing: boolean;
@@ -11,23 +12,30 @@ const ImageModal = ({ isShowing, handleClose }: ImageModalProps) => {
     isShowing && (
       <StModalWrapper>
         <StModal>
-          공유하기
-          <IcCloseModal onClick={handleClose} />
-          <hr />
-          <StBtnWrapper>
-            <StShareBtnWrapper>
-              <StShareBtn type="button" onClick={handleClose}>
-                <IcUrl />
-              </StShareBtn>
-              링크복사
-            </StShareBtnWrapper>
-            <StShareBtnWrapper>
-              <StShareBtn type="button" onClick={handleClose}>
-                <IcKakao />
-              </StShareBtn>
-              카카오톡
-            </StShareBtnWrapper>
-          </StBtnWrapper>
+          {showCompleteModal ? (
+            // CompleteModal을 보여줌
+            <CompleteModal comment={['링크가 클립보드에 복사되었습니다.']} />
+          ) : (
+            <>
+              공유하기
+              <IcCloseModal onClick={handleClose} />
+              <hr />
+              <StBtnWrapper>
+                <StShareBtnWrapper>
+                  <StShareBtn type="button" onClick={handleClose}>
+                    <IcUrl />
+                  </StShareBtn>
+                  링크복사
+                </StShareBtnWrapper>
+                <StShareBtnWrapper>
+                  <StShareBtn type="button" onClick={handleClose}>
+                    <IcKakao />
+                  </StShareBtn>
+                  카카오톡
+                </StShareBtnWrapper>
+              </StBtnWrapper>{' '}
+            </>
+          )}
         </StModal>
       </StModalWrapper>
     )
