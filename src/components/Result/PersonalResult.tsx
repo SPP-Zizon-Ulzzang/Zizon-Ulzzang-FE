@@ -121,7 +121,7 @@ const PersonalResult = () => {
               <h2>{mbtiResult.MBTI}</h2>
             </StProfile>
 
-            <img src={IcBallon2} />
+            <img src={IcBallon2} alt="ballon" />
             <StDescWrapper>
               <strong>{mbtiResult.title}</strong>
               <h4 style={{ color: resultMainColor }}>{mbtiResult.tag}</h4>

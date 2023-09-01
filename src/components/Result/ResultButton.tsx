@@ -1,13 +1,20 @@
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, useParams } from 'react-router-dom';
 import { styled } from 'styled-components';
 
 import { IcDownload, IcUpload } from '../../assets/icons';
+import { shareKakao } from './ShareKakao';
 
 interface ResultButtonProps {
   onClickDownload: () => void;
 }
+
 const ResultButton = ({ onClickDownload }: ResultButtonProps) => {
+  const { id } = useParams();
   const navigate = useNavigate();
+
+  const handleKakaoShare = () => {
+    shareKakao(`https://mbtigram.site/result/${id}`);
+  };
 
   return (
     <StResultButton>
@@ -22,7 +29,7 @@ const ResultButton = ({ onClickDownload }: ResultButtonProps) => {
       <StShare type="button" onClick={onClickDownload}>
         <IcDownload />
       </StShare>
-      <StShare type="button">
+      <StShare type="button" onClick={handleKakaoShare}>
         <IcUpload />
       </StShare>
     </StResultButton>

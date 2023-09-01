@@ -27,9 +27,10 @@ const StProgressBar = styled.div`
   #nprogress .bar {
     width: 100%;
     height: 0.6675rem;
-    border-radius: 7.2rem;
+    margin-left: 0.5rem;
 
     background: #373737;
+    border-radius: 7.2rem;
   }
 
   #nprogress .peg {
