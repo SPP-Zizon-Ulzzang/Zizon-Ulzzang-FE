@@ -99,7 +99,7 @@ const StModal = styled.div`
   box-sizing: border-box;
   border-radius: 2rem;
   background-color: #373737;
-  color: ${({ theme }) => theme.colors.White};
+  color: #fff;
   ${({ theme }) => theme.fonts.Body3};
 
   & > svg {
@@ -115,7 +115,7 @@ const StModal = styled.div`
     width: 100%;
 
     border: none;
-    border-top: 0.05rem solid ${({ theme }) => theme.colors.White};
+    border-top: 0.05rem solid #fff;
     background-color: ${({ theme }) => theme.colors.White};
   }
   &.fade-out {
@@ -139,7 +139,7 @@ const StShareBtnWrapper = styled.div`
   justify-content: center;
   align-items: center;
 
-  color: ${({ theme }) => theme.colors.White};
+  color: #fff;
   ${({ theme }) => theme.fonts.Body4};
 `;
 
@@ -154,5 +154,5 @@ const StShareBtn = styled.button`
   margin-bottom: 0.75rem;
 
   border-radius: 7.2rem;
-  background-color: ${({ theme }) => theme.colors.White};
+  background-color: #fff;
 `;

@@ -31,12 +31,14 @@ const Home = () => {
           <Lottie className="lottie" animationData={LottieLoading} loop={true} />
         </StMainImage>
       </StHomeContent>
-      <a href="https://www.cutercounter.com/" target="_blank">
+      <StCounter>
+        <span>현재까지</span>
         <img
           src="https://www.cutercounter.com/hits.php?id=hxncopf&nd=6&style=1"
           alt="visitor counter"
         />
-      </a>
+        <span>명 참여했어요</span>
+      </StCounter>
       <StBtnWrapper>
         <Button buttonName="나의 MBTI 예측하기" isActive={true} onClick={handleClickPersonal} />
         <Button buttonName="MBTI 궁합 분석하기" isActive={true} onClick={handleClickChemistry} />
@@ -117,4 +119,18 @@ export const StBtnWrapper = styled.div`
 
   width: 100%;
   max-width: 43rem;
+`;
+
+const StCounter = styled.div`
+  display: flex;
+  gap: 1.35rem;
+
+  & > span {
+    color: ${({ theme }) => theme.colors.Gray5};
+    ${({ theme }) => theme.fonts.Title2};
+  }
+  & > img {
+    width: 9.2rem;
+    height: 2.4rem;
+  }
 `;

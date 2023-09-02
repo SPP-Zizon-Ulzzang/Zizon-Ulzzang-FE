@@ -14,4 +14,5 @@ export { ReactComponent as IcUrl } from './ic_url.svg';
 export { ReactComponent as IcError } from './ic_error.svg';
 export { ReactComponent as IcBallon } from './ic_ballon.svg';
 export { ReactComponent as IcHomeCharacter } from './ic_home_character.svg';
+export { ReactComponent as IcChemistryBg } from './ic_chemistry_bg.svg';
 export { default as IcBallon2 } from './ic_ballon2.svg';

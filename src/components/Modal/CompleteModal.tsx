@@ -30,7 +30,7 @@ const StCompleteModal = styled.div`
   background-color: #373737;
 
   & > p {
-    color: ${({ theme }) => theme.colors.White};
+    color: #fff;
     ${({ theme }) => theme.fonts.Body5};
   }
 `;
