@@ -1,12 +1,15 @@
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
+import { useRecoilState } from 'recoil';
 import { styled } from 'styled-components';
 
 import { BaseLayout } from '../../layouts/BaseLayout';
+import { IsButtonActive } from '../../recoil/atom';
 import { Input } from '../Common/Input';
 
 const Predict = () => {
   const [input, setInput] = useState('');
+  const [isBtnActive, setIsBtnActive] = useRecoilState(IsButtonActive);
 
   const navigate = useNavigate();
 
@@ -16,7 +19,12 @@ const Predict = () => {
   };
 
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const curInput = e.target.value;
     setInput(e.target.value);
+
+    if (curInput.length > 0) {
+      setIsBtnActive(true);
+    } else setIsBtnActive(false);
   };
 
   return (

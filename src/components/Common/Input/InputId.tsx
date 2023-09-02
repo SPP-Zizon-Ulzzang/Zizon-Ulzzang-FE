@@ -47,7 +47,7 @@ const StInputId = styled.div`
   padding: 1.248rem 2.352rem;
 
   border-radius: 7.2rem;
-  color: #363636;
+  color: ${({ theme }) => theme.colors.Black};
   background-color: ${({ theme }) => theme.colors.Gray2};
   ${({ theme }) => theme.fonts.Body1};
 `;

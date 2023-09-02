@@ -93,7 +93,7 @@ const PersonalResult = () => {
   }
 
   return (
-    <StPersonalResult>
+    <StPersonalResult className="Result">
       {mbti && mbtiResult && rank && (
         <>
           <StImageDownload ref={resultRef}>

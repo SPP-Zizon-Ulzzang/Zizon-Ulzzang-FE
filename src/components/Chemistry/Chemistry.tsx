@@ -1,16 +1,19 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { animated, useTransition } from 'react-spring';
+import { useRecoilState } from 'recoil';
 import { styled } from 'styled-components';
 
 import { IcPlusActive, IcPlusDisabled } from '../../assets/icons';
 import { BaseLayout } from '../../layouts/BaseLayout';
+import { IsButtonActive } from '../../recoil/atom';
 import { InputId } from '../Common/Input';
 import { StInput } from '../Common/Input/Input';
 
 const Chemistry = () => {
   const [inputId, setInputId] = useState('');
   const [inputIdList, setInputIdList] = useState<string[]>([]);
+  const [isBtnActive, setIsBtnActive] = useRecoilState(IsButtonActive);
 
   const navigate = useNavigate();
 
@@ -19,6 +22,10 @@ const Chemistry = () => {
     enter: { opacity: 1, transform: 'translateY(0px) rotate(0deg)' },
     config: { tension: 220, friction: 25 },
   });
+
+  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    setInputId(e.target.value);
+  };
 
   const handleChemistry = () => {
     if (inputIdList.length < 2) {
@@ -52,6 +59,14 @@ const Chemistry = () => {
     setInputIdList((prev) => prev.filter((_, index) => index !== deleteIdx));
   };
 
+  useEffect(() => {
+    if (inputIdList.length > 1) {
+      setIsBtnActive(true);
+    } else {
+      setIsBtnActive(false);
+    }
+  }, [inputIdList]);
+
   return (
     <BaseLayout
       handlePredict={handleChemistry}
@@ -64,9 +79,7 @@ const Chemistry = () => {
           <StInputMember
             type="text"
             value={inputId}
-            onChange={(e: React.ChangeEvent<HTMLInputElement>) => {
-              setInputId(e.target.value);
-            }}
+            onChange={handleInputChange}
             placeholder="인스타그램 ID를 입력하세요."
           ></StInputMember>
           <StInputBtn type="button" disabled={!inputId} onClick={handleAddMemeber}>

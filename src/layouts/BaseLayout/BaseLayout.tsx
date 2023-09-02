@@ -1,9 +1,11 @@
+import { useRecoilValue } from 'recoil';
 import { styled } from 'styled-components';
 
 import { IcHeaderLogo } from '../../assets/icons';
 import { Button } from '../../components/Common/Button';
 import { StHeaderWrapper } from '../../components/Common/Header/Header';
 import { StBtnWrapper } from '../../components/Home/Home';
+import { IsButtonActive } from '../../recoil/atom';
 
 interface BaseLayoutProps {
   children: React.ReactNode;
@@ -20,6 +22,7 @@ const BaseLayout = ({
   descriptText1,
   descriptText2,
 }: BaseLayoutProps) => {
+  const isBtnActive = useRecoilValue(IsButtonActive);
   return (
     <>
       <StHeader>
@@ -34,7 +37,7 @@ const BaseLayout = ({
         <span>*비공개 계정이거나, 게시물이 없는 경우 MBTI 예측이 불가합니다.</span>
       </StMain>
       <StBaseBtnWrapper>
-        <Button buttonName="분석하기" isActive={true} onClick={handlePredict} />
+        <Button buttonName="분석하기" isActive={isBtnActive} onClick={handlePredict} />
       </StBaseBtnWrapper>
     </>
   );
