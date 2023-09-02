@@ -22,14 +22,13 @@ const StProgressBar = styled.div`
   margin-top: -1.5rem;
 
   border-radius: 7.2rem;
-  background-color: #f6f6f6;
+  background-color: ${({ theme }) => theme.colors.Gray2};
 
   #nprogress .bar {
-    width: 100%;
+    width: 18.9605rem;
     height: 0.6675rem;
-    margin-left: 0.5rem;
 
-    background-color: #373737;
+    background-color: ${({ theme }) => theme.colors.Gray5};
     border-radius: 7.2rem;
   }
 
