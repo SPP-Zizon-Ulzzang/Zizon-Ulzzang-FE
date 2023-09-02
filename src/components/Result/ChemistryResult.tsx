@@ -3,8 +3,10 @@ import { useEffect, useRef, useState } from 'react';
 import { useLocation } from 'react-router-dom';
 import { styled } from 'styled-components';
 
+import { IcChemistryBg } from '../../assets/icons';
 import { getChemistry } from '../../libs/apis/mbti';
 import { ChemistryInfo, MemberData } from '../../types/mbti';
+import { randomColor } from '../../utils/randomColor';
 import { Error } from '../Common/Error';
 import { Loading } from '../Loading';
 import { ResultButton } from './';
@@ -98,7 +100,16 @@ const ChemistryResult = () => {
     <StChemistryResultWrapper className="Result">
       {chemistry && memberData && (
         <StChemistryResult>
-          <h1>{Math.floor(chemistry.data.avg)}점!</h1>
+          <StScore>
+            <h2>우리 둘의 MBTI 궁합은?</h2>
+            <p style={{ color: randomColor }}>
+              완전 개좋음 어쩌고 저쩌고
+              <br />
+              #환상의콤보 #이런태그 #세개정도
+            </p>
+            <h1>{Math.floor(chemistry.data.avg)}점!</h1>
+            <IcChemistryBg />
+          </StScore>
           <StImageDownload ref={resultRef}>{chemistryComponent}</StImageDownload>
           <ResultButton onClickDownload={handleSaveImage} />
         </StChemistryResult>
@@ -124,18 +135,55 @@ const StChemistryResultWrapper = styled.main`
   );
 `;
 
+const StScore = styled.section`
+  position: relative;
+
+  width: 31.9rem;
+
+  & > h1 {
+    position: absolute;
+    bottom: 2rem;
+
+    width: 100%;
+
+    color: #212121;
+    ${({ theme }) => theme.fonts.Head1};
+    text-align: center;
+  }
+  & > h2 {
+    position: absolute;
+    top: 1.5rem;
+
+    width: 100%;
+
+    color: #fbfbfb;
+    ${({ theme }) => theme.fonts.Head3};
+    text-align: center;
+  }
+  & > p {
+    position: absolute;
+    top: 5.77rem;
+
+    width: 100%;
+
+    ${({ theme }) => theme.fonts.Head3};
+    font-size: 1.6rem;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 2rem; /* 125% */
+    letter-spacing: -0.032rem;
+    text-align: center;
+  }
+`;
+
 const StChemistryResult = styled.section`
   display: flex;
   flex-direction: column;
 
   justify-content: center;
   align-items: center;
-  width: 100%;
 
-  & > h1 {
-    ${({ theme }) => theme.fonts.Head1};
-    text-align: center;
-  }
+  width: 100%;
 `;
 
 const StImageDownload = styled.section`
