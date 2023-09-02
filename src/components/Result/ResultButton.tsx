@@ -59,7 +59,7 @@ const StRestart = styled.button`
   height: 4.8rem;
 
   border-radius: 7.2rem;
-  color: ${({ theme }) => theme.colors.White};
+  color: #fff;
   background-color: #373737;
   ${({ theme }) => theme.fonts.Body3};
 `;

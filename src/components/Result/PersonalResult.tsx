@@ -66,7 +66,7 @@ const PersonalResult = () => {
     } else {
       setErrorStatus(resMbti);
     }
-    // setLoading(false);
+    setLoading(false);
   };
 
   const getRankData = async () => {
@@ -241,7 +241,7 @@ const StProfile = styled.div`
 
   & > h2 {
     ${({ theme }) => theme.fonts.Head1};
-    color: ${({ theme }) => theme.colors.Black};
+    color: #212121;
   }
   & > h3 {
     margin-top: 0.88rem;
@@ -265,14 +265,14 @@ const StDescWrapper = styled.section`
   filter: drop-shadow(0px 0px 5px rgba(0, 0, 0, 0.1));
 
   & > strong {
-    color: ${({ theme }) => theme.colors.Gray5};
+    color: #414141;
     ${({ theme }) => theme.fonts.Body2};
   }
   & > h4 {
     ${({ theme }) => theme.fonts.Body3};
   }
   & > p {
-    color: ${({ theme }) => theme.colors.Gray5};
+    color: #414141;
     ${({ theme }) => theme.fonts.Body4};
 
     word-break: keep-all;
@@ -283,7 +283,7 @@ const StProbWrapper = styled(StDescWrapper)`
   padding: 1.76rem 1.8rem 1.8rem 1.8rem;
 
   & > h2 {
-    color: ${({ theme }) => theme.colors.Gray5};
+    color: #414141;
     ${({ theme }) => theme.fonts.Body2};
   }
 `;
@@ -306,7 +306,7 @@ const StProb = styled.li`
   }
   & > span {
     margin-top: -0.4rem;
-    color: ${({ theme }) => theme.colors.Gray4};
+    color: #727272;
     ${({ theme }) => theme.fonts.Body2};
   }
 `;
@@ -321,7 +321,7 @@ const StProbRank = styled.div`
   margin-top: 1.87rem;
 
   border-radius: 10rem;
-  color: ${({ theme }) => theme.colors.White};
+  color: #fff;
   ${({ theme }) => theme.fonts.Head3};
 `;
 
@@ -329,7 +329,7 @@ const StRankWrapper = styled(StDescWrapper)`
   width: 91%;
 
   & > h2 {
-    color: ${({ theme }) => theme.colors.Gray5};
+    color: #414141;
     ${({ theme }) => theme.fonts.Body2};
   }
 `;
@@ -361,14 +361,14 @@ const StTopWrapper = styled.div`
   & > strong {
     margin-top: -1.5rem;
 
-    color: ${({ theme }) => theme.colors.White};
+    color: #fff;
     ${({ theme }) => theme.fonts.Body3};
   }
   & > p {
     margin-top: -0.5rem;
     margin-bottom: 0.5rem;
 
-    color: ${({ theme }) => theme.colors.Gray5};
+    color: #414141;
     ${({ theme }) => theme.fonts.Body3};
   }
 `;
@@ -376,7 +376,7 @@ const StTopWrapper = styled.div`
 const StDownWrapper = styled.div`
   margin-top: -0.4rem;
 
-  color: ${({ theme }) => theme.colors.Gray4};
+  color: #727272;
   ${({ theme }) => theme.fonts.Body3};
 `;
 
