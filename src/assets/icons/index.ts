@@ -11,6 +11,7 @@ export { ReactComponent as IcInstaPlus } from './ic_insta_plus.svg';
 export { ReactComponent as IcKakao } from './ic_kakao.svg';
 export { ReactComponent as IcUpload } from './ic_upload.svg';
 export { ReactComponent as IcUrl } from './ic_url.svg';
+export { ReactComponent as IcError } from './ic_error.svg';
 export { ReactComponent as IcBallon } from './ic_ballon.svg';
-export { default as IcBallon2 } from './ic_ballon2.svg';
 export { ReactComponent as IcHomeCharacter } from './ic_home_character.svg';
+export { default as IcBallon2 } from './ic_ballon2.svg';
