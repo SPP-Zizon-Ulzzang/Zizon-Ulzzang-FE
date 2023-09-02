@@ -66,7 +66,7 @@ const PersonalResult = () => {
     } else {
       setErrorStatus(resMbti);
     }
-    setLoading(false);
+    // setLoading(false);
   };
 
   const getRankData = async () => {

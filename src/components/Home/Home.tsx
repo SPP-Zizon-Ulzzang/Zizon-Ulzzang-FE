@@ -67,6 +67,10 @@ const StHomeWrapper = styled.main`
   }
   & > .home-logo {
     padding: 5.316rem 0 3.617rem 0;
+
+    path {
+      fill: ${({ theme }) => theme.colors.Logo};
+    }
   }
 `;
 

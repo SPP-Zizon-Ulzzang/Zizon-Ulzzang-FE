@@ -49,12 +49,6 @@ const StLoading = styled.section`
   width: 100%;
   height: 100dvh;
   margin-top: -4rem;
-
-  background: linear-gradient(
-    162deg,
-    rgba(255, 142, 223, 0.5) 0.69%,
-    rgba(255, 188, 125, 0.5) 101.5%
-  );
 `;
 
 const StBallon = styled.div<{ isChemistry: boolean }>`
@@ -80,6 +74,10 @@ const StBallon = styled.div<{ isChemistry: boolean }>`
   }
   & > svg {
     width: 25.9rem;
+
+    path {
+      fill: ${({ theme }) => theme.colors.Ballon};
+    }
   }
 `;
 

@@ -3,6 +3,8 @@ import 'styled-components';
 declare module 'styled-components' {
   export interface DefaultTheme {
     colors: {
+      Logo: string;
+      Ballon: string;
       Black: string;
       White: string;
       Gray1: string;
