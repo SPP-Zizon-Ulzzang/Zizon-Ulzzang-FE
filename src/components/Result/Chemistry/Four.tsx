@@ -49,11 +49,11 @@ const StMembers = styled.div`
     padding: 1.21rem 3.3rem 1.05rem 3.3rem;
 
     border-radius: 5.8rem;
-    color: ${({ theme }) => theme.colors.Gray5};
+    color: #414141;
     ${({ theme }) => theme.fonts.Head2};
   }
   & > span {
-    color: ${({ theme }) => theme.colors.White};
+    color: #fff;
     ${({ theme }) => theme.fonts.Body6};
   }
 `;
