@@ -194,6 +194,9 @@ const StPersonalResult = styled.main`
 `;
 
 const StImageDownload = styled.section`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
   position: relative;
 
   padding: 0 1.8rem;
@@ -213,6 +216,7 @@ const StResultHeader = styled.header`
   justify-content: space-between;
   align-items: flex-end;
 
+  width: 33.9rem;
   height: 3.17rem;
   padding-top: 0.77rem;
 
@@ -280,6 +284,7 @@ const StDescWrapper = styled.section`
 `;
 
 const StProbWrapper = styled(StDescWrapper)`
+  width: 100%;
   padding: 1.76rem 1.8rem 1.8rem 1.8rem;
 
   & > h2 {
