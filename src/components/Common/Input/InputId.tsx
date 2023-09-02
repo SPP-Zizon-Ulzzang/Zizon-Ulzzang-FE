@@ -19,7 +19,7 @@ const InputId = ({ id, handleDelete }: InputIdProps) => {
       <StInputId>{id}</StInputId>
       <StInputIdBtn type="button" onClick={handleDelete}>
         <animated.div style={deleteButtonRotation}>
-          <IcDelete />
+          <IcDelete className="deleteBtn" />
         </animated.div>
       </StInputIdBtn>
     </StInputIdWrapper>
@@ -62,4 +62,10 @@ const StInputIdBtn = styled.button`
 
   border-radius: 7.2rem;
   background-color: ${({ theme }) => theme.colors.Gray2};
+
+  .deleteBtn {
+    path {
+      fill: ${({ theme }) => theme.colors.ButtonActive};
+    }
+  }
 `;

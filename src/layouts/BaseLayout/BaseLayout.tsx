@@ -27,7 +27,7 @@ const BaseLayout = ({
     <>
       <StHeader>
         <h1 className="sr-only">MBTIgram</h1>
-        <IcHeaderLogo />
+        <IcHeaderLogo className="headerLogo" />
       </StHeader>
       <StMain>
         <h2>{mainText}</h2>
@@ -52,6 +52,12 @@ const StHeader = styled(StHeaderWrapper)`
   padding-top: 2.7rem;
   width: 100%;
   max-width: 43rem;
+
+  .headerLogo {
+    & > g > path {
+      fill: ${({ theme }) => theme.colors.HeaderLogo};
+    }
+  }
 `;
 
 const StMain = styled.main`

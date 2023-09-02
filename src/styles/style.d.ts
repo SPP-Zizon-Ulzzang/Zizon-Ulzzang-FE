@@ -4,6 +4,9 @@ declare module 'styled-components' {
   export interface DefaultTheme {
     colors: {
       Logo: string;
+      HeaderLogo: string;
+      ButtonActive: string;
+      ButtonDisabled: string;
       Ballon: string;
       Black: string;
       White: string;

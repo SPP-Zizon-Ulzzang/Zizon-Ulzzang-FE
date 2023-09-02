@@ -101,7 +101,11 @@ export const fonts = {
 export const light = {
   colors: {
     Logo: '#1D1D1B',
+    HeaderLogo: '#CFCFCE',
     Ballon: '#FFFFFF',
+    ButtonActive: '#363636',
+    ButtonDisabled: '#ADADAD',
+
     Black: '#212121',
     White: '#FFFFFF',
     Gray1: '#FBFBFB',
@@ -124,7 +128,11 @@ export const light = {
 export const dark = {
   colors: {
     Logo: '#FFFFFF',
+    HeaderLogo: '#666666',
     Ballon: '#3F3F3F',
+    ButtonActive: '#ADADAD',
+    ButtonDisabled: '#363636',
+
     Black: '#FFFFFF',
     White: '#212121',
     Gray1: '#262626',

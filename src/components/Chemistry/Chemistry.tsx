@@ -83,7 +83,11 @@ const Chemistry = () => {
             placeholder="인스타그램 ID를 입력하세요."
           ></StInputMember>
           <StInputBtn type="button" disabled={!inputId} onClick={handleAddMemeber}>
-            {inputId ? <IcPlusActive /> : <IcPlusDisabled />}
+            {inputId ? (
+              <IcPlusActive className="activeBtn" />
+            ) : (
+              <IcPlusDisabled className="disabledBtn" />
+            )}
           </StInputBtn>
         </StInputWrapper>
         {transitions((style, id) => (
@@ -136,6 +140,17 @@ export const StInputBtn = styled.button`
 
   border-radius: 9.6rem; */
   background-color: ${({ theme }) => theme.colors.Gray2};
+
+  .activeBtn {
+    path {
+      fill: ${({ theme }) => theme.colors.ButtonActive};
+    }
+  }
+  .disabledBtn {
+    path {
+      fill: ${({ theme }) => theme.colors.ButtonDisabled};
+    }
+  }
 `;
 
 export const StInputMember = styled(StInput)`

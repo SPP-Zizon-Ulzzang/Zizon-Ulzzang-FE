@@ -95,7 +95,7 @@ const ChemistryResult = () => {
   }
 
   return (
-    <StChemistryResultWrapper>
+    <StChemistryResultWrapper className="Result">
       {chemistry && memberData && (
         <StChemistryResult>
           <h1>{Math.floor(chemistry.data.avg)}점!</h1>
