@@ -78,17 +78,23 @@ const ChemistryResult = () => {
   }
 
   let chemistryComponent;
+  let memberNum = '';
   switch (memberData?.length) {
     case 2:
+      memberNum = '둘';
       chemistryComponent = <Two memberData={memberData} />;
       break;
     case 3:
+      memberNum = '셋';
       chemistryComponent = <Three memberData={memberData} />;
       break;
     case 4:
+      memberNum = '넷';
       chemistryComponent = <Four memberData={memberData} />;
+
       break;
     case 5:
+      memberNum = '다섯';
       chemistryComponent = <Five memberData={memberData} />;
       break;
     default:
@@ -101,7 +107,7 @@ const ChemistryResult = () => {
       {chemistry && memberData && (
         <StChemistryResult>
           <StScore>
-            <h2>우리 둘의 MBTI 궁합은?</h2>
+            <h2>우리 {memberNum}의 MBTI 궁합은?</h2>
             <p style={{ color: randomColor }}>
               완전 개좋음 어쩌고 저쩌고
               <br />
