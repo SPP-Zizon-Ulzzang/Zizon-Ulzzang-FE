@@ -55,6 +55,9 @@ const StMembers = styled.div`
   justify-content: center;
   align-items: center;
 
+  & > div {
+    z-index: 1;
+  }
   & > div > svg {
     width: 7rem;
     height: 5.6rem;
@@ -92,11 +95,11 @@ const StScore = styled.div`
     ${({ theme }) => theme.fonts.Body5};
 
     &:nth-child(2) {
-      top: 8.2rem;
+      top: 8.15rem;
       left: 15.7rem;
     }
     &:nth-child(3) {
-      top: 13.7rem;
+      top: 13.68rem;
       left: 12.9rem;
     }
     &:nth-child(4) {
@@ -104,7 +107,7 @@ const StScore = styled.div`
       left: 5.32rem;
     }
     &:nth-child(5) {
-      top: 13.7rem;
+      top: 13.68rem;
       left: 18.5rem;
     }
     &:nth-child(6) {
@@ -112,7 +115,7 @@ const StScore = styled.div`
       left: 26.25rem;
     }
     &:nth-child(7) {
-      top: 26.6rem;
+      top: 26.55rem;
       left: 15.7rem;
     }
   }
