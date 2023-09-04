@@ -27,6 +27,8 @@ export default Two;
 
 const StTwoWrapper = styled.section`
   display: flex;
+
+  margin-top: 3.2rem;
 `;
 
 const StMembers = styled.div`
@@ -39,12 +41,14 @@ const StMembers = styled.div`
   height: fit-content;
 
   & > div > svg {
-    width: 15rem;
-    height: 13rem;
+    width: 15.8rem;
+    height: 13.8rem;
   }
   & > p {
-    margin-top: -2.5rem;
+    margin-top: -0.5rem;
     padding: 1.21rem 3.3rem 1.05rem 3.3rem;
+    max-width: 11.4rem;
+    max-height: 4.7rem;
 
     border-radius: 5.8rem;
     color: #414141;

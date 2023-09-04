@@ -1,18 +1,23 @@
-import html2canvas from 'html2canvas';
-import { useEffect, useRef, useState } from 'react';
-import { useParams } from 'react-router-dom';
-import { styled } from 'styled-components';
+import html2canvas from "html2canvas";
+import { useEffect, useRef, useState } from "react";
+import { useParams } from "react-router-dom";
+import { styled } from "styled-components";
 
-import { IcArrowDown, IcBallon2, IcInstaHamburger, IcInstaPlus } from '../../assets/icons';
-import { MBTI_RESULT, MBTIResult } from '../../constants/MBTI';
-import { MBTI_STYLE } from '../../constants/result';
-import { getMBTI, getRank } from '../../libs/apis/mbti';
-import { MBTIInfo, RankInfo } from '../../types/mbti';
-import { mapMBTIToColor } from '../../utils/mapMBTIToColor';
-import { mapMBTIToImage } from '../../utils/mapMBTIToImage';
-import { Error } from '../Common/Error';
-import { Loading } from '../Loading';
-import { ResultButton } from './';
+import {
+  IcArrowDown,
+  IcBallon2,
+  IcBottomLogo,
+  IcInstaHamburger,
+  IcInstaPlus
+} from "../../assets/icons";
+import { MBTI_RESULT, MBTIResult } from "../../constants/MBTI";
+import { getMBTI, getRank } from "../../libs/apis/mbti";
+import { MBTIInfo, RankInfo } from "../../types/mbti";
+import { mapMBTIToColor } from "../../utils/mapMBTIToColor";
+import { mapMBTIToImage } from "../../utils/mapMBTIToImage";
+import { Error } from "../Common/Error";
+import { Loading } from "../Loading";
+import { ResultButton } from "./";
 
 const PersonalResult = () => {
   const { id } = useParams();
@@ -22,16 +27,24 @@ const PersonalResult = () => {
   const [resultMainColor, setResultMainColor] = useState<string>();
   const [resultMainImg, setResultMainImg] = useState<React.ReactNode | null>(null);
   const resultRef = useRef<HTMLElement | null>(null);
+  const headerRef = useRef<HTMLElement | null>(null);
+  const footerRef = useRef<HTMLElement | null>(null);
+  const ballonRef = useRef<HTMLImageElement | null>(null);
+  const [capturingScreenshot, setCapturingScreenshot] = useState(false);
 
   const [loading, setLoading] = useState(true);
   const [errorStatus, setErrorStatus] = useState<number>();
 
   const handleSaveImage = () => {
-    if (resultRef.current) {
+    if (resultRef.current && headerRef.current && footerRef.current && ballonRef.current) {
       const originalWidth = resultRef.current.offsetWidth;
       const originalHeight = resultRef.current.offsetHeight;
       const originalBackgroundColor = resultRef.current.style.background;
 
+      headerRef.current.style.marginTop = '58px';
+      headerRef.current.style.marginBottom = '0px';
+      ballonRef.current.style.top = '360px';
+      footerRef.current.style.display = 'block';
       resultRef.current.style.width = `450px`;
       resultRef.current.style.height = `800px`;
       resultRef.current.style.padding = `0 18px 18px 18px`;
@@ -47,6 +60,10 @@ const PersonalResult = () => {
         link.click();
       });
 
+      headerRef.current.style.marginTop = '0px';
+      headerRef.current.style.marginBottom = '22px';
+      footerRef.current.style.display = 'none';
+      ballonRef.current.style.top = '332px';
       resultRef.current.style.background = originalBackgroundColor;
       resultRef.current.style.width = `${originalWidth}px`;
       resultRef.current.style.height = `${originalHeight}px`;
@@ -97,7 +114,7 @@ const PersonalResult = () => {
       {mbti && mbtiResult && rank && (
         <>
           <StImageDownload ref={resultRef}>
-            <StResultHeader>
+            <StResultHeader ref={headerRef}>
               <div>
                 <h1>{mbtiResult.instaId}</h1>
                 <IcArrowDown />
@@ -114,7 +131,7 @@ const PersonalResult = () => {
               <h2>{mbtiResult.MBTI}</h2>
             </StProfile>
 
-            <img src={IcBallon2} alt="ballon" />
+            <img src={IcBallon2} alt="ballon" ref={ballonRef} />
             <StDescWrapper>
               <strong>{mbtiResult.title}</strong>
               <h4 style={{ color: resultMainColor }}>{mbtiResult.tag}</h4>
@@ -137,6 +154,9 @@ const PersonalResult = () => {
                 })}
               </StMBTIProb>
             </StProbWrapper>
+            <footer ref={footerRef}>
+              <IcBottomLogo />
+            </footer>
           </StImageDownload>
 
           <ResultButton onClickDownload={handleSaveImage} />
@@ -209,6 +229,10 @@ const StImageDownload = styled.section`
 
     z-index: 1;
   }
+  & > footer {
+    display: none;
+    margin-top: -1rem;
+  }
 `;
 
 const StResultHeader = styled.header`
@@ -219,6 +243,7 @@ const StResultHeader = styled.header`
   width: 33.9rem;
   height: 3.17rem;
   padding-top: 0.77rem;
+  margin-bottom: 2.2rem;
 
   & > div > h1 {
     margin-right: 0.5rem;
@@ -240,7 +265,7 @@ const StProfile = styled.div`
   justify-content: center;
   align-items: center;
 
-  margin-top: 2.2rem;
+  /* margin-top: 2.2rem; */
   margin-bottom: 3.5rem;
 
   & > h2 {
@@ -259,7 +284,7 @@ const StProfile = styled.div`
 `;
 
 const StDescWrapper = styled.section`
-  margin-bottom: 2.54rem;
+  margin-bottom: 1rem;
   padding: 1.56rem 2rem 1.28rem 2rem;
 
   box-sizing: border-box;
@@ -273,6 +298,8 @@ const StDescWrapper = styled.section`
     ${({ theme }) => theme.fonts.Body2};
   }
   & > h4 {
+    margin-top: -0.3rem;
+    margin-bottom: 0.5rem;
     ${({ theme }) => theme.fonts.Body3};
   }
   & > p {
@@ -285,7 +312,9 @@ const StDescWrapper = styled.section`
 
 const StProbWrapper = styled(StDescWrapper)`
   width: 100%;
-  padding: 1.76rem 1.8rem 1.8rem 1.8rem;
+  padding: 1.46rem 2.25rem 1.31rem 2.01rem;
+  margin-bottom: 2.7rem;
+  box-sizing: border-box;
 
   & > h2 {
     color: #414141;
@@ -295,9 +324,12 @@ const StProbWrapper = styled(StDescWrapper)`
 
 const StMBTIProb = styled.ol`
   display: flex;
-  justify-content: space-between;
+  justify-content: center;
+  gap: 3rem;
 
   width: 100%;
+  max-width: 29.5rem;
+  margin: 0 auto;
 `;
 
 const StProb = styled.li`
@@ -323,15 +355,18 @@ const StProbRank = styled.div`
 
   width: 3.446rem;
   height: 3.446rem;
-  margin-top: 1.87rem;
+  margin-top: 0.67rem;
 
   border-radius: 10rem;
   color: #fff;
-  ${({ theme }) => theme.fonts.Head3};
+  ${({ theme }) => theme.fonts.Head2};
+  font-size: 2.1046rem;
 `;
 
 const StRankWrapper = styled(StDescWrapper)`
   width: 91%;
+  margin-top: 2.7rem;
+  margin-bottom: 2.479rem;
 
   & > h2 {
     color: #414141;

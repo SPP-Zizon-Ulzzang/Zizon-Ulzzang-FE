@@ -6,6 +6,7 @@ export { ReactComponent as IcArrowDown } from './ic_arrow_down.svg';
 export { ReactComponent as IcDelete } from './ic_delete.svg';
 export { ReactComponent as IcCloseModal } from './ic_close_modal.svg';
 export { ReactComponent as IcDownload } from './ic_download.svg';
+export { ReactComponent as IcBottomLogo } from './ic_bottom_logo.svg';
 export { ReactComponent as IcInstaHamburger } from './ic_insta_hamburger.svg';
 export { ReactComponent as IcInstaPlus } from './ic_insta_plus.svg';
 export { ReactComponent as IcKakao } from './ic_kakao.svg';

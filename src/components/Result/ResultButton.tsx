@@ -51,7 +51,6 @@ const StResultButton = styled.div`
   gap: 0.8rem;
 
   width: 100%;
-  margin-bottom: 3.11rem;
 `;
 
 const StRestart = styled.button`

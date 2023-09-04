@@ -63,6 +63,8 @@ const StMembers = styled.div`
   & > p {
     margin-top: -1.5rem;
     padding: 1.21rem 3.3rem 1.05rem 3.3rem;
+    max-width: 11.4rem;
+    max-height: 4.7rem;
 
     border-radius: 5.8rem;
     color: #414141;
