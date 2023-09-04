@@ -1,7 +1,5 @@
-import { Two } from '../components/Result/Chemistry';
-
 const TestPage = () => {
-  return;
+  return <h1>테스트페이지</h1>;
 };
 
 export default TestPage;

@@ -2,7 +2,7 @@ import Lottie from 'lottie-react';
 import { useNavigate } from 'react-router-dom';
 import { styled } from 'styled-components';
 
-import { IcHomeLogo } from '../../assets/icons';
+import { IcHomeLogo, IcMainBallon } from '../../assets/icons';
 import { LottieLoading } from '../../assets/lottie';
 import { Button } from '../Common/Button';
 
@@ -20,25 +20,28 @@ const Home = () => {
     <StHomeWrapper>
       <h1 className="sr-only">MBTIgram</h1>
       <IcHomeLogo className="home-logo" />
+      <StCounter>
+        <IcMainBallon />
+        <span>현재까지</span>
+        <img
+          src="https://www.cutercounter.com/hits.php?id=hexodxcq&nd=6&style=3"
+          alt="website counter"
+        />
+        <span>명 참여했어요</span>
+      </StCounter>
+
       <StHomeContent>
+        <StMainImage>
+          <Lottie className="lottie" animationData={LottieLoading} loop={true} />
+        </StMainImage>
         <h2>AI가 분석한 나의 MBTI는?</h2>
         <p>
           인스타그램 피드 게시글을 분석해 MBTI를
           <br />
           예측하고 여러 사람들과 궁합을 측정해 보세요!
         </p>
-        <StMainImage>
-          <Lottie className="lottie" animationData={LottieLoading} loop={true} />
-        </StMainImage>
       </StHomeContent>
-      <StCounter>
-        <span>현재까지</span>
-        <img
-          src="https://www.cutercounter.com/hits.php?id=hxncopf&nd=6&style=1"
-          alt="visitor counter"
-        />
-        <span>명 참여했어요</span>
-      </StCounter>
+
       <StBtnWrapper>
         <Button buttonName="나의 MBTI 예측하기" isActive={true} onClick={handleClickPersonal} />
         <Button buttonName="MBTI 궁합 분석하기" isActive={true} onClick={handleClickChemistry} />
@@ -68,7 +71,7 @@ const StHomeWrapper = styled.main`
     border: 0;
   }
   & > .home-logo {
-    padding: 5.316rem 0 3.617rem 0;
+    padding: 5.316rem 0 3.254rem 0;
 
     path {
       fill: ${({ theme }) => theme.colors.Logo};
@@ -102,7 +105,8 @@ const StMainImage = styled.div`
   align-items: center;
   justify-content: center;
 
-  margin-bottom: 2.449rem;
+  margin-top: 3.5rem;
+  margin-bottom: -1rem;
   width: 33.7rem;
   height: 27rem;
 `;
@@ -123,14 +127,28 @@ export const StBtnWrapper = styled.div`
 
 const StCounter = styled.div`
   display: flex;
-  gap: 1.35rem;
+  justify-content: center;
+  align-items: center;
+  gap: 0.35rem;
+
+  position: relative;
+  width: 100%;
+  padding-top: 1.3rem;
 
   & > span {
+    z-index: 1;
+    box-sizing: border-box;
     color: ${({ theme }) => theme.colors.Gray5};
     ${({ theme }) => theme.fonts.Title2};
   }
   & > img {
-    width: 9.2rem;
+    z-index: 1;
+    width: 7.6rem;
     height: 2.4rem;
+  }
+  & > svg {
+    position: absolute;
+    top: 0;
+    left: 5.82rem;
   }
 `;
