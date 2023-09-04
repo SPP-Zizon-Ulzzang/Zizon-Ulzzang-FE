@@ -138,13 +138,15 @@ const StCounter = styled.div`
   & > span {
     z-index: 1;
     box-sizing: border-box;
-    color: ${({ theme }) => theme.colors.Gray5};
+
+    color: #414141;
     ${({ theme }) => theme.fonts.Title2};
   }
   & > img {
     z-index: 1;
-    width: 7.6rem;
-    height: 2.4rem;
+
+    /* width: 7.6rem;
+    height: 2.4rem; */
   }
   & > svg {
     position: absolute;
