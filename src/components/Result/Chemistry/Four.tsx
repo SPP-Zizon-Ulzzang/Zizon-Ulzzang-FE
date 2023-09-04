@@ -9,6 +9,7 @@ interface FourProps {
   memberData: MemberData[];
 }
 const Four = ({ memberData }: FourProps) => {
+  console.log(memberData);
   return (
     <StFourWrapper>
       {memberData.map((member, index) => {
@@ -104,11 +105,11 @@ const StScore = styled.div`
     }
     &:nth-child(5) {
       top: 13.7rem;
-      right: 12.7rem;
+      left: 18.5rem;
     }
     &:nth-child(6) {
       top: 16.05rem;
-      right: 5.2rem;
+      left: 26.2rem;
     }
     &:nth-child(7) {
       top: 26.6rem;
