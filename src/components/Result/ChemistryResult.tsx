@@ -3,7 +3,7 @@ import { useEffect, useRef, useState } from 'react';
 import { useLocation } from 'react-router-dom';
 import { css, styled } from 'styled-components';
 
-import { IcChemistryBg } from '../../assets/icons';
+import { IcBottomLogo, IcChemistryBg } from '../../assets/icons';
 import { ChemistryResultInfo, MBTI_CHEMISTRY } from '../../constants/MBTI';
 import { getChemistry } from '../../libs/apis/mbti';
 import { ChemistryInfo, MemberData } from '../../types/mbti';
@@ -21,16 +21,24 @@ const ChemistryResult = () => {
   const [scoreData, setScoreData] = useState<ChemistryResultInfo>();
   const [isTwo, setIsTwo] = useState<boolean>(false);
   const resultRef = useRef<HTMLElement | null>(null);
+  const paddingRef = useRef<HTMLDivElement | null>(null);
+  const footerRef = useRef<HTMLElement | null>(null);
 
   const [loading, setLoading] = useState(true);
   const [errorStatus, setErrorStatus] = useState<number>();
 
   const handleSaveImage = () => {
-    if (resultRef.current) {
+    if (resultRef.current && footerRef.current) {
       const originalWidth = resultRef.current.offsetWidth;
       const originalHeight = resultRef.current.offsetHeight;
-      resultRef.current.style.width = `450px`;
-      resultRef.current.style.height = `800px`;
+
+      resultRef.current.style.width = `375px`;
+      resultRef.current.style.height = `666px`;
+      resultRef.current.style.boxSizing = `border-box`;
+      footerRef.current.style.display = 'block';
+      if (paddingRef.current) {
+        paddingRef.current.style.display = 'none';
+      }
 
       const originalBackgroundColor = resultRef.current.style.background;
       resultRef.current.style.background =
@@ -44,8 +52,13 @@ const ChemistryResult = () => {
         link.download = 'mbtigram_result_image.png';
         link.click();
       });
-      resultRef.current.style.background = originalBackgroundColor;
 
+      if (memberData?.length === 2 && paddingRef.current) {
+        paddingRef.current.style.display = 'block';
+      }
+      footerRef.current.style.display = 'none';
+      resultRef.current.style.paddingTop = `81.42px`;
+      resultRef.current.style.background = originalBackgroundColor;
       resultRef.current.style.width = `${originalWidth}px`;
       resultRef.current.style.height = `${originalHeight}px`;
     }
@@ -129,15 +142,20 @@ const ChemistryResult = () => {
     <StChemistryResultWrapper className="Result">
       {chemistry && memberData && (
         <StChemistryResult>
-          {isTwo && <StIsTwo />}
-          <StScore>
-            <h2>우리 {memberNum}의 MBTI 궁합은?</h2>
-            <p style={{ color: randomColor }}>{scoreData?.title}</p>
-            <p style={{ color: randomColor }}>{scoreData?.tag}</p>
-            <h1>{Math.floor(chemistry.data.avg)}점!</h1>
-            <IcChemistryBg />
-          </StScore>
-          <StImageDownload ref={resultRef}>{chemistryComponent}</StImageDownload>
+          <StImageDownload ref={resultRef}>
+            {isTwo && <StIsTwo ref={paddingRef} />}
+            <StScore>
+              <h2>우리 {memberNum}의 MBTI 궁합은?</h2>
+              <p style={{ color: randomColor }}>{scoreData?.title}</p>
+              <p style={{ color: randomColor }}>{scoreData?.tag}</p>
+              <h1>{Math.floor(chemistry.data.avg)}점!</h1>
+              <IcChemistryBg />
+            </StScore>
+            {chemistryComponent}
+            <footer ref={footerRef}>
+              <IcBottomLogo />
+            </footer>
+          </StImageDownload>
           <StResultButtonWrapper>
             <ResultButton onClickDownload={handleSaveImage} />
           </StResultButtonWrapper>
@@ -214,11 +232,25 @@ const StChemistryResult = styled.section`
   align-items: center;
 
   width: 100%;
-  padding-top: 8.142rem;
 `;
 
 const StImageDownload = styled.section`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  position: relative;
+  padding-top: 8.142rem;
   margin-bottom: 4rem;
+  min-height: 66.6rem;
+  max-height: 66.6rem;
+
+  & > footer {
+    display: none;
+
+    position: absolute;
+    top: 63rem;
+  }
 `;
 
 const StResultButtonWrapper = styled.div`

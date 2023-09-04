@@ -30,7 +30,6 @@ const PersonalResult = () => {
   const headerRef = useRef<HTMLElement | null>(null);
   const footerRef = useRef<HTMLElement | null>(null);
   const ballonRef = useRef<HTMLImageElement | null>(null);
-  const [capturingScreenshot, setCapturingScreenshot] = useState(false);
 
   const [loading, setLoading] = useState(true);
   const [errorStatus, setErrorStatus] = useState<number>();
