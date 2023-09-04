@@ -10,7 +10,6 @@ interface ThreeProps {
 }
 
 const Three = ({ memberData }: ThreeProps) => {
-  console.log(memberData);
   return (
     <StThreeWrapper>
       {memberData.map((member, index) => {
