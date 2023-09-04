@@ -1,0 +1,16 @@
+export { ReactComponent as IcENFJChemistry } from './enfj-20.svg';
+export { ReactComponent as IcENFPChemistry } from './enfp-20.svg';
+export { ReactComponent as IcENTJChemistry } from './entj-20.svg';
+export { ReactComponent as IcENTPChemistry } from './entp-20.svg';
+export { ReactComponent as IcESFJChemistry } from './esfj-20.svg';
+export { ReactComponent as IcESFPChemistry } from './esfp-20.svg';
+export { ReactComponent as IcESTJChemistry } from './estj-20.svg';
+export { ReactComponent as IcESTPChemistry } from './estp-20.svg';
+export { ReactComponent as IcINFJChemistry } from './infj-20.svg';
+export { ReactComponent as IcINFPChemistry } from './infp-20.svg';
+export { ReactComponent as IcINTJChemistry } from './intj-20.svg';
+export { ReactComponent as IcINTPChemistry } from './intp-20.svg';
+export { ReactComponent as IcISFJChemistry } from './isfj-20.svg';
+export { ReactComponent as IcISFPChemistry } from './isfp-20.svg';
+export { ReactComponent as IcISTJChemistry } from './istj-20.svg';
+export { ReactComponent as IcISTPChemistry } from './istp-20.svg';
