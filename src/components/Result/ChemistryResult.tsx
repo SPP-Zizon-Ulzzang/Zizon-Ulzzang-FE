@@ -4,6 +4,7 @@ import { useLocation } from 'react-router-dom';
 import { styled } from 'styled-components';
 
 import { IcChemistryBg } from '../../assets/icons';
+import { ChemistryResultInfo, MBTI_CHEMISTRY } from '../../constants/MBTI';
 import { getChemistry } from '../../libs/apis/mbti';
 import { ChemistryInfo, MemberData } from '../../types/mbti';
 import { randomColor } from '../../utils/randomColor';
@@ -17,6 +18,7 @@ const ChemistryResult = () => {
   const inputIdList = state.inputIdList;
   const [chemistry, setChemistry] = useState<ChemistryInfo>();
   const [memberData, setMemberData] = useState<MemberData[]>();
+  const [scoreData, setScoreData] = useState<ChemistryResultInfo>();
 
   const [loading, setLoading] = useState(true);
   const [errorStatus, setErrorStatus] = useState<number>();
@@ -53,12 +55,27 @@ const ChemistryResult = () => {
     }
   };
 
+  const handleScoreMent = () => {
+    const avg = chemistry?.data.avg || 0;
+
+    if (avg >= 20 && avg <= 40) {
+      setScoreData(MBTI_CHEMISTRY[3]);
+    } else if (avg >= 41 && avg <= 60) {
+      setScoreData(MBTI_CHEMISTRY[2]);
+    } else if (avg >= 61 && avg <= 80) {
+      setScoreData(MBTI_CHEMISTRY[1]);
+    } else if (avg >= 81 && avg <= 100) {
+      setScoreData(MBTI_CHEMISTRY[0]);
+    }
+  };
+
   const getChemistryData = async (idList: string[]) => {
     const resData = await getChemistry(idList);
 
     if (resData?.status === 200) {
       setChemistry(resData);
       setMemberData(resData.data.member_data);
+      // handleScoreMent();
     } else {
       setErrorStatus(resData);
     }
@@ -71,6 +88,10 @@ const ChemistryResult = () => {
       getChemistryData(inputIdList);
     }
   }, [state]);
+
+  useEffect(() => {
+    handleScoreMent();
+  }, [chemistry]);
 
   if (loading) return <Loading isChemistry />;
   if (errorStatus) {
@@ -91,7 +112,6 @@ const ChemistryResult = () => {
     case 4:
       memberNum = '넷';
       chemistryComponent = <Four memberData={memberData} />;
-
       break;
     case 5:
       memberNum = '다섯';
@@ -108,11 +128,8 @@ const ChemistryResult = () => {
         <StChemistryResult>
           <StScore>
             <h2>우리 {memberNum}의 MBTI 궁합은?</h2>
-            <p style={{ color: randomColor }}>
-              완전 개좋음 어쩌고 저쩌고
-              <br />
-              #환상의콤보 #이런태그 #세개정도
-            </p>
+            <p style={{ color: randomColor }}>{scoreData?.title}</p>
+            <p style={{ color: randomColor }}>{scoreData?.tag}</p>
             <h1>{Math.floor(chemistry.data.avg)}점!</h1>
             <IcChemistryBg />
           </StScore>
@@ -179,6 +196,10 @@ const StScore = styled.section`
     line-height: 2rem; /* 125% */
     letter-spacing: -0.032rem;
     text-align: center;
+
+    &:nth-child(3) {
+      top: 7.77rem;
+    }
   }
 `;
 

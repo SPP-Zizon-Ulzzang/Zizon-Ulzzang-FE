@@ -10,7 +10,12 @@ export interface MBTIResult {
   description: string;
 }
 
-export const MBTI_RESULT = [
+export interface ChemistryResultInfo {
+  title: string;
+  tag: string;
+}
+
+export const MBTI_RESULT: MBTIResult[] = [
   {
     MBTI: 'ESTP',
     img_main: mainSrc + 'estp-22.svg',
@@ -170,5 +175,24 @@ export const MBTI_RESULT = [
     tag: '#프로눈팅러 #덕질하거나 #정보수집용',
     description:
       '프로필 사진이 기본 사진일 확률이 높은 당신. 인스타는 자주 해도 나를 보여주진 않아요. 대신 내가 빠져있는 관심 분야를 팔로우해서 열심히 덕질해요... 이외에는... 안녕히 계세요... 친구들 스토리를 아무 생각 없이 넘기지만 가끔 마음에 쏙 드는 게 있으면 답장해요. 가끔 자랑하는 글을 올리는데 다른 사람의 시선은 전혀 신경 쓰지 않는 마이웨이!',
+  },
+];
+
+export const MBTI_CHEMISTRY: ChemistryResultInfo[] = [
+  {
+    title: '스토리에 매일 태그해서 올리는 사이',
+    tag: '#도원결의 #재밌으면 #바로태그',
+  },
+  {
+    title: '가끔 릴스로 주고받고 탁구치는 사이',
+    tag: '#친친단골 #DM하면 #ㅋ이절반',
+  },
+  {
+    title: '가끔 스토리 답장해주는 사이',
+    tag: '#사진에 #좋아요는 #바로바로',
+  },
+  {
+    title: '방금 술자리에서 맞팔한 사이',
+    tag: '#저희아직 #어색해요 #친친은아님',
   },
 ];
