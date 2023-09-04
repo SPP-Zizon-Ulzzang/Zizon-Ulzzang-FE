@@ -1,7 +1,7 @@
 import html2canvas from 'html2canvas';
 import { useEffect, useRef, useState } from 'react';
 import { useLocation } from 'react-router-dom';
-import { styled } from 'styled-components';
+import { css, styled } from 'styled-components';
 
 import { IcChemistryBg } from '../../assets/icons';
 import { ChemistryResultInfo, MBTI_CHEMISTRY } from '../../constants/MBTI';
@@ -19,6 +19,7 @@ const ChemistryResult = () => {
   const [chemistry, setChemistry] = useState<ChemistryInfo>();
   const [memberData, setMemberData] = useState<MemberData[]>();
   const [scoreData, setScoreData] = useState<ChemistryResultInfo>();
+  const [isTwo, setIsTwo] = useState<boolean>(false);
   const resultRef = useRef<HTMLElement | null>(null);
 
   const [loading, setLoading] = useState(true);
@@ -30,8 +31,6 @@ const ChemistryResult = () => {
       const originalHeight = resultRef.current.offsetHeight;
       resultRef.current.style.width = `450px`;
       resultRef.current.style.height = `800px`;
-      // resultRef.current.style.padding = `0 18px 18px 18px`;
-      // resultRef.current.style.boxSizing = `border-box`;
 
       const originalBackgroundColor = resultRef.current.style.background;
       resultRef.current.style.background =
@@ -49,8 +48,6 @@ const ChemistryResult = () => {
 
       resultRef.current.style.width = `${originalWidth}px`;
       resultRef.current.style.height = `${originalHeight}px`;
-      // resultRef.current.style.padding = `0 18px`;
-      // resultRef.current.style.boxSizing = `border-box`;
     }
   };
 
@@ -114,6 +111,7 @@ const ChemistryResult = () => {
     getChemistryData(inputIdList);
   }, [state]);
   useEffect(() => {
+    memberData?.length === 2 ? setIsTwo(true) : setIsTwo(false);
     getChemistryComponent();
   }, [memberData]);
   useEffect(() => {
@@ -131,6 +129,7 @@ const ChemistryResult = () => {
     <StChemistryResultWrapper className="Result">
       {chemistry && memberData && (
         <StChemistryResult>
+          {isTwo && <StIsTwo />}
           <StScore>
             <h2>우리 {memberNum}의 MBTI 궁합은?</h2>
             <p style={{ color: randomColor }}>{scoreData?.title}</p>
@@ -153,7 +152,6 @@ export default ChemistryResult;
 const StChemistryResultWrapper = styled.main`
   display: flex;
   justify-content: center;
-  align-items: center;
 
   width: 100%;
   height: 100%;
@@ -213,11 +211,10 @@ const StScore = styled.section`
 const StChemistryResult = styled.section`
   display: flex;
   flex-direction: column;
-
-  justify-content: center;
   align-items: center;
 
   width: 100%;
+  padding-top: 9.142rem;
 `;
 
 const StImageDownload = styled.section`
@@ -227,4 +224,9 @@ const StImageDownload = styled.section`
 const StResultButtonWrapper = styled.div`
   position: absolute;
   bottom: 1.509rem;
+`;
+
+const StIsTwo = styled.div`
+  width: 100%;
+  height: 4.82rem;
 `;

@@ -33,6 +33,7 @@ const StThreeWrapper = styled.section`
   position: relative;
   width: 100%;
   height: fit-content;
+  margin-top: 1.6rem;
 
   & > :first-child {
     grid-column: span 2;
