@@ -144,13 +144,11 @@ const StCounter = styled.div`
   }
   & > img {
     z-index: 1;
-
-    /* width: 7.6rem;
-    height: 2.4rem; */
   }
   & > svg {
     position: absolute;
     top: 0;
-    left: 5.82rem;
+
+    width: 100%;
   }
 `;

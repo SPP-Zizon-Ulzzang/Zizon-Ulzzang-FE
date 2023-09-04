@@ -13,7 +13,7 @@ const Two = ({ memberData }: TwoProps) => {
       {memberData.map((member, index) => {
         return (
           <StMembers key={index}>
-            <div>{mapMBTIToImage(member.mbti).rank_image}</div>
+            <div>{mapMBTIToImage(member.mbti).chemistry_image}</div>
             <p style={{ backgroundColor: mapMBTIToColor(member.mbti).sub_color }}>{member.mbti}</p>
             <span>@{member.instaId}</span>
           </StMembers>
