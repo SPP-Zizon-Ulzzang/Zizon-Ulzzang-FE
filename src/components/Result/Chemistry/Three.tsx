@@ -1,5 +1,6 @@
 import { styled } from 'styled-components';
 
+import { IcThreeLine } from '../../../assets/icons';
 import { MemberData } from '../../../types/mbti';
 import { mapMBTIToColor } from '../../../utils/mapMBTIToColor';
 import { mapMBTIToImage } from '../../../utils/mapMBTIToImage';
@@ -19,6 +20,7 @@ const Three = ({ memberData }: ThreeProps) => {
           </StMembers>
         );
       })}
+      <IcThreeLine />
     </StThreeWrapper>
   );
 };
@@ -29,26 +31,23 @@ const StThreeWrapper = styled.section`
   display: grid;
   grid-template-rows: auto auto;
   grid-template-columns: 1fr 1fr;
+  grid-row-gap: 3.437rem;
+  grid-column-gap: 8.945rem;
 
   position: relative;
   width: 100%;
   height: fit-content;
-  margin-top: 1.6rem;
+  margin-top: 1.3rem;
 
   & > :first-child {
     grid-column: span 2;
     text-align: center;
   }
-  /* & > :nth-child(2) {
+  & > svg {
     position: absolute;
-    left: -2.8rem;
-    top: 15rem;
+    top: 10.9rem;
+    left: 6.411rem;
   }
-  & > :nth-child(3) {
-    position: absolute;
-    right: -2.8rem;
-    top: 15rem;
-  } */
 `;
 
 const StMembers = styled.div`
@@ -59,7 +58,7 @@ const StMembers = styled.div`
 
   & > div > svg {
     width: 10rem;
-    height: 8rem;
+    height: 7.93rem;
   }
   & > p {
     margin-top: -1.5rem;

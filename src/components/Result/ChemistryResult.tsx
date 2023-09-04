@@ -214,7 +214,7 @@ const StChemistryResult = styled.section`
   align-items: center;
 
   width: 100%;
-  padding-top: 9.142rem;
+  padding-top: 8.142rem;
 `;
 
 const StImageDownload = styled.section`
