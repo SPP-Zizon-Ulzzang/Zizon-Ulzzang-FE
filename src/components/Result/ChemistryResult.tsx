@@ -19,11 +19,10 @@ const ChemistryResult = () => {
   const [chemistry, setChemistry] = useState<ChemistryInfo>();
   const [memberData, setMemberData] = useState<MemberData[]>();
   const [scoreData, setScoreData] = useState<ChemistryResultInfo>();
+  const resultRef = useRef<HTMLElement | null>(null);
 
   const [loading, setLoading] = useState(true);
   const [errorStatus, setErrorStatus] = useState<number>();
-
-  const resultRef = useRef<HTMLElement | null>(null);
 
   const handleSaveImage = () => {
     if (resultRef.current) {
@@ -55,7 +54,7 @@ const ChemistryResult = () => {
     }
   };
 
-  const handleScoreMent = () => {
+  const getScoreMent = () => {
     const avg = chemistry?.data.avg || 0;
 
     if (avg >= 20 && avg <= 40) {
@@ -75,7 +74,6 @@ const ChemistryResult = () => {
     if (resData?.status === 200) {
       setChemistry(resData);
       setMemberData(resData.data.member_data);
-      // handleScoreMent();
     } else {
       setErrorStatus(resData);
     }
@@ -83,14 +81,43 @@ const ChemistryResult = () => {
     setLoading(false);
   };
 
-  useEffect(() => {
-    if (state) {
-      getChemistryData(inputIdList);
+  const getChemistryComponent = () => {
+    let component;
+    let memberNum = '';
+
+    switch (memberData?.length) {
+      case 2:
+        memberNum = '둘';
+        component = <Two memberData={memberData} />;
+        break;
+      case 3:
+        memberNum = '셋';
+        component = <Three memberData={memberData} />;
+        break;
+      case 4:
+        memberNum = '넷';
+        component = <Four memberData={memberData} />;
+        break;
+      case 5:
+        memberNum = '다섯';
+        component = <Five memberData={memberData} />;
+        break;
+      default:
+        component = null;
+        break;
     }
-  }, [state]);
+
+    return { component, memberNum };
+  };
 
   useEffect(() => {
-    handleScoreMent();
+    getChemistryData(inputIdList);
+  }, [state]);
+  useEffect(() => {
+    getChemistryComponent();
+  }, [memberData]);
+  useEffect(() => {
+    getScoreMent();
   }, [chemistry]);
 
   if (loading) return <Loading isChemistry />;
@@ -98,29 +125,7 @@ const ChemistryResult = () => {
     return <Error code={errorStatus} />;
   }
 
-  let chemistryComponent;
-  let memberNum = '';
-  switch (memberData?.length) {
-    case 2:
-      memberNum = '둘';
-      chemistryComponent = <Two memberData={memberData} />;
-      break;
-    case 3:
-      memberNum = '셋';
-      chemistryComponent = <Three memberData={memberData} />;
-      break;
-    case 4:
-      memberNum = '넷';
-      chemistryComponent = <Four memberData={memberData} />;
-      break;
-    case 5:
-      memberNum = '다섯';
-      chemistryComponent = <Five memberData={memberData} />;
-      break;
-    default:
-      chemistryComponent = null;
-      break;
-  }
+  const { component: chemistryComponent, memberNum } = getChemistryComponent();
 
   return (
     <StChemistryResultWrapper className="Result">
