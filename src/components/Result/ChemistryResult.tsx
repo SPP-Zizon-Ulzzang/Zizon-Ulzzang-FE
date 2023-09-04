@@ -139,7 +139,9 @@ const ChemistryResult = () => {
             <IcChemistryBg />
           </StScore>
           <StImageDownload ref={resultRef}>{chemistryComponent}</StImageDownload>
-          <ResultButton onClickDownload={handleSaveImage} />
+          <StResultButtonWrapper>
+            <ResultButton onClickDownload={handleSaveImage} />
+          </StResultButtonWrapper>
         </StChemistryResult>
       )}
     </StChemistryResultWrapper>
@@ -219,6 +221,10 @@ const StChemistryResult = styled.section`
 `;
 
 const StImageDownload = styled.section`
-  /* display: flex; */
   margin-bottom: 4rem;
+`;
+
+const StResultButtonWrapper = styled.div`
+  position: absolute;
+  bottom: 1.509rem;
 `;

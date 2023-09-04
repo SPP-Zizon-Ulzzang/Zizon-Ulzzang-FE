@@ -1,23 +1,23 @@
-import html2canvas from "html2canvas";
-import { useEffect, useRef, useState } from "react";
-import { useParams } from "react-router-dom";
-import { styled } from "styled-components";
+import html2canvas from 'html2canvas';
+import { useEffect, useRef, useState } from 'react';
+import { useParams } from 'react-router-dom';
+import { styled } from 'styled-components';
 
 import {
   IcArrowDown,
   IcBallon2,
   IcBottomLogo,
   IcInstaHamburger,
-  IcInstaPlus
-} from "../../assets/icons";
-import { MBTI_RESULT, MBTIResult } from "../../constants/MBTI";
-import { getMBTI, getRank } from "../../libs/apis/mbti";
-import { MBTIInfo, RankInfo } from "../../types/mbti";
-import { mapMBTIToColor } from "../../utils/mapMBTIToColor";
-import { mapMBTIToImage } from "../../utils/mapMBTIToImage";
-import { Error } from "../Common/Error";
-import { Loading } from "../Loading";
-import { ResultButton } from "./";
+  IcInstaPlus,
+} from '../../assets/icons';
+import { MBTI_RESULT, MBTIResult } from '../../constants/MBTI';
+import { getMBTI, getRank } from '../../libs/apis/mbti';
+import { MBTIInfo, RankInfo } from '../../types/mbti';
+import { mapMBTIToColor } from '../../utils/mapMBTIToColor';
+import { mapMBTIToImage } from '../../utils/mapMBTIToImage';
+import { Error } from '../Common/Error';
+import { Loading } from '../Loading';
+import { ResultButton } from './';
 
 const PersonalResult = () => {
   const { id } = useParams();
