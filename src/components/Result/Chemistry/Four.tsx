@@ -9,7 +9,6 @@ interface FourProps {
   memberData: MemberData[];
 }
 const Four = ({ memberData }: FourProps) => {
-  console.log(memberData);
   return (
     <StFourWrapper>
       {memberData.map((member, index) => {

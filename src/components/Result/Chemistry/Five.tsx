@@ -1,5 +1,6 @@
 import { styled } from 'styled-components';
 
+import { IcFiveLine } from '../../../assets/icons';
 import { MemberData } from '../../../types/mbti';
 import { mapMBTIToColor } from '../../../utils/mapMBTIToColor';
 import { mapMBTIToImage } from '../../../utils/mapMBTIToImage';
@@ -8,17 +9,30 @@ interface FiveProps {
   memberData: MemberData[];
 }
 const Five = ({ memberData }: FiveProps) => {
+  console.log(memberData);
+
   return (
     <StFiveWrapper>
       {memberData.map((member, index) => {
         return (
           <StMembers key={index}>
-            <div>{mapMBTIToImage(member.mbti).rank_image}</div>
-            <p style={{ backgroundColor: mapMBTIToColor(member.mbti).sub_color }}>{member.mbti}</p>
+            <p style={{ backgroundColor: mapMBTIToColor(member.mbti).sub_color }}>
+              <div>{mapMBTIToImage(member.mbti).rank_image}</div>
+              {member.mbti}
+            </p>
             <span>@{member.instaId}</span>
           </StMembers>
         );
       })}
+      <StScore>
+        <IcFiveLine />
+        <span>{memberData[0].relationships[1]}</span>
+        <span>{memberData[0].relationships[2]}</span>
+        <span>{memberData[0].relationships[3]}</span>
+        <span>{memberData[1].relationships[2]}</span>
+        <span>{memberData[1].relationships[3]}</span>
+        <span>{memberData[2].relationships[3]}</span>
+      </StScore>
     </StFiveWrapper>
   );
 };
@@ -29,14 +43,25 @@ const StFiveWrapper = styled.section`
   display: grid;
   grid-template-rows: auto auto;
   grid-template-columns: 1fr 1fr;
+  grid-row-gap: 5.2rem;
+  grid-column-gap: 6.7rem;
 
   position: relative;
   width: 100%;
   height: fit-content;
+  padding-top: 3.5rem;
 
   & > :first-child {
     grid-column: span 2;
     text-align: center;
+  }
+  & > :nth-child(2) {
+    margin-right: 2.66rem;
+    margin-bottom: 2.388rem;
+  }
+  & > :nth-child(3) {
+    margin-left: 2.66rem;
+    margin-bottom: 2.388rem;
   }
 `;
 
@@ -46,22 +71,73 @@ const StMembers = styled.div`
   justify-content: center;
   align-items: center;
 
-  & > div > svg {
-    width: 10rem;
-    height: 8rem;
-  }
   & > p {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 0.4rem;
+
     margin-top: -1.5rem;
-    padding: 1.21rem 3.3rem 1.05rem 3.3rem;
-    max-width: 11.4rem;
-    max-height: 4.7rem;
+    padding: 0.36rem 1.5rem 0.36rem 0.8rem;
+    width: 11.8rem;
+    height: 4.7rem;
+    box-sizing: border-box;
 
     border-radius: 5.8rem;
     color: #414141;
     ${({ theme }) => theme.fonts.Head2};
+
+    & div > svg {
+      width: 4.5rem;
+      height: 4rem;
+      margin-top: 0.5rem;
+    }
   }
   & > span {
     color: #fff;
     ${({ theme }) => theme.fonts.Body6};
+  }
+`;
+
+const StScore = styled.div`
+  & > svg {
+    position: absolute;
+    top: 5rem;
+    left: 6rem;
+  }
+  & > span {
+    display: flex;
+    justify-content: center;
+
+    position: absolute;
+    width: 2.4rem;
+
+    color: ${({ theme }) => theme.colors.Gray4};
+    ${({ theme }) => theme.fonts.Body5};
+
+    &:nth-child(2) {
+      top: 8.2rem;
+      left: 15.6rem;
+    }
+    &:nth-child(3) {
+      top: 13.7rem;
+      left: 12.9rem;
+    }
+    &:nth-child(4) {
+      top: 16.05rem;
+      left: 5.3rem;
+    }
+    &:nth-child(5) {
+      top: 13.7rem;
+      right: 12.7rem;
+    }
+    &:nth-child(6) {
+      top: 16.05rem;
+      right: 5.2rem;
+    }
+    &:nth-child(7) {
+      top: 26.6rem;
+      left: 15.6rem;
+    }
   }
 `;

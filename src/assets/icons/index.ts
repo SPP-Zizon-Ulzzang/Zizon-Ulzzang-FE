@@ -19,4 +19,5 @@ export { ReactComponent as IcChemistryBg } from './ic_chemistry_bg.svg';
 export { ReactComponent as IcMainBallon } from './ic_main_ballon.svg';
 export { ReactComponent as IcThreeLine } from './ic_three_line.svg';
 export { ReactComponent as IcFourLine } from './ic_four_line.svg';
+export { ReactComponent as IcFiveLine } from './ic_five_line.svg';
 export { default as IcBallon2 } from './ic_ballon2.svg';
