@@ -88,12 +88,12 @@ const StScore = styled.div`
     position: absolute;
     width: 2.4rem;
 
-    color: ${({ theme }) => theme.colors.Gray4};
+    color: #727272;
     ${({ theme }) => theme.fonts.Body5};
 
     &:nth-child(2) {
       top: 8.2rem;
-      left: 15.6rem;
+      left: 15.7rem;
     }
     &:nth-child(3) {
       top: 13.7rem;
@@ -101,7 +101,7 @@ const StScore = styled.div`
     }
     &:nth-child(4) {
       top: 16.05rem;
-      left: 5.3rem;
+      left: 5.32rem;
     }
     &:nth-child(5) {
       top: 13.7rem;
@@ -109,11 +109,11 @@ const StScore = styled.div`
     }
     &:nth-child(6) {
       top: 16.05rem;
-      left: 26.2rem;
+      left: 26.25rem;
     }
     &:nth-child(7) {
       top: 26.6rem;
-      left: 15.6rem;
+      left: 15.7rem;
     }
   }
 `;

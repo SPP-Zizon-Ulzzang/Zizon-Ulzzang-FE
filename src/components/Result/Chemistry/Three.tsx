@@ -94,7 +94,7 @@ const StScore = styled.div`
     position: absolute;
     width: 2.4rem;
 
-    color: ${({ theme }) => theme.colors.Gray4};
+    color: #727272;
     ${({ theme }) => theme.fonts.Body5};
 
     &:nth-child(2) {
@@ -103,10 +103,10 @@ const StScore = styled.div`
     }
     &:nth-child(3) {
       top: 12.5rem;
-      left: 23.6rem;
+      left: 23.7rem;
     }
     &:nth-child(4) {
-      top: 24.4rem;
+      top: 24.35rem;
       left: 15.7rem;
     }
   }

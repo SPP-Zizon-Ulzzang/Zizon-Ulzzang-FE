@@ -116,7 +116,7 @@ const StScore = styled.div`
     position: absolute;
     width: 2.4rem;
 
-    color: ${({ theme }) => theme.colors.Gray4};
+    color: #727272;
     ${({ theme }) => theme.fonts.Body5};
 
     &:nth-child(2) {
