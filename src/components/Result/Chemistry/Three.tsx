@@ -8,7 +8,9 @@ import { mapMBTIToImage } from '../../../utils/mapMBTIToImage';
 interface ThreeProps {
   memberData: MemberData[];
 }
+
 const Three = ({ memberData }: ThreeProps) => {
+  console.log(memberData);
   return (
     <StThreeWrapper>
       {memberData.map((member, index) => {
@@ -20,7 +22,12 @@ const Three = ({ memberData }: ThreeProps) => {
           </StMembers>
         );
       })}
-      <IcThreeLine />
+      <StScore>
+        <IcThreeLine />
+        <span>{memberData[0].relationships[2]}</span>
+        <span>{memberData[0].relationships[1]}</span>
+        <span>{memberData[2].relationships[1]}</span>
+      </StScore>
     </StThreeWrapper>
   );
 };
@@ -43,11 +50,6 @@ const StThreeWrapper = styled.section`
     grid-column: span 2;
     text-align: center;
   }
-  & > svg {
-    position: absolute;
-    top: 10.9rem;
-    left: 6.411rem;
-  }
 `;
 
 const StMembers = styled.div`
@@ -56,6 +58,9 @@ const StMembers = styled.div`
   justify-content: center;
   align-items: center;
 
+  & > div {
+    z-index: 1;
+  }
   & > div > svg {
     width: 10rem;
     height: 7.93rem;
@@ -73,5 +78,36 @@ const StMembers = styled.div`
   & > span {
     color: #fff;
     ${({ theme }) => theme.fonts.Body6};
+  }
+`;
+
+const StScore = styled.div`
+  & > svg {
+    position: absolute;
+    top: 10.9rem;
+    left: 7.411rem;
+  }
+  & > span {
+    display: flex;
+    justify-content: center;
+
+    position: absolute;
+    width: 2.4rem;
+
+    color: ${({ theme }) => theme.colors.Gray4};
+    ${({ theme }) => theme.fonts.Body5};
+
+    &:nth-child(2) {
+      top: 12.5rem;
+      left: 7.7rem;
+    }
+    &:nth-child(3) {
+      top: 12.5rem;
+      right: 7.1rem;
+    }
+    &:nth-child(4) {
+      top: 24.4rem;
+      left: 15.7rem;
+    }
   }
 `;
