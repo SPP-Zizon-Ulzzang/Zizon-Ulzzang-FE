@@ -8,6 +8,7 @@ import {
   HomePage,
   PersonalResultPage,
   PersonalTestPage,
+  TestPage,
 } from './pages';
 
 function Router() {
@@ -20,6 +21,7 @@ function Router() {
           <Route path="/result/:id" element={<PersonalResultPage />} />
           <Route path="/chemistry" element={<ChemistryTestPage />} />
           <Route path="/result/chemistry" element={<ChemistryResultPage />} />
+          <Route path="/test" element={<TestPage />} />
           <Route path="*" element={<ErrorPage />} />
         </Routes>
       </RecoilRoot>
