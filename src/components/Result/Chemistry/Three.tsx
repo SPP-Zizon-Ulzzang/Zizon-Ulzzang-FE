@@ -10,6 +10,7 @@ interface ThreeProps {
 }
 
 const Three = ({ memberData }: ThreeProps) => {
+  console.log(memberData);
   return (
     <StThreeWrapper>
       {memberData.map((member, index) => {
@@ -23,8 +24,8 @@ const Three = ({ memberData }: ThreeProps) => {
       })}
       <StScore>
         <IcThreeLine />
-        <span>{memberData[0].relationships[2]}</span>
         <span>{memberData[0].relationships[1]}</span>
+        <span>{memberData[0].relationships[2]}</span>
         <span>{memberData[2].relationships[1]}</span>
       </StScore>
     </StThreeWrapper>
@@ -102,7 +103,7 @@ const StScore = styled.div`
     }
     &:nth-child(3) {
       top: 12.5rem;
-      right: 7.1rem;
+      left: 23.6rem;
     }
     &:nth-child(4) {
       top: 24.4rem;
