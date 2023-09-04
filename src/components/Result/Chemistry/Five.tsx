@@ -27,11 +27,15 @@ const Five = ({ memberData }: FiveProps) => {
       <StScore>
         <IcFiveLine />
         <span>{memberData[0].relationships[1]}</span>
-        <span>{memberData[0].relationships[2]}</span>
         <span>{memberData[0].relationships[3]}</span>
+        <span>{memberData[0].relationships[4]}</span>
+        <span>{memberData[0].relationships[2]}</span>
         <span>{memberData[1].relationships[2]}</span>
+        <span>{memberData[1].relationships[4]}</span>
         <span>{memberData[1].relationships[3]}</span>
         <span>{memberData[2].relationships[3]}</span>
+        <span>{memberData[2].relationships[4]}</span>
+        <span>{memberData[3].relationships[4]}</span>
       </StScore>
     </StFiveWrapper>
   );
@@ -116,28 +120,44 @@ const StScore = styled.div`
     ${({ theme }) => theme.fonts.Body5};
 
     &:nth-child(2) {
-      top: 8.2rem;
-      left: 15.6rem;
+      top: 8rem;
+      left: 7.3rem;
     }
     &:nth-child(3) {
-      top: 13.7rem;
-      left: 12.9rem;
+      top: 11.2rem;
+      left: 14.7rem;
     }
     &:nth-child(4) {
-      top: 16.05rem;
-      left: 5.3rem;
+      top: 11.2rem;
+      right: 14.4rem;
     }
     &:nth-child(5) {
-      top: 13.7rem;
-      right: 12.7rem;
+      top: 8rem;
+      right: 7rem;
     }
     &:nth-child(6) {
-      top: 16.05rem;
-      right: 5.2rem;
+      top: 13.85rem;
+      left: 16.75rem;
     }
     &:nth-child(7) {
-      top: 26.6rem;
-      left: 15.6rem;
+      top: 22.4rem;
+      right: 14.5rem;
+    }
+    &:nth-child(8) {
+      top: 22.4rem;
+      left: 14.7rem;
+    }
+    &:nth-child(9) {
+      top: 20.5rem;
+      left: 6.3rem;
+    }
+    &:nth-child(10) {
+      top: 20.5rem;
+      right: 6rem;
+    }
+    &:nth-child(11) {
+      top: 26rem;
+      left: 16.75rem;
     }
   }
 `;
