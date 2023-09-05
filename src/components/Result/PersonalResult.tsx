@@ -13,6 +13,7 @@ import {
 import { MBTI_RESULT, MBTIResult } from '../../constants/MBTI';
 import { getMBTI, getRank } from '../../libs/apis/mbti';
 import { MBTIInfo, RankInfo } from '../../types/mbti';
+import { isOver200 } from '../../utils/isOver200';
 import { mapMBTIToColor } from '../../utils/mapMBTIToColor';
 import { mapMBTIToImage } from '../../utils/mapMBTIToImage';
 import { Error } from '../Common/Error';
@@ -35,14 +36,20 @@ const PersonalResult = () => {
   const [errorStatus, setErrorStatus] = useState<number>();
 
   const handleSaveImage = () => {
-    if (resultRef.current && headerRef.current && footerRef.current && ballonRef.current) {
+    if (
+      resultRef.current &&
+      headerRef.current &&
+      footerRef.current &&
+      ballonRef.current &&
+      mbtiResult
+    ) {
       const originalWidth = resultRef.current.offsetWidth;
       const originalHeight = resultRef.current.offsetHeight;
       const originalBackgroundColor = resultRef.current.style.background;
 
       headerRef.current.style.marginTop = '58px';
       headerRef.current.style.marginBottom = '0px';
-      ballonRef.current.style.top = '360px';
+      ballonRef.current.style.top = isOver200(mbtiResult.description) ? '360px' : '368px';
       footerRef.current.style.display = 'block';
       resultRef.current.style.width = `450px`;
       resultRef.current.style.height = `800px`;
@@ -131,7 +138,7 @@ const PersonalResult = () => {
             </StProfile>
 
             <img src={IcBallon2} alt="ballon" ref={ballonRef} />
-            <StDescWrapper>
+            <StDescWrapper className="desc">
               <strong>{mbtiResult.title}</strong>
               <h4 style={{ color: resultMainColor }}>{mbtiResult.tag}</h4>
               <p>{mbtiResult.description}</p>
@@ -215,6 +222,7 @@ const StPersonalResult = styled.main`
 const StImageDownload = styled.section`
   display: flex;
   flex-direction: column;
+  justify-content: flex-start;
   align-items: center;
   position: relative;
 
@@ -239,7 +247,7 @@ const StResultHeader = styled.header`
   justify-content: space-between;
   align-items: flex-end;
 
-  width: 33.9rem;
+  width: calc(100% - 20px);
   height: 3.17rem;
   padding-top: 0.77rem;
   margin-bottom: 2.2rem;
@@ -307,6 +315,9 @@ const StDescWrapper = styled.section`
 
     word-break: keep-all;
   }
+  .desc {
+    min-height: 20rem;
+  }
 `;
 
 const StProbWrapper = styled(StDescWrapper)`
@@ -324,7 +335,7 @@ const StProbWrapper = styled(StDescWrapper)`
 const StMBTIProb = styled.ol`
   display: flex;
   justify-content: center;
-  gap: 3rem;
+  gap: 3.462rem;
 
   width: 100%;
   max-width: 29.5rem;

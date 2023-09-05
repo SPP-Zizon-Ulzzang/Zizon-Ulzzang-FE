@@ -1,3 +1,5 @@
+import { useEffect } from 'react';
+
 import Router from './Router';
 import GlobalStyle from './styles/GlobalStyle';
 import ThemeProvider from './styles/ThemeProvider';
