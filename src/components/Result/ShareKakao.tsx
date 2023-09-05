@@ -21,7 +21,7 @@ export const shareKakao = (route: string) => {
         title: 'MBTIgram',
         description: 'AI가 분석한 나의 MBTI는?',
         imageUrl:
-          'https://user-images.githubusercontent.com/73213437/265080566-244f072d-9cc4-4045-b68e-135c971c058e.png',
+          'https://user-images.githubusercontent.com/73213437/265729071-152b6a7d-057a-4e17-8b21-a6d4b83e95d9.png',
         link: {
           webUrl: route,
           mobileWebUrl: route,
