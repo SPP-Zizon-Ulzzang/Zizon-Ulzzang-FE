@@ -131,6 +131,7 @@ const StShareBtn = styled.button`
   height: 4rem;
 
   color: #fff;
+  ${({ theme }) => theme.fonts.Body4};
 `;
 
 const StDivider = styled.div`
