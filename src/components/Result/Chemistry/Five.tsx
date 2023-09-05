@@ -120,19 +120,19 @@ const StScore = styled.div`
     ${({ theme }) => theme.fonts.Body5};
 
     &:nth-child(2) {
-      top: 8rem;
+      top: 7.9rem;
       left: 7.3rem;
     }
     &:nth-child(3) {
-      top: 11.2rem;
-      left: 14.7rem;
+      top: 15.4rem;
+      left: 13.4rem;
     }
     &:nth-child(4) {
-      top: 11.2rem;
-      right: 14.4rem;
+      top: 15.4rem;
+      right: 13.1rem;
     }
     &:nth-child(5) {
-      top: 8rem;
+      top: 7.9rem;
       right: 7rem;
     }
     &:nth-child(6) {
@@ -140,12 +140,12 @@ const StScore = styled.div`
       left: 16.75rem;
     }
     &:nth-child(7) {
-      top: 22.4rem;
-      right: 14.5rem;
+      top: 19rem;
+      left: 14.8rem;
     }
     &:nth-child(8) {
-      top: 22.4rem;
-      left: 14.7rem;
+      top: 19rem;
+      left: 18.7rem;
     }
     &:nth-child(9) {
       top: 20.5rem;

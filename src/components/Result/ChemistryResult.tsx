@@ -46,31 +46,13 @@ const ChemistryResult = () => {
       resultRef.current.style.background =
         'linear-gradient(162deg, rgba(255, 142, 223, 0.5) 0.69%,rgba(255, 188, 125, 0.5) 101.5%)';
 
-      const canvas = await html2canvas(resultRef.current);
-      const imageDataURL = canvas.toDataURL('image/png'); // Get data URL
-
-      const a = document.createElement('a');
-      a.href = imageDataURL;
-      a.download = 'mbtigram_result_image.png';
-      a.style.display = 'none';
-      document.body.appendChild(a);
-      a.click();
-      document.body.removeChild(a);
-
-      // canvas.toBlob((blob) => {
-      //   if (blob !== null) {
-      //     saveAs(blob, 'mbtigram_result_image.png');
-      //   }
-      // });
-
-      // html2canvas(resultRef.current).then((canvas) => {
-      //   const image = canvas.toDataURL('image/png');
-
-      //   const link = document.createElement('a');
-      //   link.href = image;
-      //   link.download = 'mbtigram_result_image.png';
-      //   link.click();
-      // });
+      html2canvas(resultRef.current).then((canvas) => {
+        const image = canvas.toDataURL('image/png');
+        const link = document.createElement('a');
+        link.href = image;
+        link.download = 'mbtigram_result_image.png';
+        link.click();
+      });
 
       if (memberData?.length === 2 && paddingRef.current) {
         paddingRef.current.style.display = 'block';
