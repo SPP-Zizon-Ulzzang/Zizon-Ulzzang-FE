@@ -41,10 +41,12 @@ const StMembers = styled.div`
   height: fit-content;
 
   & > div > svg {
+    margin-bottom: 0.3rem;
     width: 15.8rem;
-    height: 13.8rem;
+    height: 13.7rem;
   }
   & > p {
+    z-index: 1;
     margin-top: -0.5rem;
     padding: 1.21rem 3.3rem 1.05rem 3.3rem;
     max-width: 11.4rem;

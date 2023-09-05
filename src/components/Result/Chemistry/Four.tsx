@@ -1,3 +1,4 @@
+import { forwardRef, useImperativeHandle, useRef } from 'react';
 import { styled } from 'styled-components';
 
 import { IcFourLine } from '../../../assets/icons';
@@ -8,8 +9,17 @@ import { mapMBTIToImage } from '../../../utils/mapMBTIToImage';
 interface FourProps {
   memberData: MemberData[];
 }
-const Four = ({ memberData }: FourProps) => {
+
+const Four = forwardRef(({ memberData }: FourProps, ref) => {
   console.log(memberData);
+
+  const childRef = useRef<HTMLInputElement>(null);
+
+  useImperativeHandle(ref, () => ({
+    focus: () => childRef.current?.focus(),
+    getValue: () => childRef.current?.value,
+  }));
+
   return (
     <StFourWrapper>
       {memberData.map((member, index) => {
@@ -32,7 +42,7 @@ const Four = ({ memberData }: FourProps) => {
       </StScore>
     </StFourWrapper>
   );
-};
+});
 
 export default Four;
 

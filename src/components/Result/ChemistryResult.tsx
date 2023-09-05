@@ -1,3 +1,4 @@
+import saveAs from 'file-saver';
 import html2canvas from 'html2canvas';
 import { useEffect, useRef, useState } from 'react';
 import { useLocation } from 'react-router-dom';
@@ -23,11 +24,12 @@ const ChemistryResult = () => {
   const resultRef = useRef<HTMLElement | null>(null);
   const paddingRef = useRef<HTMLDivElement | null>(null);
   const footerRef = useRef<HTMLElement | null>(null);
+  const componentRef = useRef<HTMLElement | null>(null);
 
   const [loading, setLoading] = useState(true);
   const [errorStatus, setErrorStatus] = useState<number>();
 
-  const handleSaveImage = () => {
+  const handleSaveImage = async () => {
     if (resultRef.current && footerRef.current) {
       const originalWidth = resultRef.current.offsetWidth;
       const originalHeight = resultRef.current.offsetHeight;
@@ -44,14 +46,31 @@ const ChemistryResult = () => {
       resultRef.current.style.background =
         'linear-gradient(162deg, rgba(255, 142, 223, 0.5) 0.69%,rgba(255, 188, 125, 0.5) 101.5%)';
 
-      html2canvas(resultRef.current).then((canvas) => {
-        const image = canvas.toDataURL('image/png');
+      const canvas = await html2canvas(resultRef.current);
+      const imageDataURL = canvas.toDataURL('image/png'); // Get data URL
 
-        const link = document.createElement('a');
-        link.href = image;
-        link.download = 'mbtigram_result_image.png';
-        link.click();
-      });
+      const a = document.createElement('a');
+      a.href = imageDataURL;
+      a.download = 'mbtigram_result_image.png';
+      a.style.display = 'none';
+      document.body.appendChild(a);
+      a.click();
+      document.body.removeChild(a);
+
+      // canvas.toBlob((blob) => {
+      //   if (blob !== null) {
+      //     saveAs(blob, 'mbtigram_result_image.png');
+      //   }
+      // });
+
+      // html2canvas(resultRef.current).then((canvas) => {
+      //   const image = canvas.toDataURL('image/png');
+
+      //   const link = document.createElement('a');
+      //   link.href = image;
+      //   link.download = 'mbtigram_result_image.png';
+      //   link.click();
+      // });
 
       if (memberData?.length === 2 && paddingRef.current) {
         paddingRef.current.style.display = 'block';
@@ -106,7 +125,7 @@ const ChemistryResult = () => {
         break;
       case 4:
         memberNum = '넷';
-        component = <Four memberData={memberData} />;
+        component = <Four memberData={memberData} ref={componentRef} />;
         break;
       case 5:
         memberNum = '다섯';
