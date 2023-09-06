@@ -5,3 +5,4 @@ export { default as PersonalResultPage } from './PersonalResultPage';
 export { default as ChemistryResultPage } from './ChemistryResultPage';
 export { default as ErrorPage } from './ErrorPage';
 export { default as TestPage } from './TestPage';
+export { default as UniqueVisitor } from './UniqueVisitor';
