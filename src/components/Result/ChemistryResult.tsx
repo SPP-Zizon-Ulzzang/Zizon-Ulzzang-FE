@@ -31,12 +31,12 @@ const ChemistryResult = () => {
 
   const handleSaveImage = async () => {
     if (resultRef.current && footerRef.current) {
-      const originalWidth = resultRef.current.offsetWidth;
-      const originalHeight = resultRef.current.offsetHeight;
+      // const originalWidth = resultRef.current.offsetWidth;
+      // const originalHeight = resultRef.current.offsetHeight;
 
-      resultRef.current.style.width = `375px`;
-      resultRef.current.style.height = `666px`;
-      resultRef.current.style.boxSizing = `border-box`;
+      // resultRef.current.style.width = `375px`;
+      // resultRef.current.style.height = `666px`;
+      // resultRef.current.style.boxSizing = `border-box`;
       footerRef.current.style.display = 'block';
       if (paddingRef.current) {
         paddingRef.current.style.display = 'none';
@@ -60,8 +60,8 @@ const ChemistryResult = () => {
       footerRef.current.style.display = 'none';
       resultRef.current.style.paddingTop = `81.42px`;
       resultRef.current.style.background = originalBackgroundColor;
-      resultRef.current.style.width = `${originalWidth}px`;
-      resultRef.current.style.height = `${originalHeight}px`;
+      // resultRef.current.style.width = `${originalWidth}px`;
+      // resultRef.current.style.height = `${originalHeight}px`;
     }
   };
 

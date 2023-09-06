@@ -34,7 +34,7 @@ const Home = () => {
         <StMainImage>
           <Lottie className="lottie" animationData={LottieLoading} loop={true} />
         </StMainImage>
-        <h2>AI가 분석한 나의 MBTI는?</h2>
+        <h2>AI가 분석한 인스타그램 속 나의 MBTI는?</h2>
         <p>
           인스타그램 피드 게시글을 분석해 MBTI를
           <br />
@@ -43,7 +43,11 @@ const Home = () => {
       </StHomeContent>
 
       <StBtnWrapper>
-        <Button buttonName="나의 MBTI 예측하기" isActive={true} onClick={handleClickPersonal} />
+        <Button
+          buttonName="나의 인스타그램 MBTI 예측하기"
+          isActive={true}
+          onClick={handleClickPersonal}
+        />
         <Button buttonName="MBTI 궁합 분석하기" isActive={true} onClick={handleClickChemistry} />
       </StBtnWrapper>
     </StHomeWrapper>

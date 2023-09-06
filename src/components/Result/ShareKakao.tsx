@@ -19,9 +19,9 @@ export const shareKakao = (route: string) => {
       objectType: 'feed',
       content: {
         title: 'MBTIgram',
-        description: 'AI가 분석한 나의 MBTI는?',
+        description: 'AI가 분석한 인스타그램 속 나의 MBTI는?',
         imageUrl:
-          'https://user-images.githubusercontent.com/73213437/265729071-152b6a7d-057a-4e17-8b21-a6d4b83e95d9.png',
+          'https://user-images.githubusercontent.com/73213437/266012479-fe61ae72-b2b2-4c28-b6d0-0880bc17b361.png',
         link: {
           webUrl: route,
           mobileWebUrl: route,
@@ -29,7 +29,7 @@ export const shareKakao = (route: string) => {
       },
       buttons: [
         {
-          title: '나의 MBTI 예측하기',
+          title: '나의 인스타그램 MBTI 예측하기',
           link: {
             webUrl: route,
             mobileWebUrl: route,
