@@ -152,14 +152,16 @@ const ChemistryResult = () => {
               <h1>{Math.floor(chemistry.data.avg)}점!</h1>
               <IcChemistryBg />
             </StScore>
-            {chemistryComponent}
+            <StChemistry>{chemistryComponent}</StChemistry>
             <footer ref={footerRef}>
               <IcBottomLogo />
             </footer>
+            <StResultButtonWrapper>
+              <StBtnWrapper>
+                <ResultButton onClickDownload={handleSaveImage} />
+              </StBtnWrapper>
+            </StResultButtonWrapper>
           </StImageDownload>
-          <StResultButtonWrapper>
-            <ResultButton onClickDownload={handleSaveImage} />
-          </StResultButtonWrapper>
         </StChemistryResult>
       )}
     </StChemistryResultWrapper>
@@ -180,6 +182,11 @@ const StChemistryResultWrapper = styled.main`
     rgba(255, 142, 223, 0.5) 0.69%,
     rgba(255, 188, 125, 0.5) 101.5%
   );
+`;
+
+const StChemistry = styled.section`
+  min-height: 33.8rem;
+  max-height: 33.8rem;
 `;
 
 const StScore = styled.section`
@@ -255,8 +262,15 @@ const StImageDownload = styled.section`
 `;
 
 const StResultButtonWrapper = styled.div`
+  position: relative;
+
+  width: 100%;
+`;
+
+const StBtnWrapper = styled.div`
   position: absolute;
-  bottom: 1.509rem;
+
+  width: 100%;
 `;
 
 const StIsTwo = styled.div`
