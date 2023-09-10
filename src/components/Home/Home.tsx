@@ -24,8 +24,8 @@ const Home = () => {
         <IcMainBallon />
         <span>현재까지</span>
         <img
-          src="https://www.cutercounter.com/hits.php?id=hexodxcq&nd=6&style=3"
-          alt="website counter"
+          src="https://www.cutercounter.com/hits.php?id=hvxodpko&nd=6&style=3"
+          alt="visitor counter"
         />
         <span>명 참여했어요</span>
       </StCounter>
