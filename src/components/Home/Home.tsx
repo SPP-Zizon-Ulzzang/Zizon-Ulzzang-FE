@@ -75,7 +75,7 @@ const StHomeWrapper = styled.main`
     border: 0;
   }
   & > .home-logo {
-    padding: 5.316rem 0 3.254rem 0;
+    padding: 3.685rem 0 2.254rem 0;
 
     path {
       fill: ${({ theme }) => theme.colors.Logo};
@@ -109,9 +109,9 @@ const StMainImage = styled.div`
   align-items: center;
   justify-content: center;
 
-  margin-top: 3.5rem;
-  margin-bottom: -1rem;
-  width: 33.7rem;
+  margin-top: 2.5rem;
+  margin-bottom: -1.5rem;
+  width: 28.2rem;
   height: 27rem;
 `;
 
@@ -137,7 +137,7 @@ const StCounter = styled.div`
 
   position: relative;
   width: 100%;
-  padding-top: 1.3rem;
+  padding-top: 1.5rem;
 
   & > span {
     z-index: 1;

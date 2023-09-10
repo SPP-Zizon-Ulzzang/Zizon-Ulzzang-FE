@@ -156,12 +156,12 @@ const ChemistryResult = () => {
             <footer ref={footerRef}>
               <IcBottomLogo />
             </footer>
-            <StResultButtonWrapper>
-              <StBtnWrapper>
-                <ResultButton onClickDownload={handleSaveImage} isChemistry />
-              </StBtnWrapper>
-            </StResultButtonWrapper>
           </StImageDownload>
+          <StResultButtonWrapper>
+            <StBtnWrapper>
+              <ResultButton onClickDownload={handleSaveImage} isChemistry />
+            </StBtnWrapper>
+          </StResultButtonWrapper>
         </StChemistryResult>
       )}
     </StChemistryResultWrapper>
@@ -240,6 +240,7 @@ const StChemistryResult = styled.section`
   align-items: center;
 
   width: 100%;
+  height: 100%;
 `;
 
 const StImageDownload = styled.section`
@@ -248,10 +249,10 @@ const StImageDownload = styled.section`
   align-items: center;
 
   position: relative;
-  padding-top: 8.142rem;
+  padding-top: 9.142rem;
   margin-bottom: 4rem;
-  min-height: 66.6rem;
-  max-height: 66.6rem;
+  /* min-height: 66.6rem; */
+  /* max-height: 66.6rem; */
 
   & > footer {
     display: none;
@@ -262,13 +263,14 @@ const StImageDownload = styled.section`
 `;
 
 const StResultButtonWrapper = styled.div`
-  position: relative;
+  /* position: relative; */
 
   width: 100%;
 `;
 
 const StBtnWrapper = styled.div`
   position: absolute;
+  bottom: 1.509rem;
 
   width: 100%;
 `;
