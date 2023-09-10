@@ -7,9 +7,10 @@ import { ImageModal, ShareModal } from '../Modal';
 
 interface ResultButtonProps {
   onClickDownload: () => void;
+  isChemistry?: boolean;
 }
 
-const ResultButton = ({ onClickDownload }: ResultButtonProps) => {
+const ResultButton = ({ onClickDownload, isChemistry }: ResultButtonProps) => {
   const navigate = useNavigate();
 
   const shareModalState = useModal();
@@ -23,12 +24,15 @@ const ResultButton = ({ onClickDownload }: ResultButtonProps) => {
           onClick={() => {
             navigate('/');
           }}
+          style={{ width: isChemistry ? '20.2rem' : '14.5807rem' }}
         >
           처음으로
         </StRestart>
-        <StShare type="button" onClick={imageModalState.toggle}>
-          <IcDownload />
-        </StShare>
+        {isChemistry ? null : (
+          <StShare type="button" onClick={imageModalState.toggle}>
+            <IcDownload />
+          </StShare>
+        )}
         <StShare type="button" onClick={shareModalState.toggle}>
           <IcUpload />
         </StShare>

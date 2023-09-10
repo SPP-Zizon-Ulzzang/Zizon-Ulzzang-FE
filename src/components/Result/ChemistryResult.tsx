@@ -158,7 +158,7 @@ const ChemistryResult = () => {
             </footer>
             <StResultButtonWrapper>
               <StBtnWrapper>
-                <ResultButton onClickDownload={handleSaveImage} />
+                <ResultButton onClickDownload={handleSaveImage} isChemistry />
               </StBtnWrapper>
             </StResultButtonWrapper>
           </StImageDownload>
