@@ -157,6 +157,8 @@ export const StInputMember = styled(StInput)`
   width: 100%;
   padding: 1.248rem 2.352rem;
 
+  color: ${({ theme }) => theme.colors.Gray3};
+
   /* width: 133.3333%;
   padding: 1.664rem 3.1356rem;
 

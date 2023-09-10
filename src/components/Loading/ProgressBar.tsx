@@ -21,7 +21,7 @@ const StProgressBar = styled.div`
   height: 0.6675rem;
   margin-top: -1.5rem;
 
-  border-radius: 7.2rem;
+  /* border-radius: 7.2rem; */
   background-color: ${({ theme }) => theme.colors.Gray2};
 
   #nprogress .bar {
@@ -29,7 +29,7 @@ const StProgressBar = styled.div`
     height: 0.6675rem;
 
     background-color: ${({ theme }) => theme.colors.Gray5};
-    border-radius: 7.2rem;
+    /* border-radius: 7.2rem; */
   }
 
   #nprogress .peg {
