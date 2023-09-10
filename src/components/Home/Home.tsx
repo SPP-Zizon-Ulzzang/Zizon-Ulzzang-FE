@@ -140,7 +140,7 @@ const StCounter = styled.div`
   padding-top: 1.3rem;
 
   & > span {
-    padding-top: 0.1rem;
+    padding-top: 0.2rem;
     z-index: 1;
     box-sizing: border-box;
 
