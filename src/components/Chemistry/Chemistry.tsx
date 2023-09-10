@@ -59,7 +59,32 @@ const Chemistry = () => {
     setInputIdList((prev) => prev.filter((_, index) => index !== deleteIdx));
   };
 
+  const handleButtonName = () => {
+    switch (inputIdList.length) {
+      case 1:
+        setButtonName('분석하기');
+        break;
+      case 2:
+        setButtonName('둘 궁합 분석하기');
+        break;
+      case 3:
+        setButtonName('셋 궁합 분석하기');
+        break;
+      case 4:
+        setButtonName('넷 궁합 분석하기');
+        break;
+      case 5:
+        setButtonName('다섯 궁합 분석하기');
+        break;
+      default:
+        setButtonName('분석하기');
+        break;
+    }
+  };
+
+  const [buttonName, setButtonName] = useState('분석하기');
   useEffect(() => {
+    handleButtonName();
     if (inputIdList.length > 1) {
       setIsBtnActive(true);
     } else {
@@ -73,6 +98,7 @@ const Chemistry = () => {
       mainText="AI가 분석한 MBTI 궁합은?"
       descriptText1="인스타그램 피드 게시글을 분석해"
       descriptText2="여러 사람들과 궁합을 분석해 보세요!"
+      buttonName={buttonName}
     >
       <StPredictWrapper>
         <StInputWrapper>

@@ -13,6 +13,7 @@ interface BaseLayoutProps {
   descriptText1: string;
   descriptText2: string;
   handlePredict: () => void;
+  buttonName?: string;
 }
 
 const BaseLayout = ({
@@ -21,6 +22,7 @@ const BaseLayout = ({
   mainText,
   descriptText1,
   descriptText2,
+  buttonName,
 }: BaseLayoutProps) => {
   const isBtnActive = useRecoilValue(IsButtonActive);
   return (
@@ -37,7 +39,11 @@ const BaseLayout = ({
         <span>*비공개 계정이거나, 게시물이 없는 경우 MBTI 예측이 불가합니다.</span>
       </StMain>
       <StBaseBtnWrapper>
-        <Button buttonName="분석하기" isActive={isBtnActive} onClick={handlePredict} />
+        <Button
+          buttonName={buttonName ? buttonName : '분석하기'}
+          isActive={isBtnActive}
+          onClick={handlePredict}
+        />
       </StBaseBtnWrapper>
     </>
   );
